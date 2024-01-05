@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Citizen Care</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="services">Services:</string>
+    <string name="complaints">Complaints:</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="feedback">Feedback</string>
+</resources>

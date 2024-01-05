@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:padding="15dp">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background"
+        android:text="@string/register"
+        android:minWidth="32dp"
+        android:textSize="20sp"
+        android:layout_marginStart="350dp"
+        android:textColor="@color/text"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background"
+        android:minWidth="32dp"
+        android:textSize="20sp"
+        android:layout_toEndOf="@+id/btn1"
+        android:text="@string/login"
+        android:textColor="@color/text" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="273dp"
+        android:paddingStart="10dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/btn1"
+        android:text="@string/services"
+        android:textSize="30sp"
+        android:textColor="@color/text"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="60dp"
+        android:paddingStart="10dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/text1"
+        android:text="@string/complaints"
+        android:textSize="30sp"
+        android:textColor="@color/text"
+        tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="190dp"
+            android:paddingStart="400dp"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/text2"
+            android:text="@string/feedback"
+            android:textSize="30sp"
+            android:textColor="@color/text"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logo"
+            android:layout_marginTop="30dp"
+            android:maxWidth="300dp"
+            android:src="@drawable/logo"
+            android:adjustViewBounds="true"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no" />
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:textColor="@color/text"
+            android:textSize="30sp"
+            android:text="@string/about_us"
+            android:paddingTop="190dp"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry" />
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:textColor="@color/text"
+            android:textSize="30sp"
+            android:text="@string/contact_us"
+            android:paddingTop="190dp"
+            android:paddingStart="200dp"
+            tools:ignore="RtlSymmetry" />
+</RelativeLayout>
+    </HorizontalScrollView>
+</ScrollView>
