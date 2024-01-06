@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/background"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
     <HorizontalScrollView
         android:layout_width="wrap_content"
@@ -11,16 +11,16 @@
     <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    android:padding="15dp">
+    android:layout_margin="@dimen/_15sdp"
+    android:padding="@dimen/_15sdp">
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/background"
         android:text="@string/register"
-        android:minWidth="32dp"
-        android:textSize="20sp"
+        android:minWidth="@dimen/_32sdp"
+        android:textSize="@dimen/_20ssp"
         android:layout_marginStart="350dp"
         android:textColor="@color/text"/>
 
@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/background"
-        android:minWidth="32dp"
-        android:textSize="20sp"
+        android:minWidth="@dimen/_32sdp"
+        android:textSize="@dimen/_20ssp"
         android:layout_toEndOf="@+id/btn1"
         android:text="@string/login"
         android:textColor="@color/text" />
@@ -39,12 +39,12 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="273dp"
-        android:paddingStart="10dp"
+        android:paddingTop="@dimen/_273sdp"
+        android:paddingStart="@dimen/_10sdp"
         android:layout_centerVertical="true"
         android:layout_below="@id/btn1"
         android:text="@string/services"
-        android:textSize="30sp"
+        android:textSize="@dimen/_30ssp"
         android:textColor="@color/text"
         tools:ignore="RtlSymmetry" />
 
@@ -52,12 +52,12 @@
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="60dp"
-        android:paddingStart="10dp"
+        android:paddingTop="@dimen/_60sdp"
+        android:paddingStart="@dimen/_10sdp"
         android:layout_centerVertical="true"
         android:layout_below="@id/text1"
         android:text="@string/complaints"
-        android:textSize="30sp"
+        android:textSize="@dimen/_30ssp"
         android:textColor="@color/text"
         tools:ignore="RtlSymmetry" />
 
@@ -65,12 +65,12 @@
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="190dp"
-            android:paddingStart="400dp"
+            android:paddingTop="@dimen/_190sdp"
+            android:paddingStart="@dimen/_400sdp"
             android:layout_centerVertical="true"
             android:layout_below="@id/text2"
             android:text="@string/feedback"
-            android:textSize="30sp"
+            android:textSize="@dimen/_30ssp"
             android:textColor="@color/text"
             tools:ignore="RtlSymmetry" />
 
@@ -78,8 +78,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/logo"
-            android:layout_marginTop="30dp"
-            android:maxWidth="300dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:maxWidth="@dimen/_300sdp"
             android:src="@drawable/logo"
             android:adjustViewBounds="true"
             android:layout_centerHorizontal="true"
@@ -90,10 +90,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text2"
             android:textColor="@color/text"
-            android:textSize="30sp"
+            android:textSize="@dimen/_30ssp"
             android:text="@string/about_us"
-            android:paddingTop="190dp"
-            android:paddingStart="10dp"
+            android:paddingTop="@dimen/_190sdp"
+            android:paddingStart="@dimen/_10sdp"
             tools:ignore="RtlSymmetry" />
         <TextView
             android:id="@+id/text5"
@@ -101,10 +101,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text2"
             android:textColor="@color/text"
-            android:textSize="30sp"
+            android:textSize="@dimen/_30ssp"
             android:text="@string/contact_us"
-            android:paddingTop="190dp"
-            android:paddingStart="200dp"
+            android:paddingTop="@dimen/_190sdp"
+            android:paddingStart="@dimen/_200sdp"
             tools:ignore="RtlSymmetry" />
 </RelativeLayout>
     </HorizontalScrollView>
