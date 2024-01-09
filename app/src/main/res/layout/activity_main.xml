@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
@@ -39,7 +40,7 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/_273sdp"
+        android:paddingTop="@dimen/_310sdp"
         android:paddingStart="@dimen/_10sdp"
         android:layout_centerVertical="true"
         android:layout_below="@id/btn1"
@@ -53,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/_60sdp"
-        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_430sdp"
         android:layout_centerVertical="true"
         android:layout_below="@id/text1"
         android:text="@string/complaints"
@@ -106,6 +107,46 @@
             android:paddingTop="@dimen/_190sdp"
             android:paddingStart="@dimen/_200sdp"
             tools:ignore="RtlSymmetry" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:backgroundTint="@color/background"
+            android:textColorHint="@color/text"
+            android:layout_toEndOf="@id/text1"
+            android:layout_below="@id/logo"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete1"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:hint="@string/select"
+                android:inputType="none"
+                android:textColorHint="@color/text"
+                android:textSize="@dimen/_16sdp"
+                tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_55sdp"
+            android:backgroundTint="@color/background"
+            android:textColorHint="@color/text"
+            android:layout_below="@id/text1"
+            android:layout_centerInParent="true"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete2"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:hint="@string/select2"
+                android:inputType="none"
+                android:textColorHint="@color/text"
+                android:textSize="@dimen/_16sdp"
+                tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 </RelativeLayout>
     </HorizontalScrollView>
 </ScrollView>
