@@ -18,7 +18,7 @@
         android:text="@string/register"
         android:minWidth="@dimen/_32sdp"
         android:textSize="@dimen/_18ssp"
-        android:layout_marginStart="110dp"
+        android:layout_marginStart="@dimen/_87sdp"
         android:textColor="@color/text"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -97,7 +97,7 @@
             android:textSize="@dimen/_20ssp"
             android:text="@string/contact_us"
             android:paddingTop="@dimen/_150sdp"
-            android:paddingStart="@dimen/_150sdp"
+            android:paddingStart="@dimen/_140sdp"
             tools:ignore="RtlSymmetry" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="@dimen/_240sdp"
