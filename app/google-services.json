@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "443610739017",
+    "project_id": "citizen-care-ffc90",
+    "storage_bucket": "citizen-care-ffc90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443610739017:android:044699f3e38222f58eaa98",
+        "android_client_info": {
+          "package_name": "com.example.citizencare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaHn5cRdCyoeCo8J6k47wwAfs6wfoVtDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

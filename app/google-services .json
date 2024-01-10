@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "279320199877",
+    "firebase_url": "https://fir-4c1dd-default-rtdb.firebaseio.com",
+    "project_id": "fir-4c1dd",
+    "storage_bucket": "fir-4c1dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279320199877:android:d6b3396e4345655bd626ac",
+        "android_client_info": {
+          "package_name": "com.example.citizencare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrsLCxDgWJdZLNia7T-23P_1e0iJVKUPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279320199877:android:3334f6e2cd7e8ca6d626ac",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrsLCxDgWJdZLNia7T-23P_1e0iJVKUPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
