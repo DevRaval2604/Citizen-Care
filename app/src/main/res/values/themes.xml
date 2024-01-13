@@ -8,4 +8,8 @@
     </style>
 
     <style name="Theme.CitizenCare" parent="Base.Theme.CitizenCare" />
+
+    <style name="RadioButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/text</item>
+    </style>
 </resources>

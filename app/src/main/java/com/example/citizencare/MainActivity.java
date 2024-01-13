@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -71,5 +73,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //register button
+        Button btnRegister=findViewById(R.id.btn1);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
+        //login button
+        Button btnLogin=findViewById(R.id.btn2);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        }
     }
-}
