@@ -97,7 +97,7 @@
             android:textSize="@dimen/_20ssp"
             android:text="@string/contact_us"
             android:layout_marginTop="@dimen/_43sdp"
-            android:layout_marginStart="@dimen/_70sdp"
+            android:layout_marginStart="@dimen/_65sdp"
             android:layout_toEndOf="@id/text4"
             tools:ignore="RtlSymmetry" />
         <com.google.android.material.textfield.TextInputLayout
