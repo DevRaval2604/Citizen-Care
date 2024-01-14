@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -75,22 +77,42 @@ public class MainActivity extends AppCompatActivity {
         });
         //register button
         Button btnRegister=findViewById(R.id.btn1);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, Register.class);
-                startActivity(intent);
-            }
+        btnRegister.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this, Register.class);
+            startActivity(intent);
         });
-
         //login button
         Button btnLogin=findViewById(R.id.btn2);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-            }
+        btnLogin.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
         });
-        }
+        TextView textView3=findViewById(R.id.text3);
+        TextView textView4=findViewById(R.id.text4);
+        TextView textView5=findViewById(R.id.text5);
+        textView3.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this, Feedback.class);
+            startActivity(intent);
+        });
+        textView4.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this, About_Us.class);
+            startActivity(intent);
+        });
+        textView5.setOnClickListener(view -> {
+            Intent intent=new Intent(MainActivity.this, Contact_Us.class);
+            startActivity(intent);
+        });
+        String feedback="Feedback";
+        SpannableString content=new SpannableString(feedback);
+        content.setSpan(new UnderlineSpan(),0,content.length(),0);
+        textView3.setText(content);
+        String aboutus="About Us";
+        SpannableString content1=new SpannableString(aboutus);
+        content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
+        textView4.setText(content1);
+        String contactus="Contact Us";
+        SpannableString content2=new SpannableString(contactus);
+        content2.setSpan(new UnderlineSpan(),0,content2.length(),0);
+        textView5.setText(content2);
     }
+}
