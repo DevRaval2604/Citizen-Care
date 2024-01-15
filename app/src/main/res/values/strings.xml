@@ -27,4 +27,5 @@
     <string name="middle_name">Middle Name*</string>
     <string name="mobile_number">Mobile Number*</string>
     <string name="txtviewpassword">Password*</string>
+    <string name="please_enter_your_credentials_to_login">Please enter your credentials to login</string>
 </resources>

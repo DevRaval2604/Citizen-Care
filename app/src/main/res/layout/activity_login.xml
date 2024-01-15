@@ -3,20 +3,95 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".Login">
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="@color/background" >
+
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15sdp"
-        android:padding="@dimen/_15sdp">
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/background">
+
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_login_head"
+            android:layout_marginTop="30dp"
+            android:text="@string/please_enter_your_credentials_to_login"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_login_email"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/textview_login_head"
+            android:text="@string/txtviewemail"
+            android:textColor="@color/text"
+            android:padding="6dp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editText_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_login_email"
+            android:background="@drawable/border"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"
+            android:textSize="20sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_login_pwd"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/editText_login_email"
+            android:text="@string/txtviewpassword"
+            android:textColor="@color/text"
+            android:padding="6dp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editText_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_login_pwd"
+            android:background="@drawable/border"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textSize="20sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_below="@id/editText_login_pwd"
+            android:layout_marginTop="50dp"
+            android:text="@string/login"
+            android:id="@+id/button_login"
+            android:backgroundTint="@color/background"
+            android:textColor="@color/text"
+            android:textSize="20sp"/>
+
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Login Activity"
-            android:textSize="@dimen/_20sdp"
-            tools:ignore="TextSizeCheck" />
+            android:elevation="10dp"
+            android:visibility="gone"/>
     </RelativeLayout>
+
 </ScrollView>
