@@ -131,13 +131,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/textview_register_gender"
+            android:checkedButton="@+id/radio_female"
             android:id="@+id/radio_group_register_gender">
 
             <RadioButton
                 android:id="@+id/radio_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+
                 android:text="@string/female"
                 android:textColor="@color/text"
                 android:textSize="20sp"

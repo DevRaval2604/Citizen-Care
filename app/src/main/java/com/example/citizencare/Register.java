@@ -46,7 +46,7 @@ public class Register extends AppCompatActivity {
         editTextRegisterConfirmPwd = findViewById(R.id.editText_register_confirm_password);
 
         radioGroupRegisterGender = findViewById(R.id.radio_group_register_gender);
-        radioGroupRegisterGender.clearCheck();
+
 
         Button buttonRegister = findViewById(R.id.button_register);
         buttonRegister.setOnClickListener(view -> {
