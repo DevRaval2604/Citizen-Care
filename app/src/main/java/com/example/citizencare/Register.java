@@ -129,13 +129,16 @@ public class Register extends AppCompatActivity {
             if (task.isSuccessful()) {
                 Toast.makeText(Register.this, "User registered successfully", Toast.LENGTH_LONG).show();
                 FirebaseUser firebaseUser =auth.getCurrentUser();
-
                 //Send verification email
                 if (firebaseUser != null) {
                     firebaseUser.sendEmailVerification();
                 }
-
-
+                //Open User Profile after successful registration
+                Intent intent=new Intent(Register.this, Login.class);
+                //To prevent user from returning back to Register Activity on pressing back button after registration
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();//To close register activity
             }
         });
     }
