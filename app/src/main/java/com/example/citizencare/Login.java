@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         TextView textView1 = findViewById(R.id.have_you_not_registered);
 
-        String NotRegistered = "Not Registered? Click Here to Register";
+        String NotRegistered = "Not Registered? Register Here";
         SpannableString content = new SpannableString(NotRegistered);
         ClickableSpan clickableSpan=new ClickableSpan() {
             @Override
@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
                 ds.setColor(ContextCompat.getColor(Login.this,R.color.text));
             }
         };
-        content.setSpan(clickableSpan, 16, 26, 0);
+        content.setSpan(clickableSpan, 16, 29, 0);
         textView1.setText(content);
         textView1.setMovementMethod(LinkMovementMethod.getInstance());
     }

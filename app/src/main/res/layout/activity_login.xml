@@ -86,8 +86,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/have_you_not_registered"
-            android:text="@string/not_registered_click_here_to_register"
+            android:text="@string/not_registered_register"
             android:textSize="20sp"
+            android:layout_marginStart="@dimen/_35sdp"
             android:layout_below="@id/button_login"
             android:textColor="@color/text"
             android:layout_marginTop="@dimen/_30sdp"/>
