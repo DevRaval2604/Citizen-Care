@@ -171,6 +171,7 @@ public class Register extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.e(TAG, Objects.requireNonNull(e.getMessage()));
                     Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
                 }
                 //Hide ProgressBar whether User creation is successful or failed
                 progressBar.setVisibility(View.GONE);

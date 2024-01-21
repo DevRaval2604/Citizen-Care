@@ -29,4 +29,7 @@
     <string name="txtviewpassword">Password*</string>
     <string name="please_enter_your_credentials_to_login">Please enter your credentials to login</string>
     <string name="not_registered_register">Not Registered? Register Here</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_head">Please enter your registered email to receive password reset link</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

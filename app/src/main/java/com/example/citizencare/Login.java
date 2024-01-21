@@ -11,6 +11,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,19 @@ public class Login extends AppCompatActivity {
         textView1.setText(content);
         textView1.setMovementMethod(LinkMovementMethod.getInstance());
 
+
+        //forgot password
+
+        TextView forgotPwd = findViewById(R.id.forgot_password);
+        String forgotPassword="Forgot Password?";
+        SpannableString content1=new SpannableString(forgotPassword);
+        content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
+        forgotPwd.setText(content1);
+        forgotPwd.setOnClickListener(view -> {
+            Toast.makeText(Login.this, "You can reset your password now!", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(Login.this, Forgot_Password.class);
+            startActivity(intent);
+        });
         //login find views
         editTextLoginEmail = findViewById(R.id.editText_login_email);
         editTextLoginPwd = findViewById(R.id.editText_login_pwd);
@@ -61,29 +75,26 @@ public class Login extends AppCompatActivity {
         //login user
 
         Button buttonLogin = findViewById(R.id.button_login);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String textEmail = editTextLoginEmail.getText().toString();
-                String textPwd = editTextLoginPwd.getText().toString();
+        buttonLogin.setOnClickListener(view -> {
+            String textEmail = editTextLoginEmail.getText().toString();
+            String textPwd = editTextLoginPwd.getText().toString();
 
-                if(TextUtils.isEmpty(textEmail)) {
-                    Toast.makeText(Login.this, "Please enter your email", Toast.LENGTH_LONG).show();
-                    editTextLoginEmail.setError("Email is required");
-                    editTextLoginEmail.requestFocus();
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()) {
-                    Toast.makeText(Login.this, "Please re-enter your email", Toast.LENGTH_LONG).show();
-                    editTextLoginEmail.setError("Valid email is required");
-                    editTextLoginEmail.requestFocus();
-                } else if (TextUtils.isEmpty(textPwd)) {
-                    Toast.makeText(Login.this, "Please enter your password", Toast.LENGTH_LONG).show();
-                    editTextLoginPwd.setError("Password is required");
-                    editTextLoginPwd.requestFocus();
-                } else {
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-
+            if(TextUtils.isEmpty(textEmail)) {
+                Toast.makeText(Login.this, "Please enter your email", Toast.LENGTH_LONG).show();
+                editTextLoginEmail.setError("Email is required");
+                editTextLoginEmail.requestFocus();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()) {
+                Toast.makeText(Login.this, "Please re-enter your email", Toast.LENGTH_LONG).show();
+                editTextLoginEmail.setError("Valid email is required");
+                editTextLoginEmail.requestFocus();
+            } else if (TextUtils.isEmpty(textPwd)) {
+                Toast.makeText(Login.this, "Please enter your password", Toast.LENGTH_LONG).show();
+                editTextLoginPwd.setError("Password is required");
+                editTextLoginPwd.requestFocus();
+            } else {
+                progressBar.setVisibility(View.VISIBLE);
             }
+
         });
     }
 }
