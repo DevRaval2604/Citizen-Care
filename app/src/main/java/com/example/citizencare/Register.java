@@ -20,7 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 
 public class Register extends AppCompatActivity {
@@ -121,24 +122,32 @@ public class Register extends AppCompatActivity {
             }
         });
     }
-
     //Register
     private void registerUser(String textFirstName, String textMiddleName, String textLastName, String textEmail, String textGender, String textMobile, String textPwd) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(textEmail, textPwd).addOnCompleteListener(Register.this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(Register.this, "User registered successfully", Toast.LENGTH_LONG).show();
                 FirebaseUser firebaseUser =auth.getCurrentUser();
-                //Send verification email
-                if (firebaseUser != null) {
-                    firebaseUser.sendEmailVerification();
-                }
-                //Open User Profile after successful registration
-                Intent intent=new Intent(Register.this, Login.class);
-                //To prevent user from returning back to Register Activity on pressing back button after registration
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();//To close register activity
+                //Enter User Data into Firebase Realtime Database.
+                ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,textPwd);
+                //Extracting citizen reference from Database for "Citizen"
+                DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Citizen");
+                reference.child(Objects.requireNonNull(firebaseUser).getUid()).setValue(WriteCitizenDetails).addOnCompleteListener(task1 -> {
+                    if (task.isSuccessful()){
+                        //Send verification email
+                        firebaseUser.sendEmailVerification();
+                        Toast.makeText(Register.this, "User registered successfully. Please verify your email", Toast.LENGTH_LONG).show();
+                        //Open User Profile after successful registration
+                        Intent intent=new Intent(Register.this, Login.class);
+                        //To prevent user from returning back to Register Activity on pressing back button after registration
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();//To close register activity
+                    }else {
+                        Toast.makeText(Register.this, "User registered failed. Please try again", Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
             }
         });
     }
