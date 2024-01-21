@@ -156,7 +156,7 @@ public class Register extends AppCompatActivity {
             }
             else {
                 try {
-                    throw task.getException();
+                    throw Objects.requireNonNull(task.getException());
                 }
                 catch (FirebaseAuthWeakPasswordException e) {
                     editTextRegisterPwd.setError("Your password is too weak. Kindly use a mix of alphabets, numbers and special characters.");
@@ -165,10 +165,10 @@ public class Register extends AppCompatActivity {
                     editTextRegisterEmail.setError("Your email is invalid. Kindly re-enter.");
                     editTextRegisterEmail.requestFocus();
                 } catch (FirebaseAuthUserCollisionException e) {
-                    editTextRegisterEmail.setError("User is already registered with this email. User another email.");
+                    editTextRegisterEmail.setError("User is already registered with this email. Use another email.");
                     editTextRegisterEmail.requestFocus();
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage());
+                    Log.e(TAG, Objects.requireNonNull(e.getMessage()));
                     Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
