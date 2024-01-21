@@ -3,6 +3,7 @@ package com.example.citizencare;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +33,7 @@ public class Register extends AppCompatActivity {
     private ProgressBar progressBar;
     private RadioGroup radioGroupRegisterGender;
     private RadioButton radioButtonRegisterGenderSelected;
+    private static final String TAG = "Register";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,6 +153,25 @@ public class Register extends AppCompatActivity {
 
                     }
                 });
+            }
+            else {
+                try {
+                    throw task.getException();
+                }
+                catch (FirebaseAuthWeakPasswordException e) {
+                    editTextRegisterPwd.setError("Your password is too weak. Kindly use a mix of alphabets, numbers and special characters.");
+                    editTextRegisterPwd.requestFocus();
+                } catch (FirebaseAuthInvalidCredentialsException e) {
+                    editTextRegisterEmail.setError("Your email is invalid. Kindly re-enter.");
+                    editTextRegisterEmail.requestFocus();
+                } catch (FirebaseAuthUserCollisionException e) {
+                    editTextRegisterEmail.setError("User is already registered with this email. User another email.");
+                    editTextRegisterEmail.requestFocus();
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage());
+                    Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                }
             }
         });
     }
