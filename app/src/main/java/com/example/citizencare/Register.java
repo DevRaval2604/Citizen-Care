@@ -145,7 +145,7 @@ public class Register extends AppCompatActivity {
                         finish();//To close register activity
                     }else {
                         Toast.makeText(Register.this, "User registered failed. Please try again", Toast.LENGTH_LONG).show();
-
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
             }
