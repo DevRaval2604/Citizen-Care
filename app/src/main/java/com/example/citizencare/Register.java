@@ -27,6 +27,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
     private EditText editTextRegisterFirstName, editTextRegisterMiddleName, editTextRegisterLastName, editTextRegisterEmail, editTextRegisterMobile, editTextRegisterPwd, editTextRegisterConfirmPwd;
@@ -69,6 +71,12 @@ public class Register extends AppCompatActivity {
             String textConfirmPwd = editTextRegisterConfirmPwd.getText().toString();
             String textGender; //cant obtain value before verifying if any button was selected or not
 
+            //validate mobile number using matcher and pattern(regular expression)
+            String mobileRegex = "[6-9][0-9]{9}"; //First no. can be {6,7,8,9} and rest 9 nos. can be any no
+            Matcher mobileMatcher;
+            Pattern mobilePattern = Pattern.compile(mobileRegex);
+            mobileMatcher = mobilePattern.matcher(textMobile);
+
             if (TextUtils.isEmpty(textFirstName)) {
                 Toast.makeText(Register.this, "Please enter your first name", Toast.LENGTH_LONG).show();
                 editTextRegisterFirstName.setError("First Name is required");
@@ -100,6 +108,10 @@ public class Register extends AppCompatActivity {
             } else if (textMobile.length() != 10) {
                 Toast.makeText(Register.this, "Please re-enter your mobile number", Toast.LENGTH_LONG).show();
                 editTextRegisterMobile.setError("Mobile Number should be of 10 digits");
+                editTextRegisterMobile.requestFocus();
+            } else if (!mobileMatcher.find()) {
+                Toast.makeText(Register.this, "Please re-enter your mobile number", Toast.LENGTH_LONG).show();
+                editTextRegisterMobile.setError("Mobile Number is not valid");
                 editTextRegisterMobile.requestFocus();
             } else if (TextUtils.isEmpty(textPwd)) {
                 Toast.makeText(Register.this, "Please enter your password", Toast.LENGTH_LONG).show();
