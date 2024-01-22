@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/have_you_not_registered"
             android:layout_marginStart="@dimen/_70sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_50sdp"
             android:textColor="@color/text"
             android:text="@string/forgot_password"
             android:textSize="20sp"

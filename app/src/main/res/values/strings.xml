@@ -33,4 +33,5 @@
     <string name="forgot_password_head">Please enter your registered email to receive password reset link</string>
     <string name="reset_password">Reset Password</string>
     <string name="Verify_email_head">Please check your inbox and verify your email address</string>
+    <string name="logout">Logout</string>
 </resources>

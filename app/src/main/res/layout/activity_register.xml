@@ -44,7 +44,7 @@
             android:inputType="textPersonName"
             android:padding="6dp"
             android:textSize="20sp"
-            tools:ignore="Autofill,TouchTargetSizeCheck" />
+            tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck" />
 
         <TextView
             android:layout_width="match_parent"
@@ -184,27 +184,27 @@
             tools:ignore="Autofill,TouchTargetSizeCheck" />
 
         <TextView
+            android:id="@+id/textview_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_register_password"
             android:layout_below="@id/editText_register_mobile"
-            android:text="@string/txtviewpassword"
+            android:layout_marginTop="10dp"
             android:padding="6dp"
+            android:text="@string/txtviewpassword"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp" />
+            android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/editText_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_register_password"
+            android:layout_below="@id/textview_register_password"
+            android:background="@drawable/border"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="6dp"
             android:textSize="20sp"
-            android:layout_below="@id/textview_register_password"
-            android:background="@drawable/border"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="match_parent"
@@ -218,16 +218,16 @@
             android:layout_marginTop="10dp" />
 
         <EditText
+            android:id="@+id/editText_register_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_register_confirm_password"
+            android:layout_below="@id/textview_register_confirm_password"
+            android:background="@drawable/border"
             android:hint="@string/confirmpassword"
             android:inputType="textPassword"
             android:padding="6dp"
             android:textSize="20sp"
-            android:layout_below="@id/textview_register_confirm_password"
-            android:background="@drawable/border"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
 
 
 

@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 
-
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class Forgot_Password extends AppCompatActivity {
@@ -73,11 +73,11 @@ public class Forgot_Password extends AppCompatActivity {
                 finish();//To close register activity
             }else {
                 try {
-                    throw task.getException();
+                    throw Objects.requireNonNull(task.getException());
                 } catch (FirebaseAuthInvalidUserException e) {
                     editTextForgotPwdEmail.setError("User does not exist or is no longer valid. Please register again.");
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage());
+                    Log.e(TAG, Objects.requireNonNull(e.getMessage()));
                     Toast.makeText(Forgot_Password.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 

@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 import java.util.Objects;
 
@@ -29,6 +31,7 @@ public class Login extends AppCompatActivity {
     private EditText editTextLoginEmail, editTextLoginPwd;
     private ProgressBar progressBar;
     private FirebaseAuth authProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,25 +98,47 @@ public class Login extends AppCompatActivity {
                 editTextLoginPwd.requestFocus();
             } else {
                 progressBar.setVisibility(View.VISIBLE);
+
+                //verify and intent passing on basis of role
+
+                authProfile.signInWithEmailAndPassword(textEmail, textPwd).addOnCompleteListener(task -> {
+                    if(task.isSuccessful()) {
+                        if (((Objects.requireNonNull(authProfile.getCurrentUser()))).isEmailVerified()) {
+                            // Get the user's email address from Firebase Authentication
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            String email = (Objects.requireNonNull(user)).getEmail();
+                            // Check if the user's email address matches a specific role
+                            if ((Objects.requireNonNull(email)).equals("devraval2004@gmail.com")) {
+                                //Redirect to the admin activity
+                                Intent intent = new Intent(Login.this, Admin.class);
+                                //To prevent user from returning back to this Activity on pressing back button
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            } else if (email.equals("himanishah4110@gmail.com")) {
+                                // Redirect to the serviceman activity
+                                Intent intent = new Intent(Login.this, Servicemen.class);
+                                //To prevent user from returning back to this Activity on pressing back button
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                // User does not have a specific role, assume they are a regular user
+                                // Redirect to the user activity
+                                Intent intent = new Intent(Login.this, Citizen.class);
+                                //To prevent user from returning back to this Activity on pressing back button
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+                        else {
+                            Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }
+                });
             }
-
-            //verify
-
-            authProfile.signInWithEmailAndPassword(textEmail, textPwd).addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if (Objects.requireNonNull(authProfile.getCurrentUser()).isEmailVerified()) {
-                        Intent intent=new Intent(Login.this, MainActivity.class);
-                        //To prevent user from returning back to this Activity on pressing back button
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else {
-                        Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                    }
-                }
-            });
         });
     }
 }

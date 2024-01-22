@@ -17,6 +17,15 @@
             android:name=".Forgot_Password"
             android:exported="false" />
         <activity
+            android:name=".Citizen"
+            android:exported="false" />
+        <activity
+            android:name=".Servicemen"
+            android:exported="false" />
+        <activity
+            android:name=".Admin"
+            android:exported="false" />
+        <activity
             android:name=".Contact_Us"
             android:exported="false" />
         <activity
