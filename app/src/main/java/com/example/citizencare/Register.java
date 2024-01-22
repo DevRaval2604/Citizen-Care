@@ -148,9 +148,10 @@ public class Register extends AppCompatActivity {
                 //Enter User Data into Firebase Realtime Database.
                 ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,textPwd);
                 //Extracting citizen reference from Database for "Citizen"
-                DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Citizen");
+                DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Users");
                 reference.child(Objects.requireNonNull(firebaseUser).getUid()).setValue(WriteCitizenDetails).addOnCompleteListener(task1 -> {
                     if (task.isSuccessful()){
+
                         //Send verification email
                         firebaseUser.sendEmailVerification();
                         Toast.makeText(Register.this, "User registered successfully. Please verify your email", Toast.LENGTH_LONG).show();

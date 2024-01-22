@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class Login extends AppCompatActivity {
 
     private EditText editTextLoginEmail, editTextLoginPwd;
@@ -95,6 +97,23 @@ public class Login extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
             }
 
+            //verify
+
+            authProfile.signInWithEmailAndPassword(textEmail, textPwd).addOnCompleteListener(task -> {
+                if(task.isSuccessful()) {
+                    if (Objects.requireNonNull(authProfile.getCurrentUser()).isEmailVerified()) {
+                        Intent intent=new Intent(Login.this, MainActivity.class);
+                        //To prevent user from returning back to this Activity on pressing back button
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }
+            });
         });
     }
 }
