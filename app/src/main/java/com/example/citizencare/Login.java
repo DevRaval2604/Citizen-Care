@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
 
         //show hide password using eye icon
-        //hello
+        
 
         ImageView imageViewShowHidePwd = findViewById(R.id.imageview_show_hide_pwd);
         imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
