@@ -9,13 +9,16 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.LinkMovementMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -76,6 +79,25 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         authProfile = FirebaseAuth.getInstance();
+
+        //show hide password using eye icon
+
+        ImageView imageViewShowHidePwd = findViewById(R.id.imageview_show_hide_pwd);
+        imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
+        imageViewShowHidePwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (editTextLoginPwd.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    //if pwd visible then hide it
+                    editTextLoginPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    //change icon
+                    imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
+                } else {
+                    editTextLoginPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imageViewShowHidePwd.setImageResource(R.drawable.ic_show_pwd);
+                }
+            }
+        });
 
         //login user
 

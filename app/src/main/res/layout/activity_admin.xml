@@ -17,22 +17,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textview_login_head"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_30sdp"
             android:text="Admin Activity"
             android:textAlignment="center"
             android:textColor="@color/text"
-            android:textSize="40sp"/>
+            android:textSize="@dimen/_29sdp"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_85sdp"
+            android:layout_marginTop="@dimen/_250sdp"
             android:backgroundTint="@color/background"
             android:minWidth="@dimen/_32sdp"
-            android:textSize="@dimen/_18ssp"
-            android:layout_marginTop="@dimen/_250sdp"
-            android:layout_marginStart="@dimen/_85sdp"
             android:text="@string/logout"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="TextSizeCheck" />
     </RelativeLayout>
 </ScrollView>

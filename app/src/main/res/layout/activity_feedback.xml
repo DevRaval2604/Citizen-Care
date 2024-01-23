@@ -19,7 +19,7 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:text="Feedback For"
             android:textColor="@color/text"
-            android:textSize="@dimen/_35ssp"
+            android:textSize="@dimen/_35sdp"
             tools:ignore="TextSizeCheck" />
         <TextView
             android:id="@+id/text2"
