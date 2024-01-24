@@ -81,22 +81,18 @@ public class Login extends AppCompatActivity {
         authProfile = FirebaseAuth.getInstance();
 
         //show hide password using eye icon
-        
 
         ImageView imageViewShowHidePwd = findViewById(R.id.imageview_show_hide_pwd);
         imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
-        imageViewShowHidePwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (editTextLoginPwd.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
-                    //if pwd visible then hide it
-                    editTextLoginPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    //change icon
-                    imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
-                } else {
-                    editTextLoginPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    imageViewShowHidePwd.setImageResource(R.drawable.ic_show_pwd);
-                }
+        imageViewShowHidePwd.setOnClickListener(view -> {
+            if (editTextLoginPwd.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                //if pwd visible then hide it
+                editTextLoginPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                //change icon
+                imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
+            } else {
+                editTextLoginPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                imageViewShowHidePwd.setImageResource(R.drawable.ic_show_pwd);
             }
         });
 
@@ -138,7 +134,7 @@ public class Login extends AppCompatActivity {
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
-                            } else if (email.equals("himanishah4110@gmail.com")) {
+                            } else if (email.equals("shahhimani703@gmail.com")) {
                                 // Redirect to the serviceman activity
                                 Intent intent = new Intent(Login.this, Servicemen.class);
                                 //To prevent user from returning back to this Activity on pressing back button
@@ -159,6 +155,9 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Please verify your email", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
+                    }else {
+                        Toast.makeText(Login.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
             }

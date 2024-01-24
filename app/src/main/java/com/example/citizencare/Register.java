@@ -3,22 +3,19 @@ package com.example.citizencare;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
@@ -138,6 +135,38 @@ public class Register extends AppCompatActivity {
                 registerUser(textFirstName, textMiddleName, textLastName, textEmail, textGender, textMobile, textPwd);
             }
         });
+
+        //show hide password using eye icon
+
+        ImageView imageViewShowHidePwd = findViewById(R.id.imageview_show_hide_pwd);
+        imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
+        imageViewShowHidePwd.setOnClickListener(view -> {
+            if (editTextRegisterPwd.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                //if pwd visible then hide it
+                editTextRegisterPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                //change icon
+                imageViewShowHidePwd.setImageResource(R.drawable.ic_hide_pwd);
+            } else {
+                editTextRegisterPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                imageViewShowHidePwd.setImageResource(R.drawable.ic_show_pwd);
+            }
+        });
+
+        //show hide confirm password using eye icon
+
+        ImageView imageViewShowHidePwd1 = findViewById(R.id.imageview_show_hide_pwd1);
+        imageViewShowHidePwd1.setImageResource(R.drawable.ic_hide_pwd);
+        imageViewShowHidePwd1.setOnClickListener(view -> {
+            if (editTextRegisterConfirmPwd.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                //if pwd visible then hide it
+                editTextRegisterConfirmPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                //change icon
+                imageViewShowHidePwd1.setImageResource(R.drawable.ic_hide_pwd);
+            } else {
+                editTextRegisterConfirmPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                imageViewShowHidePwd1.setImageResource(R.drawable.ic_show_pwd);
+            }
+        });
     }
     //Register
     private void registerUser(String textFirstName, String textMiddleName, String textLastName, String textEmail, String textGender, String textMobile, String textPwd) {
@@ -146,12 +175,11 @@ public class Register extends AppCompatActivity {
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser =auth.getCurrentUser();
                 //Enter User Data into Firebase Realtime Database.
-                ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,textPwd);
-                //Extracting citizen reference from Database for "Citizen"
+                ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,textPwd,"Citizen");
+                //Extracting users reference from Database for "Users"
                 DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Users");
                 reference.child(Objects.requireNonNull(firebaseUser).getUid()).setValue(WriteCitizenDetails).addOnCompleteListener(task1 -> {
                     if (task.isSuccessful()){
-
                         //Send verification email
                         firebaseUser.sendEmailVerification();
                         Toast.makeText(Register.this, "User registered successfully. Please verify your email", Toast.LENGTH_LONG).show();
@@ -184,7 +212,6 @@ public class Register extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.e(TAG, Objects.requireNonNull(e.getMessage()));
                     Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
                 }
                 //Hide ProgressBar whether User creation is successful or failed
                 progressBar.setVisibility(View.GONE);

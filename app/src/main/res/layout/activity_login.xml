@@ -63,11 +63,13 @@
             tools:ignore="TextSizeCheck" />
 
         <ImageView
+            android:id="@+id/imageview_show_hide_pwd"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_27sdp"
-            android:id="@+id/imageview_show_hide_pwd"
             android:layout_below="@id/textview_login_pwd"
-            tools:ignore="ContentDescription" />
+            android:layout_marginStart="@dimen/_230sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <EditText
@@ -75,8 +77,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textview_login_pwd"
-            android:layout_marginStart="@dimen/_25sdp"
             android:background="@drawable/border"
+            android:layout_marginEnd="@dimen/_26sdp"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="@dimen/_5sdp"
