@@ -207,7 +207,7 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_27sdp"
             android:layout_below="@id/textview_register_password"
-            android:layout_marginStart="@dimen/_225sdp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_2sdp"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
@@ -240,14 +240,14 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_27sdp"
             android:layout_below="@id/textview_register_confirm_password"
-            android:layout_marginStart="@dimen/_225sdp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_2sdp"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <EditText
             android:id="@+id/editText_register_confirm_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/textview_register_confirm_password"
             android:layout_marginEnd="@dimen/_23sdp"
             android:background="@drawable/border"
