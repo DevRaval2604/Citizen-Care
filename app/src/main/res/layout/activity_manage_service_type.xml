@@ -14,7 +14,7 @@ tools:context=".ManageServiceType">
     android:layout_margin="@dimen/_15sdp"
     android:background="@color/background">
 
-
+    <!-- Manage service type -->
     <TextView
         android:id="@+id/textview_servicetype_head"
         android:layout_width="match_parent"
