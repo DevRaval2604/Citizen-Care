@@ -14,27 +14,155 @@
         android:background="@color/background"
         android:padding="@dimen/_15sdp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_login_head"
+            android:id="@+id/textview_admin_head"
             android:layout_marginTop="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:text="Admin Activity"
+            android:text="Welcome"
             android:textAlignment="center"
             android:textColor="@color/text"
-            android:textSize="@dimen/_29sdp"/>
+            android:textSize="@dimen/_40sdp"/>
+
+        <!-- name -->
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_name"
+            android:background="@drawable/ic_name"
+            android:layout_marginTop="@dimen/_53sdp"
+            android:layout_below="@id/textview_admin_head"/>
+
+        <TextView
+            android:id="@+id/textview_show_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_admin_head"
+            android:layout_alignStart="@id/ic_name"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@drawable/border"
+            android:hint="Name : "
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
+            android:textSize="@dimen/_15sdp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_full_name"
+            android:background="@color/text"
+            android:id="@+id/divider_name"/>
+
+        <!-- email-->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_email"
+            android:background="@drawable/ic_email"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_full_name"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_show_email"
+            android:layout_below="@id/divider_name"
+
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:hint="Email : "
+            android:background="@drawable/border"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/background" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_email"
+            android:background="@color/text"
+            android:id="@+id/divider_email"/>
+
+        <!-- gender -->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_gender"
+            android:background="@drawable/ic_gender"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_email"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_show_gender"
+            android:layout_below="@id/divider_email"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:hint="Gender : "
+            android:background="@drawable/border"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/background" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_gender"
+            android:background="@color/text"
+            android:id="@+id/divider_gender"/>
+
+        <!-- mobile number -->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_mobile"
+            android:background="@drawable/ic_mobile"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_gender"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_show_mobile"
+            android:layout_below="@id/divider_gender"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:hint="Mobile Number : "
+            android:background="@drawable/border"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/background" />
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone"/>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logout1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_85sdp"
-            android:layout_marginTop="@dimen/_250sdp"
+            android:layout_below="@id/textview_show_mobile"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_50sdp"
             android:backgroundTint="@color/background"
-            android:minWidth="@dimen/_32sdp"
             android:text="@string/logout"
             android:textColor="@color/text"
             android:textSize="@dimen/_18sdp"
             tools:ignore="TextSizeCheck" />
+
     </RelativeLayout>
 </ScrollView>
