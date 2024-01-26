@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview_admin_head"
             android:layout_marginTop="@dimen/_30sdp"
-            android:text="Welcome"
+            android:text="@string/welcome"
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textSize="@dimen/_40sdp"/>
@@ -30,7 +30,8 @@
             android:id="@+id/ic_name"
             android:background="@drawable/ic_name"
             android:layout_marginTop="@dimen/_53sdp"
-            android:layout_below="@id/textview_admin_head"/>
+            android:layout_below="@id/textview_admin_head"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textview_show_full_name"
@@ -41,10 +42,11 @@
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_50sdp"
             android:background="@drawable/border"
-            android:hint="Name : "
+            android:hint="@string/admin_page_name"
             android:padding="@dimen/_5sdp"
             android:textColor="@color/background"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
 
         <View
             android:layout_width="match_parent"
@@ -61,21 +63,23 @@
             android:id="@+id/ic_email"
             android:background="@drawable/ic_email"
             android:layout_marginTop="@dimen/_35sdp"
-            android:layout_below="@id/textview_show_full_name"/>
+            android:layout_below="@id/textview_show_full_name"
+            tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/textview_show_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_show_email"
             android:layout_below="@id/divider_name"
 
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:padding="@dimen/_5sdp"
-            android:hint="Email : "
             android:background="@drawable/border"
+            android:hint="@string/admin_page_email"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
-            android:textColor="@color/background" />
+            tools:ignore="TextSizeCheck" />
 
         <View
             android:layout_width="match_parent"
@@ -92,21 +96,23 @@
             android:id="@+id/ic_gender"
             android:background="@drawable/ic_gender"
             android:layout_marginTop="@dimen/_35sdp"
-            android:layout_below="@id/textview_show_email"/>
+            android:layout_below="@id/textview_show_email"
+            tools:ignore="ContentDescription" />
 
 
         <TextView
+            android:id="@+id/textview_show_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_show_gender"
             android:layout_below="@id/divider_email"
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:padding="@dimen/_5sdp"
-            android:hint="Gender : "
             android:background="@drawable/border"
+            android:hint="@string/admin_page_gender"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
-            android:textColor="@color/background" />
+            tools:ignore="TextSizeCheck" />
 
         <View
             android:layout_width="match_parent"
@@ -123,20 +129,22 @@
             android:id="@+id/ic_mobile"
             android:background="@drawable/ic_mobile"
             android:layout_marginTop="@dimen/_35sdp"
-            android:layout_below="@id/textview_show_gender"/>
+            android:layout_below="@id/textview_show_gender"
+            tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/textview_show_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_show_mobile"
             android:layout_below="@id/divider_gender"
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:padding="@dimen/_5sdp"
-            android:hint="Mobile Number : "
             android:background="@drawable/border"
+            android:hint="@string/admin_page_mobile_no"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
-            android:textColor="@color/background" />
+            tools:ignore="TextSizeCheck" />
 
 
         <ProgressBar

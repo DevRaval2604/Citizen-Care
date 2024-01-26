@@ -34,4 +34,9 @@
     <string name="reset_password">Reset Password</string>
     <string name="Verify_email_head">Please check your inbox and verify your email address</string>
     <string name="logout">Logout</string>
+    <string name="welcome">Welcome</string>
+    <string name="admin_page_email">Email</string>
+    <string name="admin_page_name">Name</string>
+    <string name="admin_page_gender">Gender</string>
+    <string name="admin_page_mobile_no">Mobile Number</string>
 </resources>
