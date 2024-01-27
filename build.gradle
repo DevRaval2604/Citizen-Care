@@ -1,4 +1,11 @@
 buildscript {
+    ext {
+        agp_version = '8.1'
+        agp_version1 = '8.1.4'
+        agp_version2 = '8.0.1'
+        agp_version4 = '8.2.0'
+        agp_version3 = '8.2.0'
+    }
     dependencies {
         classpath 'com.google.gms:google-services:4.4.0'
     }
@@ -6,5 +13,6 @@ buildscript {
 plugins {
     id 'com.android.application' version '8.2.0' apply false
     id 'com.android.library' version '8.2.0' apply false
+
     id 'com.google.gms.google-services' version '4.4.0' apply false
 }

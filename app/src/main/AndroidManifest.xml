@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CitizenCare"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ManageServiceType"
+            android:exported="false" />
+        <activity
+            android:name=".ManageComplaintType"
+            android:exported="false" />
         <activity
             android:name=".Forgot_Password"
             android:exported="false" />

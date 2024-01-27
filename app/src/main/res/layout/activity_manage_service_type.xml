@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background"
+tools:context=".ManageServiceType">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_15sdp"
+    android:layout_margin="@dimen/_15sdp"
+    android:background="@color/background">
+
+
+    <TextView
+        android:id="@+id/textview_servicetype_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32.50dp"
+        android:text="Service type"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_20sdp"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textview_servicetype_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_servicetype_head"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:padding="@dimen/_5sdp"
+        android:text="Add a new service type"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="TextSizeCheck"
+        />
+
+
+    <EditText
+        android:id="@+id/editText_servicetype_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_servicetype_add"
+        android:background="@drawable/border"
+        android:hint="Enter a new service type"
+        android:inputType="textShortMessage"
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="Autofill,TouchTargetSizeCheck,TextContrastCheck,TextSizeCheck"  />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_servicetype_add"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_servicetype_add"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:backgroundTint="@color/background"
+        android:text="Add"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textview_servicetype_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_servicetype_add"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:padding="@dimen/_5sdp"
+        android:text="Select a service type to delete"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="TextSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background"
+        android:textColorHint="@color/text"
+        android:layout_below="@id/textview_servicetype_delete"
+        app:boxStrokeColor="@color/text"
+        app:hintTextColor="@color/text"
+        app:endIconTint="@color/text"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_servicetype"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background"
+            android:hint="@string/select"
+            android:inputType="none"
+            android:textColorHint="@color/text"
+            android:textSize="@dimen/_16sdp"
+            tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_complainttype_delete"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_servicetype_delete"
+        android:layout_marginTop="@dimen/_78sdp"
+        android:backgroundTint="@color/background"
+        android:text="Delete"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="TextSizeCheck" />
+
+</RelativeLayout>
+
+</ScrollView>
+
