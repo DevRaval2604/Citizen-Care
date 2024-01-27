@@ -11,4 +11,4 @@ public class ManageServiceType extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_service_type);
     }
-}//Manage service type
+}

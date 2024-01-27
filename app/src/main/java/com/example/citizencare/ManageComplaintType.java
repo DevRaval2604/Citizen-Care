@@ -11,4 +11,4 @@ public class ManageComplaintType extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_complaint_type);
     }
-}//Manage complaint type
+}
