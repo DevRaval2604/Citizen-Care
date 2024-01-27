@@ -14,7 +14,7 @@
         android:layout_margin="@dimen/_15sdp"
         android:background="@color/background">
 
-        <!-- Manage complaint type -->
+
         <TextView
             android:id="@+id/textview_complainttype_head"
             android:layout_width="match_parent"
