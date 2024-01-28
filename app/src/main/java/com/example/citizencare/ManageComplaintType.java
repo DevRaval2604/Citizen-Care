@@ -3,10 +3,12 @@ package com.example.citizencare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,7 @@ public class ManageComplaintType extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_complaint_type);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
 
         //Get values in complaint type dropdown
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -36,6 +39,7 @@ public class ManageComplaintType extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                progressBar.setVisibility(View.VISIBLE);
                 List<String> suggestions = new ArrayList<>();
                 for (DataSnapshot snapshot : datasnapshot.getChildren()) {
                     String value = snapshot.getValue(String.class);
@@ -44,11 +48,13 @@ public class ManageComplaintType extends AppCompatActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(ManageComplaintType.this, R.layout.list_item, suggestions);
                 autoCompleteTextView.setAdapter(adapter);
                 autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> Toast.makeText(getApplicationContext(), "Item: " + suggestions.get(i), Toast.LENGTH_SHORT).show());
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ManageComplaintType.this, "Database Error", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
 
@@ -60,6 +66,7 @@ public class ManageComplaintType extends AppCompatActivity {
         add.setOnClickListener(view -> {
             String data1 = txt1.getText().toString();
             if (!data1.isEmpty()) {
+                progressBar.setVisibility(View.VISIBLE);
                 String key = mRef.push().getKey();//Generate unique key
                 //noinspection MismatchedQueryAndUpdateOfCollection
                 Map<String, Object> map = new HashMap<>();
@@ -67,6 +74,7 @@ public class ManageComplaintType extends AppCompatActivity {
                 mRef.child(Objects.requireNonNull(key)).setValue(data1);
                 txt1.setText("");
                 Toast.makeText(ManageComplaintType.this, "Complaint Type Added Successfully", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             } else {
                 txt1.setError("No Text");
             }
@@ -79,12 +87,14 @@ public class ManageComplaintType extends AppCompatActivity {
         myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
                 //noinspection MismatchedQueryAndUpdateOfCollection
                 List<String> suggestions = new ArrayList<>();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String value = snapshot1.getValue(String.class);
                     suggestions.add(value);
                 }
+                progressBar.setVisibility(View.GONE);
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(ManageComplaintType.this, R.layout.list_item, suggestions);
                 autoCompleteTextView.setAdapter(adapter);
                 autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> {
@@ -101,18 +111,22 @@ public class ManageComplaintType extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ManageComplaintType.this, "Database Error", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
 
         //Delete Button
         delete.setOnClickListener(view -> {
             if (key!=null){
+                progressBar.setVisibility(View.VISIBLE);
                 myRef1.child((key)).removeValue();
                 autoCompleteTextView.setText("");
                 Toast.makeText(ManageComplaintType.this, "Complaint Type Deleted Successfully", Toast.LENGTH_SHORT).show();
                 key=null;
+                progressBar.setVisibility(View.GONE);
             }else {
                 Toast.makeText(ManageComplaintType.this, "Please Select An Item To Delete", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
