@@ -3,6 +3,7 @@ package com.example.citizencare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ public class Admin extends AppCompatActivity {
     private TextView textViewAdminHead, textViewFullName, textViewEmail, textViewGender, textViewMobile;
     private ProgressBar progressBar;
     private String firstName, middleName, lastName, email, gender, mobile;
-    private FirebaseAuth authProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,18 @@ public class Admin extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnComplaintType=findViewById(R.id.ManageComplaintType);
+        btnComplaintType.setOnClickListener(view -> {
+            Intent intent=new Intent(Admin.this, ManageComplaintType.class);
+            startActivity(intent);
+        });
+
+        Button btnServiceType=findViewById(R.id.ManageServiceType);
+        btnServiceType.setOnClickListener(view -> {
+            Intent intent=new Intent(Admin.this, ManageServiceType.class);
+            startActivity(intent);
+        });
+
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);
         textViewEmail = findViewById(R.id.textview_show_email);
@@ -43,7 +56,7 @@ public class Admin extends AppCompatActivity {
         textViewMobile = findViewById(R.id.textview_show_mobile);
         progressBar = findViewById(R.id.progressBar);
 
-        authProfile = FirebaseAuth.getInstance();
+        FirebaseAuth authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
         if(firebaseUser == null) {
@@ -61,6 +74,7 @@ public class Admin extends AppCompatActivity {
         //extract data from database
         DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Users");
         referenceProfile.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ReadWriteCitizenDetails readUserDetails = snapshot.getValue(ReadWriteCitizenDetails.class);

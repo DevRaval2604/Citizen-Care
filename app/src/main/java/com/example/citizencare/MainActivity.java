@@ -47,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent iNext=new Intent(MainActivity.this, Login.class);
                     startActivity(iNext);
                     Toast.makeText(getApplicationContext(),"Item: "+suggestions.get(i),Toast.LENGTH_SHORT).show();
+                    autoCompleteTextView.setText("");
                 });
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(MainActivity.this,"Database Error",Toast.LENGTH_SHORT).show();
             }
         });
         myRef1.addValueEventListener(new ValueEventListener() {
@@ -68,11 +69,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent iNext=new Intent(MainActivity.this, Login.class);
                     startActivity(iNext);
                     Toast.makeText(getApplicationContext(),"Item: "+suggestions.get(i),Toast.LENGTH_SHORT).show();
+                    autoCompleteTextView1.setText("");
                 });
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(MainActivity.this,"Database Error",Toast.LENGTH_SHORT).show();
             }
         });
         //register button

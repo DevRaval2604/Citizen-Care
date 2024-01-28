@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_25sdp"
-            android:text="Complaint type"
+            android:text="@string/complaint_type"
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textSize="@dimen/_20sdp"
@@ -33,7 +33,7 @@
             android:layout_below="@id/textview_complainttype_head"
             android:layout_marginTop="@dimen/_35sdp"
             android:padding="@dimen/_5sdp"
-            android:text="Add a new complaint type"
+            android:text="@string/add_a_new_complaint_type"
             android:textColor="@color/text"
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textview_complainttype_add"
             android:background="@drawable/border"
-            android:hint="Enter a new complaint type"
+            android:hint="@string/enter_a_new_complaint_type"
             android:inputType="textShortMessage"
             android:padding="@dimen/_5sdp"
             android:textSize="@dimen/_15sdp"
@@ -59,7 +59,8 @@
             android:layout_below="@id/editText_complainttype_add"
             android:layout_marginTop="@dimen/_25sdp"
             android:backgroundTint="@color/background"
-            android:text="Add"
+            android:text="@string/add"
+            android:layout_marginStart="@dimen/_90sdp"
             android:textColor="@color/text"
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck" />
@@ -71,7 +72,7 @@
             android:layout_below="@id/button_complainttype_add"
             android:layout_marginTop="@dimen/_35sdp"
             android:padding="@dimen/_5sdp"
-            android:text="Select a complaint type to delete"
+            android:text="@string/select_a_complaint_type_to_delete"
             android:textColor="@color/text"
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck" />
@@ -105,11 +106,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textview_complainttype_delete"
             android:layout_marginTop="@dimen/_78sdp"
+            android:layout_marginStart="@dimen/_90sdp"
             android:backgroundTint="@color/background"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textColor="@color/text"
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
