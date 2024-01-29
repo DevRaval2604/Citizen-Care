@@ -9,13 +9,15 @@ android {
 
     defaultConfig {
         applicationId "com.example.citizencare"
-        minSdk 25
+        minSdk 29
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+
 
     buildTypes {
         release {

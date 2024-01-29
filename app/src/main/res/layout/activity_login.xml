@@ -26,12 +26,22 @@
             android:textSize="@dimen/_20sdp"
             tools:ignore="TextSizeCheck" />
 
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_email"
+            android:background="@drawable/ic_email"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_login_head"
+            tools:ignore="ContentDescription" />
+
         <TextView
             android:id="@+id/textview_login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textview_login_head"
             android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:padding="@dimen/_5sdp"
             android:text="@string/txtviewemail"
             android:textColor="@color/text"
@@ -50,12 +60,22 @@
             android:textSize="@dimen/_15sdp"
             tools:ignore="Autofill,TouchTargetSizeCheck,TextSizeCheck" />
 
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_pwd"
+            android:background="@drawable/ic_pwd"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_below="@id/editText_login_email"
+            tools:ignore="ContentDescription" />
+
         <TextView
             android:id="@+id/textview_login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_login_email"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:padding="@dimen/_5sdp"
             android:text="@string/txtviewpassword"
             android:textColor="@color/text"

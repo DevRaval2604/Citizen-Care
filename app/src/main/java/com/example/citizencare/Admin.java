@@ -3,6 +3,7 @@ package com.example.citizencare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,14 +23,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Admin extends AppCompatActivity {
 
+
     private TextView textViewAdminHead, textViewFullName, textViewEmail, textViewGender, textViewMobile;
     private ProgressBar progressBar;
     private String firstName, middleName, lastName, email, gender, mobile;
-    private FirebaseAuth authProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
         //logout btn
         Button btnLogout=findViewById(R.id.logout1);
         btnLogout.setOnClickListener(view -> {
@@ -43,7 +47,7 @@ public class Admin extends AppCompatActivity {
         textViewMobile = findViewById(R.id.textview_show_mobile);
         progressBar = findViewById(R.id.progressBar);
 
-        authProfile = FirebaseAuth.getInstance();
+        FirebaseAuth authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
         if(firebaseUser == null) {
@@ -61,6 +65,7 @@ public class Admin extends AppCompatActivity {
         //extract data from database
         DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Users");
         referenceProfile.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ReadWriteCitizenDetails readUserDetails = snapshot.getValue(ReadWriteCitizenDetails.class);
