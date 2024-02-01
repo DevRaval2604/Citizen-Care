@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Citizen Care</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
@@ -49,4 +49,13 @@
     <string name="add_a_new_service_type">Add a new service type</string>
     <string name="select_a_service_type_to_delete">Select a service type to delete</string>
     <string name="service_type">Service Type</string>
+    <string name="about_us_content1">
+        Welcome to Citizen Care, the cutting-edge municipal corporation app designed with your convenience in mind. At Citizen Care, we revolutionize the way you interact with your local government by seamlessly integrating technology and civic engagement. Our unique functionalities empower you to capture your concerns visually – simply take a picture of your complaint and provide your live location for swift and efficient problem resolution.
+    </string>
+    <string name="about_us_content2">
+        One of the standout features of Citizen Care is the ability to report issues with clarity and precision. By submitting images along with your live location, you ensure that municipal authorities have the necessary information to address and resolve problems promptly. Whether it is a pothole, damaged infrastructure, road issues, park concerns, water outage, mosquito infestation, streetlight problems, or garbage issues, our app makes the reporting process intuitive and effective.
+    </string>
+    <string name="about_us_content3">
+        Moreover, Citizen Care goes beyond issue reporting. Our app allows you to request various services that contribute to the overall well-being of your community. Need additional CCTV cameras for enhanced security? Want to request fogger trucks, dustbins, or water tankers? Citizen Care simplifies the service request process, putting the power to improve your surroundings directly in your hands. Join us on this journey towards a more responsive, connected, and citizen-centric municipality through Citizen Care.
+    </string>
 </resources>
