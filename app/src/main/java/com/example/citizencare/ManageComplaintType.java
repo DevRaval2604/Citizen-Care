@@ -64,9 +64,10 @@ public class ManageComplaintType extends AppCompatActivity {
         FirebaseDatabase mData = FirebaseDatabase.getInstance();
         DatabaseReference mRef = mData.getReference("Complaint Type");
         add.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
             String data1 = txt1.getText().toString();
             if (!data1.isEmpty()) {
-                progressBar.setVisibility(View.VISIBLE);
+
                 String key = mRef.push().getKey();//Generate unique key
                 //noinspection MismatchedQueryAndUpdateOfCollection
                 Map<String, Object> map = new HashMap<>();
@@ -77,6 +78,8 @@ public class ManageComplaintType extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
             } else {
                 txt1.setError("No Text");
+                progressBar.setVisibility(View.GONE);
+
             }
         });
 
@@ -117,8 +120,9 @@ public class ManageComplaintType extends AppCompatActivity {
 
         //Delete Button
         delete.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
             if (key!=null){
-                progressBar.setVisibility(View.VISIBLE);
+
                 myRef1.child((key)).removeValue();
                 autoCompleteTextView.setText("");
                 Toast.makeText(ManageComplaintType.this, "Complaint Type Deleted Successfully", Toast.LENGTH_SHORT).show();
