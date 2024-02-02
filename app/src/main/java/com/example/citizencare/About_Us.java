@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.text.LineBreaker;
 import android.os.Bundle;
-import android.text.Layout;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;

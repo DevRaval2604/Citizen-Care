@@ -1,8 +1,6 @@
 package com.example.citizencare;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -181,16 +179,17 @@ public class Admin_Register extends AppCompatActivity {
                 reference.child(Objects.requireNonNull(firebaseUser).getUid()).setValue(WriteCitizenDetails).addOnCompleteListener(task1 -> {
                     if (task.isSuccessful()){
                         //Send verification email
-                        //firebaseUser.sendEmailVerification();
-                        Toast.makeText(Admin_Register.this, "User registered successfully", Toast.LENGTH_LONG).show();
-                        //Open User Profile after successful registration
-                        Intent intent=new Intent(Admin_Register.this, Admin_Register.class);
-                        //To prevent user from returning back to Register Activity on pressing back button after registration
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();//To close register activity
+                        firebaseUser.sendEmailVerification();
+                        Toast.makeText(Admin_Register.this, "User registered successfully.  Please verify your email", Toast.LENGTH_LONG).show();
+                        editTextRegisterFirstName.setText("");
+                        editTextRegisterMiddleName.setText("");
+                        editTextRegisterLastName.setText("");
+                        editTextRegisterEmail.setText("");
+                        editTextRegisterMobile.setText("");
+                        editTextRegisterPwd.setText("");
+                        editTextRegisterConfirmPwd.setText("");
                     }else {
-                        Toast.makeText(Admin_Register.this, "User registered failed. Please try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Admin_Register.this, "User registration failed. Please try again", Toast.LENGTH_LONG).show();
                     }
                     //Hide ProgressBar whether User creation is successful or failed
                     progressBar.setVisibility(View.GONE);

@@ -39,11 +39,9 @@
             android:layout_below="@id/image_slider"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
-
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/about_us_content1"
             android:textColor="@color/text"
-
             android:textSize="@dimen/_15sdp"
             tools:ignore="RtlSymmetry,TextSizeCheck">
         </TextView>
@@ -58,7 +56,6 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/about_us_content2"
             android:textColor="@color/text"
-
             android:textSize="@dimen/_15sdp"
             tools:ignore="RtlSymmetry,TextSizeCheck">
         </TextView>
@@ -73,7 +70,6 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/about_us_content3"
             android:textColor="@color/text"
-
             android:textSize="@dimen/_15sdp"
             tools:ignore="RtlSymmetry,TextSizeCheck">
         </TextView>

@@ -60,4 +60,6 @@
     </string>
     <string name="admin_registration">Admin Registration</string>
     <string name="serviceman_registration">Serviceman Registration</string>
+    <string name="add_admin">Add Admin</string>
+    <string name="add_serviceman">Add Serviceman</string>
 </resources>

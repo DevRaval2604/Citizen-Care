@@ -190,7 +190,7 @@ public class Register extends AppCompatActivity {
                         startActivity(intent);
                         finish();//To close register activity
                     }else {
-                        Toast.makeText(Register.this, "User registered failed. Please try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Register.this, "User registration failed. Please try again", Toast.LENGTH_LONG).show();
                     }
                     //Hide ProgressBar whether User creation is successful or failed
                     progressBar.setVisibility(View.GONE);

@@ -71,7 +71,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/divider_name"
-
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/border"
@@ -190,12 +189,40 @@
             android:id="@+id/ManageServiceType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/logout1"
+            android:layout_below="@id/ManageComplaintType"
             android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_50sdp"
             android:backgroundTint="@color/background"
             android:text="@string/service_type"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AddAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ManageServiceType"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:backgroundTint="@color/background"
+            android:text="@string/add_admin"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_18sdp"
+            tools:ignore="TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AddServiceman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AddAdmin"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:backgroundTint="@color/background"
+            android:text="@string/add_serviceman"
             android:textColor="@color/text"
             android:textSize="@dimen/_18sdp"
             tools:ignore="TextSizeCheck" />
