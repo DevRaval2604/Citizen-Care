@@ -126,6 +126,8 @@ public class Login extends AppCompatActivity {
                             // Get the user's email address from Firebase Authentication
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             String email = (Objects.requireNonNull(user)).getEmail();
+
+
                             // Check if the user's email address matches a specific role
                             if ((Objects.requireNonNull(email)).equals("devraval2004@gmail.com")) {
                                 //Redirect to the admin activity

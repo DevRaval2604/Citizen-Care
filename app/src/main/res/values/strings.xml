@@ -58,4 +58,6 @@
     <string name="about_us_content3">
         Moreover, Citizen Care goes beyond issue reporting. Our app allows you to request various services that contribute to the overall well-being of your community. Need additional CCTV cameras for enhanced security? Want to request fogger trucks, dustbins, or water tankers? Citizen Care simplifies the service request process, putting the power to improve your surroundings directly in your hands. Join us on this journey towards a more responsive, connected, and citizen-centric municipality through Citizen Care.
     </string>
+    <string name="admin_registration">Admin Registration</string>
+    <string name="serviceman_registration">Serviceman Registration</string>
 </resources>
