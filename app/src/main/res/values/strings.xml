@@ -62,4 +62,12 @@
     <string name="serviceman_registration">Serviceman Registration</string>
     <string name="add_admin">Add Admin</string>
     <string name="add_serviceman">Add Serviceman</string>
+    <string name="change_password_head">You can change your password now.Please enter your password and verify before continuing.</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="current_password">Current Password*</string>
+    <string name="your_profile_is_not_authenticated_yet">Your profile is not authenticated yet!</string>
+    <string name="enter_your_new_password">Enter your new password</string>
+    <string name="new_password">New Password*</string>
+    <string name="confirm_your_new_password">Confirm your new password</string>
+    <string name="change_password">Change Password</string>
 </resources>

@@ -64,6 +64,12 @@ public class Admin extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnChangePwd=findViewById(R.id.ChangePassword);
+        btnChangePwd.setOnClickListener(view -> {
+            Intent intent=new Intent(Admin.this, Change_Password.class);
+            startActivity(intent);
+        });
+
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);
         textViewEmail = findViewById(R.id.textview_show_email);
