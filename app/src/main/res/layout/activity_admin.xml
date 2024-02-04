@@ -158,54 +158,12 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logout1"
+            android:id="@+id/AddAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textview_show_mobile"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/logout"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ManageComplaintType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/logout1"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/complaint_type"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ManageServiceType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ManageComplaintType"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/service_type"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/AddAdmin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ManageServiceType"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_50sdp"
             android:backgroundTint="@color/background"
             android:text="@string/add_admin"
@@ -227,18 +185,5 @@
             android:textSize="@dimen/_18sdp"
             tools:ignore="TextSizeCheck" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ChangePassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/AddServiceman"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/change_password"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
     </RelativeLayout>
 </ScrollView>

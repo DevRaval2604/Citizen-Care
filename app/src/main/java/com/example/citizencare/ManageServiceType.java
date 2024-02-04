@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.citizencare.databinding.ActivityManageComplaintTypeBinding;
+import com.example.citizencare.databinding.ActivityManageServiceTypeBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,14 +26,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class ManageServiceType extends AppCompatActivity {
+public class ManageServiceType extends DrawerBase {
+    ActivityManageServiceTypeBinding activityManageServiceTypeBinding;
 
     private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_service_type);
+        activityManageServiceTypeBinding = ActivityManageServiceTypeBinding.inflate(getLayoutInflater());
+        setContentView(activityManageServiceTypeBinding.getRoot());
+        allocateActivityTitle("Service Type");
+
         ProgressBar progressBar=findViewById(R.id.progressBar);
 
         //Get values in service type dropdown

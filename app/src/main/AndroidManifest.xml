@@ -15,6 +15,13 @@
         android:theme="@style/Theme.CitizenCare"
         tools:targetApi="31">
         <activity
+            android:name=".DrawerBase"
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+
+        <activity
             android:name=".Change_Password"
             android:exported="false" />
         <activity

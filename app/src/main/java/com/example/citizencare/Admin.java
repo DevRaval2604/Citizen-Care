@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.citizencare.databinding.ActivityAdminBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,9 +22,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Admin extends AppCompatActivity {
+public class Admin extends DrawerBase {
 
 
+    ActivityAdminBinding activityAdminBinding;
     private TextView textViewAdminHead, textViewFullName, textViewEmail, textViewGender, textViewMobile;
     private ProgressBar progressBar;
     private String firstName, middleName, lastName, email, gender, mobile;
@@ -31,26 +33,12 @@ public class Admin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        activityAdminBinding = ActivityAdminBinding.inflate(getLayoutInflater());
+        setContentView(activityAdminBinding.getRoot());
+        allocateActivityTitle("Home");
 
-        //logout btn
-        Button btnLogout=findViewById(R.id.logout1);
-        btnLogout.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, MainActivity.class);
-            startActivity(intent);
-        });
 
-        Button btnComplaintType=findViewById(R.id.ManageComplaintType);
-        btnComplaintType.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, ManageComplaintType.class);
-            startActivity(intent);
-        });
 
-        Button btnServiceType=findViewById(R.id.ManageServiceType);
-        btnServiceType.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, ManageServiceType.class);
-            startActivity(intent);
-        });
 
         Button btnAddAdmin=findViewById(R.id.AddAdmin);
         btnAddAdmin.setOnClickListener(view -> {
@@ -64,11 +52,7 @@ public class Admin extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button btnChangePwd=findViewById(R.id.ChangePassword);
-        btnChangePwd.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, Change_Password.class);
-            startActivity(intent);
-        });
+
 
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);

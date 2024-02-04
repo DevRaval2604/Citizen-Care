@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.citizencare.databinding.ActivityAdminBinding;
+import com.example.citizencare.databinding.ActivityManageComplaintTypeBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,13 +25,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class ManageComplaintType extends AppCompatActivity {
+public class ManageComplaintType extends DrawerBase {
+    ActivityManageComplaintTypeBinding activityManageComplaintTypeBinding;
     private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_complaint_type);
+        activityManageComplaintTypeBinding = ActivityManageComplaintTypeBinding.inflate(getLayoutInflater());
+        setContentView(activityManageComplaintTypeBinding.getRoot());
+        allocateActivityTitle("Complaint Type");
+
         ProgressBar progressBar = findViewById(R.id.progressBar);
 
         //Get values in complaint type dropdown

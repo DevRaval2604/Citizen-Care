@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.citizencare.databinding.ActivityChangePasswordBinding;
+import com.example.citizencare.databinding.ActivityManageServiceTypeBinding;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
-public class Change_Password extends AppCompatActivity {
+public class Change_Password extends DrawerBase {
+    ActivityChangePasswordBinding activityChangePasswordBinding;
     private String userPwdCurr;
     private Button buttonReAuthenticate,buttonChangedPwd;
     private EditText editTextPwdNew,editTextPwdCurr,editTextPwdConfirmNew;
@@ -31,7 +35,10 @@ public class Change_Password extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        activityChangePasswordBinding = ActivityChangePasswordBinding.inflate(getLayoutInflater());
+        setContentView(activityChangePasswordBinding.getRoot());
+        allocateActivityTitle("Change Password");
+
         editTextPwdNew = findViewById(R.id.editText_change_pwd_new);
         editTextPwdCurr = findViewById(R.id.editText_change_pwd_current);
         editTextPwdConfirmNew = findViewById(R.id.editText_change_pwd_new_confirm);
