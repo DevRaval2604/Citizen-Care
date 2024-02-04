@@ -1,5 +1,5 @@
 package com.example.citizencare;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.citizencare.databinding.ActivityChangePasswordBinding;
-import com.example.citizencare.databinding.ActivityManageServiceTypeBinding;
+
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;

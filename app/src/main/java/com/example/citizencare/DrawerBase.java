@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Bundle;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,6 +21,7 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
 
     DrawerLayout drawerLayout;
 
+    @SuppressLint("InflateParams")
     @Override
     public void setContentView(View view) {
         drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);

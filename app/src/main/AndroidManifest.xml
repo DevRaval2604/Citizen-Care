@@ -17,9 +17,6 @@
         <activity
             android:name=".DrawerBase"
             android:exported="false" />
-        <activity
-            android:name=".Dashboard"
-            android:exported="false" />
 
         <activity
             android:name=".Change_Password"
