@@ -6,18 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_complaint_type"
+            android:icon="@drawable/ic_complaint"
             android:title="Complaint Type" />
         <item
             android:id="@+id/nav_service_type"
+            android:icon="@drawable/ic_service"
             android:title="Service Type" />
         <item
             android:id="@+id/nav_change_password"
+            android:icon="@drawable/ic_confirm_pwd"
             android:title="Change Password" />
         <item
             android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
             android:title="Logout" />
 
     </group>

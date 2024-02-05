@@ -21,6 +21,9 @@
         app:headerLayout="@layout/nav_header_navigation_drawer"
         app:menu="@menu/activity_main_drawer"
         app:itemTextColor="@color/text"
+        app:itemHorizontalPadding="@dimen/_15sdp"
+        app:itemVerticalPadding="@dimen/_15sdp"
+        app:itemIconTint="#000"
         app:itemTextAppearance="@style/NavigationDrawerStyle"
         android:background="@color/background"
          />
