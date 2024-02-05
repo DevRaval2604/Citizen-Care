@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single">
         <item
@@ -11,19 +10,19 @@
         <item
             android:id="@+id/nav_complaint_type"
             android:icon="@drawable/ic_complaint"
-            android:title="Complaint Type" />
+            android:title="@string/complaint_type" />
         <item
             android:id="@+id/nav_service_type"
             android:icon="@drawable/ic_service"
-            android:title="Service Type" />
+            android:title="@string/service_type" />
         <item
             android:id="@+id/nav_change_password"
             android:icon="@drawable/ic_confirm_pwd"
-            android:title="Change Password" />
+            android:title="@string/change_password" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
-            android:title="Logout" />
+            android:title="@string/logout" />
 
     </group>
 </menu>
