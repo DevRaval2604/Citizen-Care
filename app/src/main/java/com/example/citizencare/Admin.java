@@ -40,23 +40,9 @@ public class Admin extends DrawerBase {
 
 
 
-        Button btnAddAdmin=findViewById(R.id.AddAdmin);
-        btnAddAdmin.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, Admin_Register.class);
-            startActivity(intent);
-        });
 
-        Button btnAddServiceman=findViewById(R.id.AddServiceman);
-        btnAddServiceman.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, Serviceman_Register.class);
-            startActivity(intent);
-        });
 
-        Button btnManageUsers=findViewById(R.id.ManageUsers);
-        btnManageUsers.setOnClickListener(view -> {
-            Intent intent=new Intent(Admin.this, ManageUsers.class);
-            startActivity(intent);
-        });
+
 
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);

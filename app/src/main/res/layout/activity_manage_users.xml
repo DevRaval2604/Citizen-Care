@@ -10,22 +10,79 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:layout_marginTop="@dimen/_60sdp"
-            android:hint="Search"
-            android:inputType="textPersonName"
-            android:padding="@dimen/_5sdp"
-            android:textSize="@dimen/_15sdp"
-            tools:ignore="Autofill,HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
-        <androidx.recyclerview.widget.RecyclerView
+
+                <TextView
+                    android:id="@+id/textview_manage_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="Manage Users"
+                    android:textAlignment="center"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="TextSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_admin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_manage_user"
+                    android:layout_marginStart="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_180sdp"
+                    android:backgroundTint="@color/background"
+                    android:text="Add Admin"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/_13sdp"
+                    tools:ignore="TextSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_serviceman"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_manage_user"
+                    android:layout_marginStart="@dimen/_140sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:backgroundTint="@color/background"
+                    android:text="Add Serviceman"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/_13sdp"
+                    tools:ignore="TextSizeCheck" />
+
+
+
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_85sdp"
+                    android:id="@+id/ic_search"
+                    android:layout_below="@id/textview_manage_user"
+                    android:background="@drawable/search"
+                    android:backgroundTint="@color/text"
+                    tools:ignore="ContentDescription" />
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_80sdp"
+                    android:layout_below="@id/textview_manage_user"
+                    android:background="@color/background"
+                    android:hint="Search"
+                    android:textColorHint="@color/text"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/_15sdp"
+                    tools:ignore="Autofill,HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+                <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_180sdp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"

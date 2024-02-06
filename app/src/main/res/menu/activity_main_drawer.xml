@@ -16,6 +16,27 @@
             android:icon="@drawable/ic_service"
             android:title="@string/service_type" />
         <item
+            android:id="@+id/nav_Services"
+            android:icon="@drawable/ic_connect"
+            android:title="Services" />
+        <item
+            android:id="@+id/nav_Complaints"
+            android:icon="@drawable/ic_connect"
+            android:title="Complaints" />
+
+        <item
+            android:id="@+id/nav_manage_users"
+            android:icon="@drawable/ic_name"
+            android:title="Manage Users" />
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/ic_reports"
+            android:title="Reports" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback" />
+        <item
             android:id="@+id/nav_change_password"
             android:icon="@drawable/ic_confirm_pwd"
             android:title="@string/change_password" />

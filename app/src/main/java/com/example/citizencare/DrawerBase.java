@@ -51,11 +51,26 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
         } else if (item.getItemId()==R.id.nav_service_type) {
             startActivity(new Intent(this, ManageServiceType.class));
             overridePendingTransition(0,0);
-        } else if (item.getItemId()==R.id.nav_change_password) {
+        } else if (item.getItemId()==R.id.nav_Services) {
+
+        }  else if (item.getItemId()==R.id.nav_Complaints) {
+
+        } else if (item.getItemId()==R.id.nav_manage_users) {
+            startActivity(new Intent(this, ManageUsers.class));
+            overridePendingTransition(0,0);
+        } else if (item.getItemId()==R.id.nav_feedback) {
+
+        } else if (item.getItemId()==R.id.nav_reports) {
+
+        }
+        else if (item.getItemId()==R.id.nav_change_password) {
             startActivity(new Intent(this, Change_Password.class));
             overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_logout) {
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent=new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
             overridePendingTransition(0,0);
         }
         return false;

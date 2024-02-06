@@ -3,23 +3,56 @@ package com.example.citizencare;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.annotation.SuppressLint;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.UnderlineSpan;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.citizencare.databinding.ActivityAdminBinding;
+import com.example.citizencare.databinding.ActivityManageUsersBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class ManageUsers extends AppCompatActivity {
+public class ManageUsers extends DrawerBase {
+
+    ActivityManageUsersBinding activityManageUsersBinding;
 RecyclerView recyclerView;
 MainAdapter mainAdapter;
-    @SuppressLint("UseSupportActionBar")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_users);
+        activityManageUsersBinding = ActivityManageUsersBinding.inflate(getLayoutInflater());
+        setContentView(activityManageUsersBinding.getRoot());
+        allocateActivityTitle("Manage Users");
+
+
+        //underline manage users
+        TextView textView1 = findViewById(R.id.textview_manage_user);
+        String manageusers="Manage Users";
+        SpannableString content1=new SpannableString(manageusers);
+        content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
+        textView1.setText(content1);
+        //button admin and serviceman
+
+        Button btnAddAdmin=findViewById(R.id.button_admin);
+        btnAddAdmin.setOnClickListener(view -> {
+            Intent intent=new Intent(ManageUsers.this, Admin_Register.class);
+            startActivity(intent);
+        });
+
+        Button btnAddServiceman=findViewById(R.id.button_serviceman);
+        btnAddServiceman.setOnClickListener(view -> {
+            Intent intent=new Intent(ManageUsers.this, Serviceman_Register.class);
+            startActivity(intent);
+        });
         recyclerView=findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

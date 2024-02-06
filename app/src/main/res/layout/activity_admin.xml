@@ -157,46 +157,10 @@
             android:visibility="gone"/>
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/AddAdmin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textview_show_mobile"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/add_admin"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/AddServiceman"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/AddAdmin"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/add_serviceman"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ManageUsers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/AddServiceman"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="@string/manage_users"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
+
+
+
     </RelativeLayout>
 </ScrollView>
