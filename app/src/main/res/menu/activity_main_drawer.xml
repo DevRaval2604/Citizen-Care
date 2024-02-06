@@ -18,24 +18,24 @@
         <item
             android:id="@+id/nav_Services"
             android:icon="@drawable/ic_connect"
-            android:title="Services" />
+            android:title="@string/services1" />
         <item
             android:id="@+id/nav_Complaints"
             android:icon="@drawable/ic_connect"
-            android:title="Complaints" />
+            android:title="@string/complaints1" />
 
         <item
             android:id="@+id/nav_manage_users"
             android:icon="@drawable/ic_name"
-            android:title="Manage Users" />
+            android:title="@string/manage_users" />
         <item
             android:id="@+id/nav_reports"
             android:icon="@drawable/ic_reports"
-            android:title="Reports" />
+            android:title="@string/reports" />
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/ic_feedback"
-            android:title="Feedback" />
+            android:title="@string/feedback" />
         <item
             android:id="@+id/nav_change_password"
             android:icon="@drawable/ic_confirm_pwd"

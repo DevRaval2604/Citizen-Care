@@ -16,7 +16,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:text="Manage Users"
+                    android:text="@string/manage_users"
                     android:textAlignment="center"
                     android:textColor="@color/text"
                     android:textSize="@dimen/_20sdp"
@@ -31,7 +31,7 @@
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginEnd="@dimen/_180sdp"
                     android:backgroundTint="@color/background"
-                    android:text="Add Admin"
+                    android:text="@string/add_admin"
                     android:textColor="@color/text"
                     android:textSize="@dimen/_13sdp"
                     tools:ignore="TextSizeCheck" />
@@ -45,7 +45,7 @@
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginEnd="@dimen/_40sdp"
                     android:backgroundTint="@color/background"
-                    android:text="Add Serviceman"
+                    android:text="@string/add_serviceman"
                     android:textColor="@color/text"
                     android:textSize="@dimen/_13sdp"
                     tools:ignore="TextSizeCheck" />

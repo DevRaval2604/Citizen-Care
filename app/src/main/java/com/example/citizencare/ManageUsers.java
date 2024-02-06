@@ -1,6 +1,4 @@
 package com.example.citizencare;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,8 +11,6 @@ import android.text.style.UnderlineSpan;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.example.citizencare.databinding.ActivityAdminBinding;
 import com.example.citizencare.databinding.ActivityManageUsersBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
