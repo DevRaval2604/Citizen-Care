@@ -73,8 +73,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_drawer_open">Drawer Open</string>
     <string name="menu_drawer_close">Drawer Close</string>
-
-
-
-
+    <string name="devname">Dev Raval</string>
+    <string name="devemail">devraval2004@gmail.com</string>
+    <string name="devmno">9904325939</string>
+    <string name="himaniname">Himani Shah</string>
+    <string name="himaniemail">shahhimani703@gmail.com</string>
+    <string name="himanimno">7984373949</string>
+    <string name="moxaname">Moksha Shah</string>
+    <string name="moxaemail">mokshahshah84@gmail.com</string>
+    <string name="moxamno">9409517590</string>
 </resources>
