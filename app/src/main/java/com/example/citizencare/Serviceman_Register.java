@@ -1,6 +1,8 @@
 package com.example.citizencare;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -182,14 +184,12 @@ public class Serviceman_Register extends AppCompatActivity {
                     if (task.isSuccessful()){
                         //Send verification email
                         firebaseUser.sendEmailVerification();
-                        Toast.makeText(Serviceman_Register.this, "User registered successfully.  Please verify your email", Toast.LENGTH_LONG).show();
-                        editTextRegisterFirstName.setText("");
-                        editTextRegisterMiddleName.setText("");
-                        editTextRegisterLastName.setText("");
-                        editTextRegisterEmail.setText("");
-                        editTextRegisterMobile.setText("");
-                        editTextRegisterPwd.setText("");
-                        editTextRegisterConfirmPwd.setText("");
+                        Toast.makeText(Serviceman_Register.this, "User registered successfully. Please verify your email", Toast.LENGTH_LONG).show();
+                        Intent intent=new Intent(Serviceman_Register.this, Login.class);
+                        //To prevent user from returning back to Register Activity on pressing back button after registration
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();//To close register activity
                     }else {
                         Toast.makeText(Serviceman_Register.this, "User registration failed. Please try again", Toast.LENGTH_LONG).show();
                     }

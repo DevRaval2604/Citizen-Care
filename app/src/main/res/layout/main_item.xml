@@ -185,5 +185,18 @@
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_user_delete"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/role"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:backgroundTint="@color/background"
+            android:text="@string/delete"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
