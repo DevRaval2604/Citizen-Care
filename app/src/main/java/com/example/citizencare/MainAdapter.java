@@ -46,7 +46,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 Toast.makeText(holder.fname.getContext(), "Cannot delete the currently signed-in user", Toast.LENGTH_LONG).show();
             }else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.fname.getContext());
-                builder.setTitle("Are you Sure?");
+                builder.setTitle("Are you sure?");
                 builder.setMessage("Deleted data can't be undo.");
                 builder.setPositiveButton("Delete", (dialogInterface, i) -> {
                     FirebaseDatabase.getInstance().getReference().child("Users").child(Objects.requireNonNull(userId)).removeValue();
