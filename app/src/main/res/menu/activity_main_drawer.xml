@@ -41,6 +41,10 @@
             android:icon="@drawable/ic_confirm_pwd"
             android:title="@string/change_password" />
         <item
+            android:id="@+id/nav_update_profile"
+            android:icon="@drawable/ic_update_profile"
+            android:title="Update Profile" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
             android:title="@string/logout" />

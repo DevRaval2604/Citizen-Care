@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Update_Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:background="@color/background"
+        android:padding="@dimen/_15sdp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview_update_profile"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="Update Profile"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:textSize="@dimen/_35sdp"/>
+
+        <TextView
+            android:id="@+id/textview_update_mobile1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_update_profile"
+            android:layout_marginTop="@dimen/_53sdp"
+
+            android:text="To update mobile number :"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/textview_update_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_update_profile"
+            android:layout_marginStart="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_53sdp"
+            android:text="click here"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_14sdp"
+            tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/textview_update_email1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_update_mobile"
+            android:layout_marginTop="@dimen/_33sdp"
+            android:text="To update email :"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/textview_update_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_update_mobile"
+            android:layout_marginStart="@dimen/_125sdp"
+            android:layout_marginTop="@dimen/_33sdp"
+            android:text="click here"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_14sdp"
+            tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+    </RelativeLayout>
+</ScrollView>

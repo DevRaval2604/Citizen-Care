@@ -66,6 +66,12 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
         else if (item.getItemId()==R.id.nav_change_password) {
             startActivity(new Intent(this, Change_Password.class));
             overridePendingTransition(0,0);
+        } else if (item.getItemId()==R.id.nav_update_profile) {
+            Intent intent=new Intent(this, Update_Profile.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_logout) {
             Intent intent=new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
