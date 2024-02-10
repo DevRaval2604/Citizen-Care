@@ -1,8 +1,5 @@
 package com.example.citizencare;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,8 +9,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,16 +44,12 @@ public class Update_Mobile_Number extends AppCompatActivity {
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
         //show profile data
+        assert firebaseUser != null;
         showProfile(firebaseUser);
 
         //update profile button
         Button btnUpdate = findViewById(R.id.button_update);
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateProfile(firebaseUser);
-            }
-        });
+        btnUpdate.setOnClickListener(view -> updateProfile(firebaseUser));
     }
 
     private void showProfile(FirebaseUser firebaseUser) {
@@ -113,26 +107,23 @@ public class Update_Mobile_Number extends AppCompatActivity {
             String userID = firebaseUser.getUid();
             progressBar.setVisibility(View.VISIBLE);
 
-            referenceProfile.child(userID).child("MobileNumber").setValue(textMobile).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()) {
+            referenceProfile.child(userID).child("MobileNumber").setValue(textMobile).addOnCompleteListener(task -> {
+                if(task.isSuccessful()) {
 
-                        Toast.makeText(Update_Mobile_Number.this, "Update Successful!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Update_Mobile_Number.this, "Update Successful!", Toast.LENGTH_LONG).show();
 
-                        Intent intent = new Intent(Update_Mobile_Number.this, Admin.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        try{
-                            throw Objects.requireNonNull(task.getException());
-                        } catch (Exception e) {
-                            Toast.makeText(Update_Mobile_Number.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
+                    Intent intent = new Intent(Update_Mobile_Number.this, Admin.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    try{
+                        throw Objects.requireNonNull(task.getException());
+                    } catch (Exception e) {
+                        Toast.makeText(Update_Mobile_Number.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                    progressBar.setVisibility(View.GONE);
                 }
+                progressBar.setVisibility(View.GONE);
             });
         }
     }
