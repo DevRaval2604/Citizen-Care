@@ -28,7 +28,7 @@ public class Update_Mobile_Number extends AppCompatActivity {
 
     private EditText editTextUpdateMobile;
     private String textMobile;
-    private FirebaseAuth  authProfile;
+    private FirebaseAuth authProfile;
     private ProgressBar progressBar;
 
     @Override
