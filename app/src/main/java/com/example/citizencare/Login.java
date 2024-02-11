@@ -139,7 +139,7 @@ public class Login extends AppCompatActivity {
                                         String role=snapshot.child("Role").getValue(String.class);
                                         Boolean blocked=snapshot.child("Blocked").getValue(Boolean.class);
                                         if(Boolean.TRUE.equals(blocked)){
-                                            Toast.makeText(Login.this, "Sorry,you've been blocked from accessing this app.Please contact support for further assistance.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Login.this, "Sorry, you've been blocked. Please contact support.", Toast.LENGTH_LONG).show();
                                             progressBar.setVisibility(View.GONE);
                                         }else {
                                             if (Objects.requireNonNull(role).equals("Admin")) {

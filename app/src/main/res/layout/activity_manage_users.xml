@@ -54,7 +54,7 @@
                     android:layout_width="@dimen/_240sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_33sdp"
+                    android:layout_marginStart="@dimen/_26sdp"
                     android:layout_below="@id/button_admin"
                     android:backgroundTint="@color/background"
                     android:textColorHint="@color/text"
