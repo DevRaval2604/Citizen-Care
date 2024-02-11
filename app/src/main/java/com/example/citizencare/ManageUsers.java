@@ -1,19 +1,20 @@
 package com.example.citizencare;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableString;
-import android.text.TextWatcher;
 import android.text.style.UnderlineSpan;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import com.example.citizencare.databinding.ActivityManageUsersBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ManageUsers extends DrawerBase {
@@ -21,6 +22,10 @@ public class ManageUsers extends DrawerBase {
     ActivityManageUsersBinding activityManageUsersBinding;
 RecyclerView recyclerView;
 MainAdapter mainAdapter;
+
+AutoCompleteTextView autoCompleteTextView;
+List<String> suggestions=new ArrayList<>();
+ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,22 +64,23 @@ MainAdapter mainAdapter;
 
         mainAdapter=new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
-        EditText editText=findViewById(R.id.search);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                processsearch(charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                //Do nothing
-            }
+        autoCompleteTextView=findViewById(R.id.dropdown_manageusers);
+        adapter=new ArrayAdapter<>(this,R.layout.list_item,suggestions);
+        autoCompleteTextView.setAdapter(adapter);
+        suggestions.add("Admin");
+        suggestions.add("Serviceman");
+        suggestions.add("Citizen");
+        adapter.notifyDataSetChanged();
+        autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> {
+            String selectedRole=(String)adapterView.getItemAtPosition(i);
+            Query query=FirebaseDatabase.getInstance().getReference().child("Users").orderByChild("Role").equalTo(selectedRole);
+            FirebaseRecyclerOptions<MainModel> options1 =
+                    new FirebaseRecyclerOptions.Builder<MainModel>()
+                            .setQuery(query, MainModel.class)
+                            .build();
+            MainAdapter mainAdapter=new MainAdapter(options1);
+            recyclerView.setAdapter(mainAdapter);
+            mainAdapter.startListening();
         });
     }
 
@@ -88,14 +94,5 @@ MainAdapter mainAdapter;
     protected void onStop() {
         super.onStop();
         mainAdapter.stopListening();
-    }
-    private void processsearch(String s) {
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Users").orderByChild("Role").startAt(s).endAt(s+"\uf8ff"), MainModel.class)
-                        .build();
-        mainAdapter=new MainAdapter(options);
-        mainAdapter.startListening();
-        recyclerView.setAdapter(mainAdapter);
     }
 }

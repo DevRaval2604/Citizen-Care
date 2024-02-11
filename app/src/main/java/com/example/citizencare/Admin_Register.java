@@ -175,7 +175,7 @@ public class Admin_Register extends AppCompatActivity {
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser =auth.getCurrentUser();
                 //Enter User Data into Firebase Realtime Database.
-                ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,"Admin");
+                ReadWriteCitizenDetails WriteCitizenDetails=new ReadWriteCitizenDetails(textFirstName,textMiddleName,textLastName,textEmail,textGender,textMobile,"Admin",false);
                 //Extracting users reference from Database for "Users"
                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Users");
                 reference.child(Objects.requireNonNull(firebaseUser).getUid()).setValue(WriteCitizenDetails).addOnCompleteListener(task1 -> {

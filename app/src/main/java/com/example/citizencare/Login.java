@@ -45,7 +45,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         TextView textView1 = findViewById(R.id.have_you_not_registered);
-
         String NotRegistered = "Not Registered? Register Here";
         SpannableString content = new SpannableString(NotRegistered);
         ClickableSpan clickableSpan=new ClickableSpan() {
@@ -138,28 +137,34 @@ public class Login extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.exists()){
                                         String role=snapshot.child("Role").getValue(String.class);
-                                        if(Objects.requireNonNull(role).equals("Admin")){
-                                            //Redirect to the admin activity
-                                            Intent intent = new Intent(Login.this, Admin.class);
-                                            //To prevent user from returning back to this Activity on pressing back button
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(intent);
-                                            finish();
-                                        }else if(Objects.requireNonNull(role).equals("Serviceman")){
-                                            // Redirect to the serviceman activity
-                                            Intent intent = new Intent(Login.this, Servicemen.class);
-                                            //To prevent user from returning back to this Activity on pressing back button
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(intent);
-                                            finish();
-                                        }else{
-                                            // User does not have a specific role, assume they are a regular user
-                                            // Redirect to the user activity
-                                            Intent intent = new Intent(Login.this, Citizen.class);
-                                            //To prevent user from returning back to this Activity on pressing back button
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(intent);
-                                            finish();
+                                        Boolean blocked=snapshot.child("Blocked").getValue(Boolean.class);
+                                        if(Boolean.TRUE.equals(blocked)){
+                                            Toast.makeText(Login.this, "Sorry,you've been blocked from accessing this app.Please contact support for further assistance.", Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
+                                        }else {
+                                            if (Objects.requireNonNull(role).equals("Admin")) {
+                                                //Redirect to the admin activity
+                                                Intent intent = new Intent(Login.this, Admin.class);
+                                                //To prevent user from returning back to this Activity on pressing back button
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
+                                            } else if (Objects.requireNonNull(role).equals("Serviceman")) {
+                                                // Redirect to the serviceman activity
+                                                Intent intent = new Intent(Login.this, Servicemen.class);
+                                                //To prevent user from returning back to this Activity on pressing back button
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
+                                            } else {
+                                                // User does not have a specific role, assume they are a regular user
+                                                // Redirect to the user activity
+                                                Intent intent = new Intent(Login.this, Citizen.class);
+                                                //To prevent user from returning back to this Activity on pressing back button
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
+                                            }
                                         }
                                     }
                                 }

@@ -2,12 +2,13 @@ package com.example.citizencare;
 
 public class MainModel {
     String id,FirstName,MiddleName,LastName,Email,Gender,MobileNumber,Role;
+    Boolean Blocked;
 
     MainModel()
     {
 
     }
-    public MainModel(String id,String firstName, String middleName, String lastName, String email, String gender, String mobileNumber, String role) {
+    public MainModel(String id,String firstName, String middleName, String lastName, String email, String gender, String mobileNumber, String role,Boolean Blocked) {
         this.id=id;
         FirstName = firstName;
         MiddleName = middleName;
@@ -16,6 +17,15 @@ public class MainModel {
         Gender = gender;
         MobileNumber = mobileNumber;
         Role = role;
+        this.Blocked=false;
+    }
+
+    public Boolean getBlocked() {
+        return Blocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        Blocked = blocked;
     }
 
     public String getId() {

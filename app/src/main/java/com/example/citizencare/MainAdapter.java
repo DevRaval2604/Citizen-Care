@@ -1,5 +1,6 @@
 package com.example.citizencare;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 
@@ -26,8 +25,10 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         super(options);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull MainModel model) {
+        String userId=getRef(holder.getBindingAdapterPosition()).getKey();
         String userID=getSnapshots().getSnapshot(holder.getBindingAdapterPosition()).getKey();
         holder.uid.setText(userID);
         holder.fname.setText(model.getFirstName());
@@ -38,23 +39,41 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         holder.mno.setText(model.getMobileNumber());
         holder.role.setText(model.getRole());
 
-        //Delete Button
-        holder.btnDelete.setOnClickListener(view -> {
-            String userId=getRef(holder.getBindingAdapterPosition()).getKey();
-            FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-            if(user!=null&&user.getUid().equals(userId)){
-                Toast.makeText(holder.fname.getContext(), "Cannot delete the currently signed-in user", Toast.LENGTH_LONG).show();
-            }else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(holder.fname.getContext());
-                builder.setTitle("Are you sure?");
-                builder.setMessage("Deleted data can't be undo.");
-                builder.setPositiveButton("Delete", (dialogInterface, i) -> {
-                    FirebaseDatabase.getInstance().getReference().child("Users").child(Objects.requireNonNull(userId)).removeValue();
-                    Toast.makeText(holder.fname.getContext(), "User Deleted Successfully", Toast.LENGTH_LONG).show();
-                });
-                builder.setNegativeButton("Cancel", (dialogInterface, i) -> Toast.makeText(holder.fname.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
-                builder.show();
-            }
+
+        //Visibility of block button
+        if(model.getRole().equals("Admin")){
+            holder.btnBlock.setVisibility(View.GONE);
+            holder.btnUnblock.setVisibility(View.GONE);
+        }else if(model.getBlocked()){
+            holder.btnBlock.setVisibility(View.GONE);
+            holder.btnUnblock.setVisibility(View.VISIBLE);
+        }else {
+            holder.btnBlock.setVisibility(View.VISIBLE);
+            holder.btnUnblock.setVisibility(View.GONE);
+        }
+        holder.btnBlock.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(holder.fname.getContext());
+            builder.setTitle("Are you sure?");
+            builder.setMessage("You want to block this user?");
+            builder.setPositiveButton("Block", (dialogInterface, i) -> {
+                FirebaseDatabase.getInstance().getReference().child("Users").child(Objects.requireNonNull(userId)).child("Blocked").setValue(true);
+                model.setBlocked(true);
+                Toast.makeText(holder.fname.getContext(), "User Blocked Successfully", Toast.LENGTH_LONG).show();
+            });
+            builder.setNegativeButton("Cancel", (dialogInterface, i) -> Toast.makeText(holder.fname.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
+        });
+        holder.btnUnblock.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(holder.fname.getContext());
+            builder.setTitle("Are you sure?");
+            builder.setMessage("You want to unblock this user?");
+            builder.setPositiveButton("Unblock", (dialogInterface, i) -> {
+                FirebaseDatabase.getInstance().getReference().child("Users").child(Objects.requireNonNull(userId)).child("Blocked").setValue(false);
+                model.setBlocked(false);
+                Toast.makeText(holder.fname.getContext(), "User Unblocked Successfully", Toast.LENGTH_LONG).show();
+            });
+            builder.setNegativeButton("Cancel", (dialogInterface, i) -> Toast.makeText(holder.fname.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
         });
     }
     @NonNull
@@ -67,7 +86,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     static class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView fname,mname,lname,email,gender,mno,role,uid;
-        Button btnDelete;
+        Button btnBlock,btnUnblock;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,7 +98,8 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
             gender= itemView.findViewById(R.id.gender);
             mno= itemView.findViewById(R.id.mno);
             role= itemView.findViewById(R.id.role);
-            btnDelete= itemView.findViewById(R.id.button_user_delete);
+            btnBlock= itemView.findViewById(R.id.button_user_block);
+            btnUnblock=itemView.findViewById(R.id.button_user_unblock);
         }
     }
 }

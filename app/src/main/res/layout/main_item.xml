@@ -187,16 +187,31 @@
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_user_delete"
+            android:id="@+id/button_user_block"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
             android:layout_below="@id/role"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Block"
+            android:textColor="@color/text"
+            android:visibility="visible"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_user_unblock"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_user_block"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_90sdp"
             android:backgroundTint="@color/background"
-            android:text="@string/delete"
+            android:text="Unblock"
             android:textColor="@color/text"
-            android:textSize="@dimen/_15sdp"
-            tools:ignore="TextSizeCheck" />
+            android:visibility="gone"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

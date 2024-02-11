@@ -95,6 +95,7 @@
                 android:backgroundTint="@color/background"
                 android:hint="@string/select2"
                 android:inputType="none"
+                android:textColor="@color/text"
                 android:textColorHint="@color/text"
                 android:textSize="@dimen/_16sdp"
                 tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />

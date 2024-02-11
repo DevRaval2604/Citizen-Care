@@ -93,6 +93,7 @@ tools:context=".ManageServiceType">
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background"
             android:hint="@string/select"
+            android:textColor="@color/text"
             android:inputType="none"
             android:textColorHint="@color/text"
             android:textSize="@dimen/_16sdp"

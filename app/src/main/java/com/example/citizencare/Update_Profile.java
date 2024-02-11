@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.citizencare.databinding.ActivityAdminBinding;
 import com.example.citizencare.databinding.ActivityUpdateProfileBinding;
 
 public class Update_Profile extends DrawerBase {

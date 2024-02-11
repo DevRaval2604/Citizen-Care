@@ -2,6 +2,7 @@ package com.example.citizencare;
 
 import androidx.annotation.NonNull;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -128,12 +129,23 @@ public class ManageComplaintType extends DrawerBase {
         delete.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);
             if (key!=null){
-
-                myRef1.child((key)).removeValue();
-                autoCompleteTextView.setText("");
-                Toast.makeText(ManageComplaintType.this, "Complaint Type Deleted Successfully", Toast.LENGTH_SHORT).show();
-                key=null;
-                progressBar.setVisibility(View.GONE);
+                AlertDialog.Builder alertDialog=new AlertDialog.Builder(ManageComplaintType.this);
+                alertDialog.setTitle("Are you sure?");
+                alertDialog.setMessage("Deleted complaint type can't be undo.");
+                alertDialog.setPositiveButton("Delete",((dialogInterface, i) -> {
+                    myRef1.child((key)).removeValue();
+                    autoCompleteTextView.setText("");
+                    Toast.makeText(ManageComplaintType.this, "Complaint Type Deleted Successfully", Toast.LENGTH_SHORT).show();
+                    key=null;
+                    progressBar.setVisibility(View.GONE);
+                }));
+                alertDialog.setNegativeButton("Cancel",((dialogInterface, i) -> {
+                    autoCompleteTextView.setText("");
+                    Toast.makeText(ManageComplaintType.this, "Cancelled", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                }));
+                alertDialog.create();
+                alertDialog.show();
             }else {
                 Toast.makeText(ManageComplaintType.this, "Please Select An Item To Delete", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);

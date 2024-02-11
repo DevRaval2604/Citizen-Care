@@ -49,43 +49,39 @@
                     android:textColor="@color/text"
                     android:textSize="@dimen/_13sdp"
                     tools:ignore="TextSizeCheck" />
-
-
-
-
-                <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_98sdp"
-                    android:id="@+id/ic_search"
-                    android:layout_below="@id/textview_manage_user"
-                    android:background="@drawable/search"
-                    android:backgroundTint="@color/text"
-                    tools:ignore="ContentDescription" />
-                <EditText
-                    android:id="@+id/search"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="@dimen/_240sdp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_93sdp"
-                    android:layout_below="@id/textview_manage_user"
-                    android:background="@color/background"
-                    android:hint="Search"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_33sdp"
+                    android:layout_below="@id/button_admin"
+                    android:backgroundTint="@color/background"
                     android:textColorHint="@color/text"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:inputType="textPersonName"
-                    android:padding="@dimen/_5sdp"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_15sdp"
-                    tools:ignore="Autofill,HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
+                    app:boxStrokeColor="@color/text"
+                    app:endIconTint="@color/text"
+                    app:hintTextColor="@color/text">
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdown_manageusers"
+                            android:layout_width="@dimen/_240sdp"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/background"
+                            android:hint="Select Role"
+                            android:inputType="none"
+                            android:textColor="@color/text"
+                            android:textColorHint="@color/text"
+                            android:textSize="@dimen/_16sdp"
+                            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_200sdp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"/>
+                    android:id="@+id/recview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_210sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"/>
         </RelativeLayout>
 </ScrollView>
