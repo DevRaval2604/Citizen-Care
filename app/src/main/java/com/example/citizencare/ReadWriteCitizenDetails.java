@@ -4,7 +4,7 @@ package com.example.citizencare;
 
 public class ReadWriteCitizenDetails {
         public String FirstName,MiddleName,LastName,Email,Gender,MobileNumber,Role;
-        Boolean Blocked;
+        public Boolean Blocked;
 
         //Constructor
         public ReadWriteCitizenDetails(){}
