@@ -1,6 +1,6 @@
 package com.example.citizencare;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,17 +9,26 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
 
+import com.example.citizencare.databinding.ActivityContactUsBinding;
+
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Contact_Us extends AppCompatActivity {
+public class Contact_Us extends NavigationDrawer2 {
+
+    ActivityContactUsBinding activityContactUsBinding;
     RecyclerView recyclerView;
     MainAdapter1 mainAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_us);
+        activityContactUsBinding = ActivityContactUsBinding.inflate(getLayoutInflater());
+        setContentView(activityContactUsBinding.getRoot());
+        allocateActivityTitle("Contact Us");
+
+
+
 
         TextView textView1=findViewById(R.id.contact_us);
         //Underline contact us

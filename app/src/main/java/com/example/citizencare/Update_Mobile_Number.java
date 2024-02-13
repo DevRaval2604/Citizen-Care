@@ -110,12 +110,12 @@ public class Update_Mobile_Number extends AppCompatActivity {
             referenceProfile.child(userID).child("MobileNumber").setValue(textMobile).addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
 
-                    Toast.makeText(Update_Mobile_Number.this, "Update Successful!", Toast.LENGTH_LONG).show();
-
-                    Intent intent = new Intent(Update_Mobile_Number.this, Admin.class);
+                    Toast.makeText(Update_Mobile_Number.this, "Update Successful! Please Login again", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Update_Mobile_Number.this, Login.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
+
                 } else {
                     try{
                         throw Objects.requireNonNull(task.getException());

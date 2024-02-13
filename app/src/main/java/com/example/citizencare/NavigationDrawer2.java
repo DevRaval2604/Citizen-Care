@@ -1,30 +1,33 @@
 package com.example.citizencare;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.FrameLayout;
 
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class DrawerBase extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+
+public class NavigationDrawer2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
 
     @SuppressLint("InflateParams")
     @Override
     public void setContentView(View view) {
-        drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);
+        drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_navigation_drawer2,null);
         FrameLayout container = drawerLayout.findViewById(R.id.activityContainer);
         container.addView(view);
         super.setContentView(drawerLayout);
@@ -43,31 +46,26 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
         if (item.getItemId()==R.id.nav_home){
-            startActivity(new Intent(this, Admin.class));
+            startActivity(new Intent(this, Citizen.class));
             overridePendingTransition(0,0);
-        } else if (item.getItemId()==R.id.nav_complaint_type) {
-            startActivity(new Intent(this, ManageComplaintType.class));
+        } else if (item.getItemId()==R.id.nav_profile) {
+            startActivity(new Intent(this, Profile_Citizen.class));
             overridePendingTransition(0,0);
-        } else if (item.getItemId()==R.id.nav_service_type) {
-            startActivity(new Intent(this, ManageServiceType.class));
-            overridePendingTransition(0,0);
-        } else if (item.getItemId()==R.id.nav_Services) {
+        } else if (item.getItemId()==R.id.nav_status) {
 
-        }  else if (item.getItemId()==R.id.nav_Complaints) {
-
-        } else if (item.getItemId()==R.id.nav_manage_users) {
-            startActivity(new Intent(this, ManageUsers.class));
-            overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_feedback) {
 
-        } else if (item.getItemId()==R.id.nav_reports) {
-
-        }
-        else if (item.getItemId()==R.id.nav_change_password) {
-            startActivity(new Intent(this, Change_Password.class));
+        } else if (item.getItemId()==R.id.nav_about_us) {
+            startActivity(new Intent(this, About_Us.class));
+            overridePendingTransition(0,0);
+        } else if (item.getItemId()==R.id.nav_contact_us) {
+            startActivity(new Intent(this, Contact_Us.class));
+            overridePendingTransition(0,0);
+        } else if (item.getItemId()==R.id.nav_change_password) {
+            startActivity(new Intent(this, Change_Password_For_Citizen.class));
             overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_update_profile) {
-            Intent intent=new Intent(this, Update_Profile.class);
+            Intent intent=new Intent(this, Update_Profile_for_Citizen.class);
             startActivity(intent);
             finish();
             overridePendingTransition(0,0);
@@ -86,4 +84,5 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
             getSupportActionBar().setTitle(titleString);
         }
     }
+
 }
