@@ -18,11 +18,13 @@
         <item
             android:id="@+id/nav_Services"
             android:icon="@drawable/ic_connect"
-            android:title="@string/services1" />
+            android:title="Manage Services"
+            tools:ignore="HardcodedText" />
         <item
             android:id="@+id/nav_Complaints"
             android:icon="@drawable/ic_connect"
-            android:title="@string/complaints1" />
+            android:title="Manage Complaints"
+            tools:ignore="HardcodedText" />
 
         <item
             android:id="@+id/nav_manage_users"
