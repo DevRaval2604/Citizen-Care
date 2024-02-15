@@ -32,8 +32,8 @@ public class Service_Desc extends AppCompatActivity {
         TextViewDate = findViewById(R.id.Textview_date);
 
         //Retrieving selected service type in textview
-        String selectedType1=getIntent().getStringExtra("ServiceType");
-        TextViewServiceType.setText(selectedType1);
+        String selectedType=getIntent().getStringExtra("ServiceType");
+        TextViewServiceType.setText(selectedType);
 
         //Retrieving current date in textview
         TextViewDate=findViewById(R.id.Textview_date);
