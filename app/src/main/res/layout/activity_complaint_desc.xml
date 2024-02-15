@@ -186,14 +186,14 @@
             android:id="@+id/ic_complaint_desc"
             android:background="@drawable/baseline_create"
             android:layout_marginTop="@dimen/_41sdp"
-            android:layout_below="@id/address1"
+            android:layout_below="@id/address"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textview_complaint_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/address1"
+            android:layout_below="@id/address"
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_25sdp"
             android:padding="@dimen/_5sdp"
