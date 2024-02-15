@@ -49,7 +49,9 @@ public class Citizen extends NavigationDrawer2 {
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(Citizen.this,R.layout.list_item,suggestions);
                 autoCompleteTextView.setAdapter(adapter);
                 autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> {
-                    Intent iNext=new Intent(Citizen.this, Complaint_Desc.class);
+                    String selectedType=(String)adapterView.getItemAtPosition(i);
+                    Intent iNext=new Intent(Citizen.this, Service_Desc.class);
+                    iNext.putExtra("ServiceType",selectedType);
                     startActivity(iNext);
                     Toast.makeText(getApplicationContext(),"Item: "+suggestions.get(i),Toast.LENGTH_SHORT).show();
                     autoCompleteTextView.setText("");
@@ -72,7 +74,9 @@ public class Citizen extends NavigationDrawer2 {
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(Citizen.this,R.layout.list_item,suggestions);
                 autoCompleteTextView1.setAdapter(adapter);
                 autoCompleteTextView1.setOnItemClickListener((adapterView, view, i, l) -> {
+                    String selectedType1=(String)adapterView.getItemAtPosition(i);
                     Intent iNext=new Intent(Citizen.this, Complaint_Desc.class);
+                    iNext.putExtra("ComplaintType",selectedType1);
                     startActivity(iNext);
                     Toast.makeText(getApplicationContext(),"Item: "+suggestions.get(i),Toast.LENGTH_SHORT).show();
                     autoCompleteTextView1.setText("");

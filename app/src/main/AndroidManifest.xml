@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CitizenCare"
         tools:targetApi="31">
         <activity
+            android:name=".Service_Desc"
+            android:exported="false" />
+        <activity
             android:name=".Profile_Citizen"
             android:exported="false" />
         <activity
