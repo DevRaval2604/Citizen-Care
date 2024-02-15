@@ -1,9 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".Service_Desc">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_margin="@dimen/_19sdp">
+
+
+        <TextView
+            android:id="@+id/textview_service_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:text="Service Request Form"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_20sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_service_type"
+            android:background="@drawable/ic_complaint"
+            android:layout_marginTop="@dimen/_41sdp"
+            android:layout_below="@id/textview_service_head"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_servicetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_service_head"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="Service Type*"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/Textview_servicetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_servicetype"
+            android:background="@drawable/border"
+            android:hint="Enter service type"
+            android:textColor="@color/background"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_calendar"
+            android:background="@drawable/baseline_calendar"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_below="@id/Textview_servicetype"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Textview_servicetype"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="Date*"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/Textview_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_date"
+            android:background="@drawable/border"
+            android:hint="Enter today's date"
+            android:textColor="@color/background"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_location"
+            android:background="@drawable/ic_location"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_below="@id/Textview_date"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/textview_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Textview_date"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="Address*"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/Textview_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_below="@id/textview_address"
+            android:background="@drawable/border"
+            android:hint="Enter the address"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="Autofill,HardcodedText,TextSizeCheck" />
+
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_service_desc"
+            android:background="@drawable/baseline_create"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_below="@id/Textview_address"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_service_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Textview_address"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="Description*"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/edittext_service_desc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_below="@id/textview_service_desc"
+            android:background="@drawable/border"
+            android:inputType="textMultiLine"
+            android:hint="Enter description"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edittext_service_desc"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:backgroundTint="@color/background"
+            android:text="Submit"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</ScrollView>
