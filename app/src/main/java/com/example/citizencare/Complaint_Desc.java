@@ -1,13 +1,17 @@
 package com.example.citizencare;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
@@ -79,7 +83,23 @@ public class Complaint_Desc extends AppCompatActivity {
             GetLocation.setVisibility(View.GONE);
             Submit.setVisibility(View.VISIBLE);
             getCurrentLocation();
+            turnOnGPS();
         });
+    }
+
+    private void turnOnGPS() {
+        LocationManager locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+            builder.setTitle("Turn On GPS");
+            builder.setMessage("GPS is required to get your location. Do you want to enable it?");
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                Intent intent=new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+            });
+            builder.setNegativeButton("No", (dialogInterface, i) -> Toast.makeText(Complaint_Desc.this, "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
+        }
     }
 
     private void getCurrentLocation() {
