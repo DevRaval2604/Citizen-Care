@@ -74,16 +74,22 @@ public class Complaint_Desc extends AppCompatActivity {
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
 
         GetLocation.setOnClickListener(view -> {
-            TextLatitude.setVisibility(View.VISIBLE);
-            Latitude.setVisibility(View.VISIBLE);
-            TextLongitude.setVisibility(View.VISIBLE);
-            Longitude.setVisibility(View.VISIBLE);
-            TextAddress.setVisibility(View.VISIBLE);
-            Address.setVisibility(View.VISIBLE);
-            GetLocation.setVisibility(View.GONE);
-            Submit.setVisibility(View.VISIBLE);
-            getCurrentLocation();
-            turnOnGPS();
+            LocationManager locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+            if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                GetLocation.setVisibility(View.VISIBLE);
+                Toast.makeText(Complaint_Desc.this, "Please enable location", Toast.LENGTH_LONG).show();
+                turnOnGPS();
+            }else {
+                TextLatitude.setVisibility(View.VISIBLE);
+                Latitude.setVisibility(View.VISIBLE);
+                TextLongitude.setVisibility(View.VISIBLE);
+                Longitude.setVisibility(View.VISIBLE);
+                TextAddress.setVisibility(View.VISIBLE);
+                Address.setVisibility(View.VISIBLE);
+                GetLocation.setVisibility(View.GONE);
+                Submit.setVisibility(View.VISIBLE);
+                getCurrentLocation();
+            }
         });
     }
 
@@ -103,6 +109,7 @@ public class Complaint_Desc extends AppCompatActivity {
     }
 
     private void getCurrentLocation() {
+        turnOnGPS();
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
             fusedLocationProviderClient.getLastLocation().addOnSuccessListener(location -> {
                 if (location!=null){
