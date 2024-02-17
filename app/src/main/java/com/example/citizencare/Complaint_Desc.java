@@ -41,10 +41,10 @@ public class Complaint_Desc extends AppCompatActivity {
     private Boolean result;
     private ProgressBar progressBar;
     private TextView TextViewComplaintType,TextViewDate,TextLatitude,TextLongitude,TextAddress,Latitude,Longitude,Address;
-    private Button GetLocation,Submit,TakeImage;
+    private Button GetLocation,Submit,ClickImage;
     private final static int CAMERA_PERMISSION_CODE=1;
     private final static int REQUEST_CODE=100;
-    public ImageView Complaint;
+    public ImageView ComplaintImg;
     FusedLocationProviderClient fusedLocationProviderClient;
     ActivityResultLauncher<Uri> takePictureLauncher;
     Uri imageUri;
@@ -52,12 +52,14 @@ public class Complaint_Desc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_desc);
-        TakeImage=findViewById(R.id.button_clickImage);
-        Complaint=findViewById(R.id.complaint_img);
+        ClickImage=findViewById(R.id.button_clickImage);
+        ComplaintImg=findViewById(R.id.complaint_img);
         imageUri=createUri();
         registerPictureLauncher();
 
-        TakeImage.setOnClickListener(view -> checkCameraPermissionAndOpenCamera());
+        ClickImage.setOnClickListener(view -> {
+            ComplaintImg.setImageDrawable(null);
+            checkCameraPermissionAndOpenCamera();});
 
         TextView textView1=findViewById(R.id.textview_complaint_head);
         String complaint="Complaint Form";
@@ -186,9 +188,9 @@ public class Complaint_Desc extends AppCompatActivity {
                 new ActivityResultContracts.TakePicture(), o -> {
                     try {
                         if(result){
-                            Complaint.setImageURI(null);
+                            ComplaintImg.setImageURI(null);
                         }else{
-                            Complaint.setImageURI(imageUri);
+                            ComplaintImg.setImageURI(imageUri);
                         }
                     } catch (Exception e) {
                         e.getStackTrace();
