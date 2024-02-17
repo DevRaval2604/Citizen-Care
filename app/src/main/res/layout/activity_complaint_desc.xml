@@ -52,10 +52,10 @@
             android:layout_below="@id/textview_complainttype"
             android:background="@drawable/border"
             android:hint="Enter complaint type"
-            android:textColor="@color/background"
             android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
-            tools:ignore="HardcodedText,TextSizeCheck" />
+            tools:ignore="HardcodedText,TextSizeCheck,TextContrastCheck" />
 
         <ImageView
             android:layout_width="@dimen/_20sdp"
@@ -86,17 +86,16 @@
             android:layout_below="@id/textview_date"
             android:background="@drawable/border"
             android:hint="Enter today's date"
-            android:textColor="@color/background"
             android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
-            tools:ignore="HardcodedText,TextSizeCheck" />
+            tools:ignore="HardcodedText,TextSizeCheck,TextContrastCheck" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/complaint_img"
             android:layout_below="@id/Textview_date"
-            android:src="@drawable/logo"
             android:layout_marginTop="@dimen/_30sdp"
             android:maxWidth="@dimen/_300sdp"
             android:adjustViewBounds="true"
@@ -215,12 +214,26 @@
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_getlocation"
+            android:id="@+id/button_clickImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edittext_complaint_desc"
             android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:backgroundTint="@color/background"
+            android:text="Click Image"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_getlocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_clickImage"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_26sdp"
             android:layout_marginRight="@dimen/_50sdp"
             android:backgroundTint="@color/background"
             android:text="Get Location"

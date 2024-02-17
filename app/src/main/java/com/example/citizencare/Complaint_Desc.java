@@ -1,26 +1,34 @@
 package com.example.citizencare;
-
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,16 +38,27 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Complaint_Desc extends AppCompatActivity {
+    private Boolean result;
     private ProgressBar progressBar;
     private TextView TextViewComplaintType,TextViewDate,TextLatitude,TextLongitude,TextAddress,Latitude,Longitude,Address;
-    Button GetLocation,Submit;
+    private Button GetLocation,Submit,TakeImage;
+    private final static int CAMERA_PERMISSION_CODE=1;
     private final static int REQUEST_CODE=100;
+    public ImageView Complaint;
     FusedLocationProviderClient fusedLocationProviderClient;
-//update
+    ActivityResultLauncher<Uri> takePictureLauncher;
+    Uri imageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_desc);
+        TakeImage=findViewById(R.id.button_clickImage);
+        Complaint=findViewById(R.id.complaint_img);
+        imageUri=createUri();
+        registerPictureLauncher();
+
+        TakeImage.setOnClickListener(view -> checkCameraPermissionAndOpenCamera());
+
         TextView textView1=findViewById(R.id.textview_complaint_head);
         String complaint="Complaint Form";
         SpannableString content1=new SpannableString(complaint);
@@ -80,6 +99,7 @@ public class Complaint_Desc extends AppCompatActivity {
                 Toast.makeText(Complaint_Desc.this, "Please enable location", Toast.LENGTH_LONG).show();
                 turnOnGPS();
             }else {
+                getCurrentLocation();
                 TextLatitude.setVisibility(View.VISIBLE);
                 Latitude.setVisibility(View.VISIBLE);
                 TextLongitude.setVisibility(View.VISIBLE);
@@ -88,7 +108,6 @@ public class Complaint_Desc extends AppCompatActivity {
                 Address.setVisibility(View.VISIBLE);
                 GetLocation.setVisibility(View.GONE);
                 Submit.setVisibility(View.VISIBLE);
-                getCurrentLocation();
             }
         });
     }
@@ -142,9 +161,48 @@ public class Complaint_Desc extends AppCompatActivity {
                 getCurrentLocation();
             }
             else {
-                Toast.makeText(Complaint_Desc.this, "Required Permission", Toast.LENGTH_LONG).show();
+                Toast.makeText(Complaint_Desc.this, "GPS permission denied,please allow permission to access location", Toast.LENGTH_LONG).show();
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==CAMERA_PERMISSION_CODE){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                takePictureLauncher.launch(imageUri);
+            }else{
+                Toast.makeText(Complaint_Desc.this, "Camera permission denied,please allow permission to take picture", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    private Uri createUri(){
+        File imageFile=new File(getApplicationContext().getFilesDir(),"camera_photo.jpg");
+        return FileProvider.getUriForFile(
+                getApplicationContext(),"com.example.citizencare.fileProvider",
+                imageFile
+        );
+    }
+    private void registerPictureLauncher(){
+        result=false;
+        takePictureLauncher=registerForActivityResult(
+                new ActivityResultContracts.TakePicture(), o -> {
+                    try {
+                        if(result){
+                            Complaint.setImageURI(null);
+                        }else{
+                            Complaint.setImageURI(imageUri);
+                        }
+                    } catch (Exception e) {
+                        e.getStackTrace();
+                    }
+                }
+        );
+    }
+    private void checkCameraPermissionAndOpenCamera(){
+        if(ActivityCompat.checkSelfPermission(Complaint_Desc.this,
+                Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(Complaint_Desc.this,new String[]
+                    {Manifest.permission.CAMERA},CAMERA_PERMISSION_CODE);
+        }else {
+            takePictureLauncher.launch(imageUri);
+        }
     }
 }
