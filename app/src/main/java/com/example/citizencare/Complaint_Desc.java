@@ -57,9 +57,7 @@ public class Complaint_Desc extends AppCompatActivity {
         imageUri=createUri();
         registerPictureLauncher();
 
-        ClickImage.setOnClickListener(view -> {
-            checkCameraPermissionAndOpenCamera();
-            ComplaintImg.setImageResource(0);});
+        ClickImage.setOnClickListener(view -> checkCameraPermissionAndOpenCamera());
 
         TextView textView1=findViewById(R.id.textview_complaint_head);
         String complaint="Complaint Form";
@@ -204,6 +202,7 @@ public class Complaint_Desc extends AppCompatActivity {
             ActivityCompat.requestPermissions(Complaint_Desc.this,new String[]
                     {Manifest.permission.CAMERA},CAMERA_PERMISSION_CODE);
         }else {
+            ComplaintImg.setImageDrawable(null);
             takePictureLauncher.launch(imageUri);
         }
     }
