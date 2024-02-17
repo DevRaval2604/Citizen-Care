@@ -58,8 +58,8 @@ public class Complaint_Desc extends AppCompatActivity {
         registerPictureLauncher();
 
         ClickImage.setOnClickListener(view -> {
-            ComplaintImg.setImageDrawable(null);
-            checkCameraPermissionAndOpenCamera();});
+            checkCameraPermissionAndOpenCamera();
+            ComplaintImg.setImageResource(0);});
 
         TextView textView1=findViewById(R.id.textview_complaint_head);
         String complaint="Complaint Form";
