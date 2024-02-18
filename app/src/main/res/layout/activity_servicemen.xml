@@ -5,34 +5,156 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Admin">
+    tools:context=".Servicemen">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_15sdp"
         android:background="@color/background"
         android:padding="@dimen/_15sdp">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_login_head"
+            android:id="@+id/textview_servicemen_head"
             android:layout_marginTop="@dimen/_30sdp"
-            android:text="Servicemen Activity"
+            android:text="@string/welcome"
             android:textAlignment="center"
             android:textColor="@color/text"
-            android:textSize="@dimen/_29sdp"/>
+            android:textSize="@dimen/_40sdp"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logout1"
+        <!-- name -->
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_name"
+            android:background="@drawable/ic_name"
+            android:layout_marginTop="@dimen/_53sdp"
+            android:layout_below="@id/textview_servicemen_head"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_show_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_servicemen_head"
+            android:layout_alignStart="@id/ic_name"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@drawable/border"
+            android:hint="@string/admin_page_name"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_full_name"
+            android:background="@color/text"
+            android:id="@+id/divider_name"/>
+
+        <!-- email-->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_email"
+            android:background="@drawable/ic_email"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_full_name"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_show_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_name"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:hint="@string/admin_page_email"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_email"
+            android:background="@color/text"
+            android:id="@+id/divider_email"/>
+
+        <!-- gender -->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_gender"
+            android:background="@drawable/ic_gender"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_email"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/textview_show_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_email"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:hint="@string/admin_page_gender"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/textview_show_gender"
+            android:background="@color/text"
+            android:id="@+id/divider_gender"/>
+
+        <!-- mobile number -->
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/ic_mobile"
+            android:background="@drawable/ic_mobile"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textview_show_gender"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_show_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_gender"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:hint="@string/admin_page_mobile_no"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/background"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="TextSizeCheck" />
+
+
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_85sdp"
-            android:layout_marginTop="@dimen/_250sdp"
-            android:backgroundTint="@color/background"
-            android:minWidth="@dimen/_32sdp"
-            android:text="@string/logout"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_18sdp"
-            tools:ignore="TextSizeCheck" />
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="@dimen/_9sdp"
+            android:visibility="gone"/>
+
     </RelativeLayout>
 </ScrollView>

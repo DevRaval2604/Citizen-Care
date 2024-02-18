@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.citizencare.databinding.ActivityChangePasswordForCitizenBinding;
+import com.example.citizencare.databinding.ActivityChangePasswordForServicemenBinding;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,9 +23,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
-public class Change_Password_For_Citizen extends NavigationDrawer2 {
+public class Change_Password_For_Servicemen extends NavigationDrawer3 {
 
-    ActivityChangePasswordForCitizenBinding activityChangePasswordForCitizenBinding;
+    ActivityChangePasswordForServicemenBinding activityChangePasswordForServicemenBinding;
 
     private String userPwdCurr;
     private Button buttonReAuthenticate,buttonChangedPwd;
@@ -37,8 +37,8 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityChangePasswordForCitizenBinding = ActivityChangePasswordForCitizenBinding.inflate(getLayoutInflater());
-        setContentView(activityChangePasswordForCitizenBinding.getRoot());
+        activityChangePasswordForServicemenBinding = ActivityChangePasswordForServicemenBinding.inflate(getLayoutInflater());
+        setContentView(activityChangePasswordForServicemenBinding.getRoot());
         allocateActivityTitle("Change Password");
 
         editTextPwdNew = findViewById(R.id.editText_change_pwd_new);
@@ -58,8 +58,8 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
         FirebaseUser firebaseUser= authProfile.getCurrentUser();
 
         if(firebaseUser==null){
-            Toast.makeText(Change_Password_For_Citizen.this, "Something went wrong! User details not available", Toast.LENGTH_LONG).show();
-            Intent intent=new Intent(Change_Password_For_Citizen.this, Citizen.class);
+            Toast.makeText(Change_Password_For_Servicemen.this, "Something went wrong! User details not available", Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(Change_Password_For_Servicemen.this, Servicemen.class);
             startActivity(intent);
             finish();
         }else {
@@ -121,7 +121,7 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
         buttonReAuthenticate.setOnClickListener(view -> {
             userPwdCurr=editTextPwdCurr.getText().toString();
             if (TextUtils.isEmpty(userPwdCurr)) {
-                Toast.makeText(Change_Password_For_Citizen.this, "Password is required", Toast.LENGTH_LONG).show();
+                Toast.makeText(Change_Password_For_Servicemen.this, "Password is required", Toast.LENGTH_LONG).show();
                 editTextPwdCurr.setError("Please enter your current password to authenticate");
                 editTextPwdCurr.requestFocus();
             } else{
@@ -145,7 +145,7 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
 
                         //Set TextView to show User is authenticated
                         textViewAuthenticated.setText("You are authenticated."+"You can change password now!");
-                        Toast.makeText(Change_Password_For_Citizen.this, "Password has been verified."+"Change password now", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Change_Password_For_Servicemen.this, "Password has been verified."+"Change password now", Toast.LENGTH_LONG).show();
 
                         //Change password button
                         buttonChangedPwd.setOnClickListener(new View.OnClickListener() {
@@ -158,35 +158,35 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
                                 String userPwdNew=editTextPwdNew.getText().toString();
                                 String userPwdConfirmNew=editTextPwdConfirmNew.getText().toString();
                                 if(TextUtils.isEmpty(userPwdNew)){
-                                    Toast.makeText(Change_Password_For_Citizen.this, "New password is required", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Servicemen.this, "New password is required", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Please enter your new password");
                                     editTextPwdNew.requestFocus();
                                 }else if(TextUtils.isEmpty(userPwdConfirmNew)){
-                                    Toast.makeText(Change_Password_For_Citizen.this, "Please confirm your new password", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Servicemen.this, "Please confirm your new password", Toast.LENGTH_LONG).show();
                                     editTextPwdConfirmNew.setError("Please re-enter your new password");
                                     editTextPwdConfirmNew.requestFocus();
                                 }else if(userPwdNew.length() < 6) {
-                                    Toast.makeText(Change_Password_For_Citizen.this, "Password should be at least 6 digits", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Servicemen.this, "Password should be at least 6 digits", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if(!userPwdNew.matches(userPwdConfirmNew)) {
-                                    Toast.makeText(Change_Password_For_Citizen.this, "Password did not match", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Servicemen.this, "Password did not match", Toast.LENGTH_LONG).show();
                                     editTextPwdConfirmNew.setError("Please re-enter same password");
                                     editTextPwdConfirmNew.requestFocus();
                                 }else if(userPwdCurr.matches(userPwdNew)) {
-                                    Toast.makeText(Change_Password_For_Citizen.this, "New password cannot be same as old password", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Servicemen.this, "New password cannot be same as old password", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Please enter a new password");
                                     editTextPwdNew.requestFocus();
                                 }else {
                                     progressBar.setVisibility(View.VISIBLE);
                                     firebaseUser1.updatePassword(userPwdNew).addOnCompleteListener(task1 -> {
                                         if(task1.isSuccessful()){
-                                            Toast.makeText(Change_Password_For_Citizen.this, "Password has been changed", Toast.LENGTH_LONG).show();
-                                            Intent intent=new Intent(Change_Password_For_Citizen.this, Citizen.class);
+                                            Toast.makeText(Change_Password_For_Servicemen.this, "Password has been changed", Toast.LENGTH_LONG).show();
+                                            Intent intent=new Intent(Change_Password_For_Servicemen.this, Servicemen.class);
                                             startActivity(intent);
                                             finish();
                                         }else {
-                                            Toast.makeText(Change_Password_For_Citizen.this, "Error!", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(Change_Password_For_Servicemen.this, "Error!", Toast.LENGTH_LONG).show();
                                         }
                                         progressBar.setVisibility(View.GONE);
                                     });
@@ -195,7 +195,7 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
                         });
                     }else {
                         textViewAuthenticated.setText("You entered the wrong password!");
-                        Toast.makeText(Change_Password_For_Citizen.this, "Incorrect Password!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Change_Password_For_Servicemen.this, "Incorrect Password!", Toast.LENGTH_LONG).show();
                     }
                     progressBar.setVisibility(View.GONE);
                 });

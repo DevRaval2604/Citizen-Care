@@ -31,6 +31,10 @@
             android:name=".NavigationDrawer2"
             android:exported="false" />
         <activity
+            android:name=".NavigationDrawer3"
+            android:exported="false" />
+
+        <activity
             android:name=".Complaint_Desc"
             android:exported="false" />
         <activity
@@ -46,6 +50,9 @@
             android:name=".Update_Profile_for_Citizen"
             android:exported="false" />
         <activity
+            android:name=".Update_Profile_for_Servicemen"
+            android:exported="false" />
+        <activity
             android:name=".ManageUsers"
             android:exported="false" />
         <activity
@@ -56,6 +63,9 @@
             android:exported="false" />
         <activity
             android:name=".Change_Password_For_Citizen"
+            android:exported="false" />
+        <activity
+            android:name=".Change_Password_For_Servicemen"
             android:exported="false" />
         <activity
             android:name=".Admin_Register"
