@@ -20,6 +20,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,21 +28,38 @@ import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Complaint_Desc extends AppCompatActivity {
+    StorageReference storageReference;
     private Boolean result;
     private ProgressBar progressBar;
-    private TextView TextViewComplaintType,TextViewDate,TextLatitude,TextLongitude,TextAddress,Latitude,Longitude,Address;
-    private Button GetLocation,Submit,ClickImage;
+    private TextView TextViewDate;
+    private TextView TextLatitude;
+    private TextView TextLongitude;
+    private TextView TextAddress;
+    private TextView Latitude;
+    private TextView Longitude;
+    private TextView Address;
+    private EditText Description;
+    private Button GetLocation;
+    private Button Submit;
     private final static int CAMERA_PERMISSION_CODE=1;
     private final static int REQUEST_CODE=100;
     public ImageView ComplaintImg;
@@ -52,12 +70,13 @@ public class Complaint_Desc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_desc);
-        ClickImage=findViewById(R.id.button_clickImage);
+        Button clickImage = findViewById(R.id.button_clickImage);
         ComplaintImg=findViewById(R.id.complaint_img);
         imageUri=createUri();
         registerPictureLauncher();
 
-        ClickImage.setOnClickListener(view -> checkCameraPermissionAndOpenCamera());
+        clickImage.setOnClickListener(view -> {checkCameraPermissionAndOpenCamera();
+        Submit.setVisibility(View.VISIBLE);});
 
         TextView textView1=findViewById(R.id.textview_complaint_head);
         String complaint="Complaint Form";
@@ -65,12 +84,15 @@ public class Complaint_Desc extends AppCompatActivity {
         content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
         textView1.setText(content1);
         progressBar = findViewById(R.id.progressBar);
-        TextViewComplaintType = findViewById(R.id.Textview_complainttype);
-        TextViewDate = findViewById(R.id.Textview_date);
 
-        //Retrieving selected complainttype in textview
+        TextView textViewComplaintType = findViewById(R.id.Textview_complainttype);
+        TextViewDate = findViewById(R.id.Textview_date);
+        Description=findViewById(R.id.edittext_complaint_desc);
+
+        //Retrieving selected complainttype in textview also key but displaying only value
         String selectedType1=getIntent().getStringExtra("ComplaintType");
-        TextViewComplaintType.setText(selectedType1);
+        String selectedTypeKey1=getIntent().getStringExtra("ComplaintType1");
+        textViewComplaintType.setText(selectedType1);
 
         //Retrieving current date in textview
         TextViewDate=findViewById(R.id.Textview_date);
@@ -107,7 +129,51 @@ public class Complaint_Desc extends AppCompatActivity {
                 TextAddress.setVisibility(View.VISIBLE);
                 Address.setVisibility(View.VISIBLE);
                 GetLocation.setVisibility(View.GONE);
-                Submit.setVisibility(View.VISIBLE);
+                clickImage.setVisibility(View.VISIBLE);
+            }
+        });
+        FirebaseDatabase mData=FirebaseDatabase.getInstance();
+        DatabaseReference mRef=mData.getReference("Complaints").push();
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        String userID= Objects.requireNonNull(currentUser).getUid();
+        Submit.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
+            String complaintTypeId= Objects.requireNonNull(selectedTypeKey1);
+            String data2=TextViewDate.getText().toString();
+            String data3=Latitude.getText().toString();
+            String data4=Longitude.getText().toString();
+            String data5=Address.getText().toString();
+            String data6=Description.getText().toString();
+            if(!data6.isEmpty()){
+            storageReference= FirebaseStorage.getInstance().getReference();
+            StorageReference reference=storageReference.child("Images/"+ UUID.randomUUID().toString());
+            reference.putFile(imageUri).addOnSuccessListener(taskSnapshot -> reference.getDownloadUrl().addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    Uri downloadUri=task.getResult();
+                    Map<String,Object> map=new HashMap<>();
+                    map.put("ComplaintTypeID",complaintTypeId);
+                    map.put("Date",data2);
+                    map.put("Latitude",data3);
+                    map.put("Longitude",data4);
+                    map.put("Address",data5);
+                    map.put("UserID",userID);
+                    map.put("Description",data6);
+                    map.put("StatusID",1);
+                    map.put("Image",downloadUri.toString());
+                    mRef.setValue(map);
+                    Toast.makeText(Complaint_Desc.this, "Complaint submitted successfully", Toast.LENGTH_SHORT).show();
+                    Intent iNext;
+                    iNext=new Intent(Complaint_Desc.this, Citizen.class);
+                    startActivity(iNext);
+                    progressBar.setVisibility(View.GONE);
+                    }else{
+                    Toast.makeText(Complaint_Desc.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+                })).addOnFailureListener(e -> Toast.makeText(Complaint_Desc.this, "Failed to upload image", Toast.LENGTH_SHORT).show());
+            } else {
+                Toast.makeText(Complaint_Desc.this, "Please fill in all the details", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

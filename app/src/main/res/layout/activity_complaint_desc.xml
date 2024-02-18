@@ -224,6 +224,7 @@
             android:backgroundTint="@color/background"
             android:text="Click Image"
             android:textColor="@color/text"
+            android:visibility="gone"
             android:textSize="@dimen/_15sdp"
             tools:ignore="HardcodedText,TextSizeCheck" />
 
