@@ -27,7 +27,7 @@ import java.util.Objects;
 public class Service_Desc extends AppCompatActivity {
 
     private ProgressBar progressBar;
-    private TextView TextViewDate;
+    private TextView TextViewServiceType,TextViewDate;
     private EditText Address,Description;
 
     @Override
@@ -40,16 +40,15 @@ public class Service_Desc extends AppCompatActivity {
         content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
         textView1.setText(content1);
         progressBar = findViewById(R.id.progressBar);
-        TextView textViewServiceType = findViewById(R.id.Textview_servicetype);
+        TextViewServiceType = findViewById(R.id.Textview_servicetype);
         TextViewDate = findViewById(R.id.Textview_date);
         Address=findViewById(R.id.Edittext_address);
         Description=findViewById(R.id.edittext_service_desc);
         Button submit = findViewById(R.id.button_submit);
 
-        //Retrieving selected service type in textview also key but displaying only value
+        //Retrieving selected service type in textview
         String selectedType=getIntent().getStringExtra("ServiceType");
-        String selectedTypeKey1=getIntent().getStringExtra("ServiceType1");
-        textViewServiceType.setText(selectedType);
+        TextViewServiceType.setText(selectedType);
 
         //Retrieving current date in textview
         TextViewDate=findViewById(R.id.Textview_date);
@@ -65,18 +64,19 @@ public class Service_Desc extends AppCompatActivity {
         String userID= Objects.requireNonNull(currentUser).getUid();
         submit.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);
-            String serviceTypeId= Objects.requireNonNull(selectedTypeKey1);
-            String data1=TextViewDate.getText().toString();
-            String data2=Address.getText().toString();
-            String data3=Description.getText().toString();
-            if(!data2.isEmpty()&&!data3.isEmpty()){
+            String data1=TextViewServiceType.getText().toString();
+            String data2=TextViewDate.getText().toString();
+            String data3=Address.getText().toString();
+            String data4=Description.getText().toString();
+            if(!data3.isEmpty()&&!data4.isEmpty()){
                 Map<String,Object> map=new HashMap<>();
-                map.put("ServiceTypeID",serviceTypeId);
-                map.put("Date",data1);
-                map.put("Address",data2);
+                map.put("ServiceType",data1);
+                map.put("Date",data2);
+                map.put("Address",data3);
                 map.put("UserID",userID);
-                map.put("Description",data3);
-                map.put("StatusID",1);
+                map.put("Description",data4);
+                map.put("Status","Pending");
+                map.put("ServiceManID","None");
                 mRef.setValue(map);
                 Toast.makeText(Service_Desc.this, "Service requested successfully", Toast.LENGTH_SHORT).show();
                 Intent iNext;

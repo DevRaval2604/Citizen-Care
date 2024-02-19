@@ -50,6 +50,7 @@ public class Complaint_Desc extends AppCompatActivity {
     StorageReference storageReference;
     private Boolean result;
     private ProgressBar progressBar;
+    private TextView TextViewComplaintType;
     private TextView TextViewDate;
     private TextView TextLatitude;
     private TextView TextLongitude;
@@ -85,14 +86,13 @@ public class Complaint_Desc extends AppCompatActivity {
         textView1.setText(content1);
         progressBar = findViewById(R.id.progressBar);
 
-        TextView textViewComplaintType = findViewById(R.id.Textview_complainttype);
+        TextViewComplaintType = findViewById(R.id.Textview_complainttype);
         TextViewDate = findViewById(R.id.Textview_date);
         Description=findViewById(R.id.edittext_complaint_desc);
 
-        //Retrieving selected complainttype in textview also key but displaying only value
+        //Retrieving selected complainttype in textview
         String selectedType1=getIntent().getStringExtra("ComplaintType");
-        String selectedTypeKey1=getIntent().getStringExtra("ComplaintType1");
-        textViewComplaintType.setText(selectedType1);
+        TextViewComplaintType.setText(selectedType1);
 
         //Retrieving current date in textview
         TextViewDate=findViewById(R.id.Textview_date);
@@ -138,7 +138,7 @@ public class Complaint_Desc extends AppCompatActivity {
         String userID= Objects.requireNonNull(currentUser).getUid();
         Submit.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);
-            String complaintTypeId= Objects.requireNonNull(selectedTypeKey1);
+            String data1=TextViewComplaintType.getText().toString();
             String data2=TextViewDate.getText().toString();
             String data3=Latitude.getText().toString();
             String data4=Longitude.getText().toString();
@@ -151,14 +151,15 @@ public class Complaint_Desc extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Uri downloadUri=task.getResult();
                     Map<String,Object> map=new HashMap<>();
-                    map.put("ComplaintTypeID",complaintTypeId);
+                    map.put("ComplaintType",data1);
                     map.put("Date",data2);
                     map.put("Latitude",data3);
                     map.put("Longitude",data4);
                     map.put("Address",data5);
                     map.put("UserID",userID);
                     map.put("Description",data6);
-                    map.put("StatusID",1);
+                    map.put("Status","Pending");
+                    map.put("ServiceManID","None");
                     map.put("Image",downloadUri.toString());
                     mRef.setValue(map);
                     Toast.makeText(Complaint_Desc.this, "Complaint submitted successfully", Toast.LENGTH_SHORT).show();
