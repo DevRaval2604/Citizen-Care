@@ -37,16 +37,21 @@ public class Citizen extends NavigationDrawer2 {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 List<String> suggestions=new ArrayList<>();
+                List<DataSnapshot> snapshotList=new ArrayList<>();
                 for (DataSnapshot snapshot:datasnapshot.getChildren()){
                     String value=snapshot.getValue(String.class);
                     suggestions.add(value);
+                    snapshotList.add(snapshot);
                 }
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(Citizen.this,R.layout.list_item,suggestions);
                 autoCompleteTextView.setAdapter(adapter);
                 autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> {
                     String selectedType=(String)adapterView.getItemAtPosition(i);
+                    DataSnapshot snapshot1=snapshotList.get(i);
+                    String selectedTypeKey1 = snapshot1.getRef().getKey();
                     Intent iNext=new Intent(Citizen.this, Service_Desc.class);
                     iNext.putExtra("ServiceType",selectedType);
+                    iNext.putExtra("ServiceType1", selectedTypeKey1);
                     startActivity(iNext);
                     Toast.makeText(getApplicationContext(),"Item: "+suggestions.get(i),Toast.LENGTH_SHORT).show();
                     autoCompleteTextView.setText("");

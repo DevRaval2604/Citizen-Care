@@ -119,7 +119,7 @@
             tools:ignore="HardcodedText,TextSizeCheck" />
 
         <EditText
-            android:id="@+id/Textview_address"
+            android:id="@+id/Edittext_address"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_100sdp"
             android:layout_below="@id/textview_address"
@@ -138,14 +138,14 @@
             android:id="@+id/ic_service_desc"
             android:background="@drawable/baseline_create"
             android:layout_marginTop="@dimen/_12sdp"
-            android:layout_below="@id/Textview_address"
+            android:layout_below="@id/Edittext_address"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textview_service_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Textview_address"
+            android:layout_below="@id/Edittext_address"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_25sdp"
             android:padding="@dimen/_5sdp"
