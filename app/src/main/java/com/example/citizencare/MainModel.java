@@ -8,7 +8,7 @@ public class MainModel {
     {
 
     }
-    public MainModel(String id,String firstName, String middleName, String lastName, String email, String gender, String mobileNumber, String role,Boolean Blocked) {
+    public MainModel(String id,String firstName, String middleName, String lastName, String email, String gender, String mobileNumber, String role) {
         this.id=id;
         FirstName = firstName;
         MiddleName = middleName;

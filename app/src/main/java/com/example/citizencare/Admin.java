@@ -37,12 +37,11 @@ public class Admin extends DrawerBase {
         setContentView(activityAdminBinding.getRoot());
         allocateActivityTitle("Home");
 
-
-
-
-
-
-
+        Button btnComplaint=findViewById(R.id.manage_comp);
+        btnComplaint.setOnClickListener(view -> {
+            Intent intent=new Intent(Admin.this, ManageComplaints.class);
+            startActivity(intent);
+        });
 
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);

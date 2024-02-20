@@ -145,7 +145,6 @@
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck" />
 
-
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,11 +155,18 @@
             android:elevation="@dimen/_9sdp"
             android:visibility="gone"/>
 
-
-
-
-
-
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/manage_comp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_show_mobile"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:backgroundTint="@color/background"
+            android:text="Manage Complaints"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
     </RelativeLayout>
 </ScrollView>
