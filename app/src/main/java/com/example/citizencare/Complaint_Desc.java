@@ -160,6 +160,8 @@ public class Complaint_Desc extends AppCompatActivity {
                     map.put("Description",data6);
                     map.put("Status","Pending");
                     map.put("ServiceManID","None");
+                    map.put("FeedBackStars",0);
+                    map.put("FeedBackDescription","None");
                     map.put("Image",downloadUri.toString());
                     mRef.setValue(map);
                     Toast.makeText(Complaint_Desc.this, "Complaint submitted successfully", Toast.LENGTH_SHORT).show();
