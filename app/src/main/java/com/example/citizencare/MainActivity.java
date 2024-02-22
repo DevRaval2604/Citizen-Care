@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         textView4.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this, About_Us.class);
+            Intent intent=new Intent(MainActivity.this, About_Us_Main.class);
             startActivity(intent);
         });
         textView5.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this, Contact_Us.class);
+            Intent intent=new Intent(MainActivity.this, Contact_Us_Main.class);
             startActivity(intent);
         });
         String feedback="Feedback";

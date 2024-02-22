@@ -2,6 +2,7 @@ package com.example.citizencare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -23,5 +24,16 @@ public class Feedback extends AppCompatActivity {
         SpannableString content2=new SpannableString(complaints);
         content2.setSpan(new UnderlineSpan(),0,content2.length(),0);
         text3.setText(content2);
+
+
+        text2.setOnClickListener(view -> {
+            Intent intent=new Intent(Feedback.this, Feedback_Service_Main.class);
+            startActivity(intent);
+        });
+
+        text3.setOnClickListener(view -> {
+            Intent intent=new Intent(Feedback.this, Feedback_Complaint_Main.class);
+            startActivity(intent);
+        });
     }
 }

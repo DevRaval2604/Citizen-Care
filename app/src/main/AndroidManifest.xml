@@ -25,6 +25,15 @@
             android:name=".AssignServiceman"
             android:exported="false" />
         <activity
+            android:name=".Feedback_Citizen"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback_Service_Main"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback_Complaint_Main"
+            android:exported="false" />
+        <activity
             android:name=".ManageComplaints"
             android:exported="false" />
         <activity
@@ -100,7 +109,13 @@
             android:name=".Contact_Us"
             android:exported="false" />
         <activity
+            android:name=".Contact_Us_Main"
+            android:exported="false" />
+        <activity
             android:name=".About_Us"
+            android:exported="false" />
+        <activity
+            android:name=".About_Us_Main"
             android:exported="false" />
         <activity
             android:name=".Feedback"
