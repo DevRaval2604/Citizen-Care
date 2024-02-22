@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_6sdp"
+    app:cardBackgroundColor="@color/text"
+    android:elevation="@dimen/_6sdp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@color/background"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User ID"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/fname1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uid"
+            android:text="First Name:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/fname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uid"
+            android:layout_marginStart="@dimen/_79sdp"
+            android:text="First Name"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/mname1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fname1"
+            android:text="Middle Name:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/mname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fname"
+            android:layout_marginStart="@dimen/_95sdp"
+            android:text="Middle Name"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/lname1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mname1"
+            android:text="Last Name:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mname"
+            android:layout_marginStart="@dimen/_77sdp"
+            android:text="Last Name"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/email1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lname1"
+            android:text="Email:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lname"
+            android:layout_marginStart="@dimen/_43sdp"
+            android:text="Email"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/gender1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email1"
+            android:text="Gender:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:text="Gender"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/mno1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender1"
+            android:text="Mobile Number:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/mno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender"
+            android:layout_marginStart="@dimen/_110sdp"
+            android:text="Mobile Number"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/role1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mno1"
+            android:text="Role:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mno"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:text="Role"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_select_serviceman"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/role"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Select"
+            android:textColor="@color/text"
+            android:visibility="visible"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -243,5 +243,85 @@
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/resdate1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:text="Resolution Date:"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/resdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
+            android:layout_marginStart="@dimen/_112sdp"
+            android:text="Resolution Date"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_assign"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resdate"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Assign"
+            android:textColor="@color/text"
+            android:visibility="visible"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_cancel"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resdate"
+            android:layout_marginStart="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Cancel"
+            android:textColor="@color/text"
+            android:visibility="visible"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_update_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_assign"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Update Status"
+            android:textColor="@color/text"
+            android:visibility="gone"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_change_serviceman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_assign"
+            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Change Serviceman"
+            android:textColor="@color/text"
+            android:visibility="gone"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

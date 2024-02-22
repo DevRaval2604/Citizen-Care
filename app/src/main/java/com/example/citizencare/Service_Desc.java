@@ -79,6 +79,7 @@ public class Service_Desc extends AppCompatActivity {
                 map.put("ServiceManID","None");
                 map.put("FeedBackStars",0);
                 map.put("FeedBackDescription","None");
+                map.put("ReportsGenerated",false);
                 mRef.setValue(map);
                 Toast.makeText(Service_Desc.this, "Service requested successfully", Toast.LENGTH_SHORT).show();
                 Intent iNext;

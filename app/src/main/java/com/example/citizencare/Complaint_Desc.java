@@ -162,6 +162,7 @@ public class Complaint_Desc extends AppCompatActivity {
                     map.put("ServiceManID","None");
                     map.put("FeedBackStars",0);
                     map.put("FeedBackDescription","None");
+                    map.put("ReportsGenerated",false);
                     map.put("Image",downloadUri.toString());
                     mRef.setValue(map);
                     Toast.makeText(Complaint_Desc.this, "Complaint submitted successfully", Toast.LENGTH_SHORT).show();

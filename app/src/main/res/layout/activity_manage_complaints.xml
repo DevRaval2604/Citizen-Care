@@ -11,6 +11,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_26sdp"
+            android:layout_below="@id/textview_manage_complaints"
+            android:backgroundTint="@color/background"
+            android:textColorHint="@color/text"
+            app:boxStrokeColor="@color/text"
+            app:endIconTint="@color/text"
+            app:hintTextColor="@color/text">
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_ManageComplaints"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background"
+                android:hint="Select Status"
+                android:inputType="none"
+                android:textColor="@color/text"
+                android:textColorHint="@color/text"
+                android:textSize="@dimen/_16sdp"
+                tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:id="@+id/textview_manage_complaints"
             android:layout_width="match_parent"
@@ -26,7 +51,7 @@
             android:id="@+id/recview2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_130sdp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"

@@ -1,8 +1,9 @@
 package com.example.citizencare;
 
 public class MainModel2 {
-    String id,Address,ComplaintType,Date,Description,FeedBackDescription,Image,Latitude,Longitude,ServiceManID,Status,UserID;
+    String id,Address,ComplaintType,Date,Description,FeedBackDescription,Image,Latitude,Longitude,ServiceManID,Status,UserID,ResolutionDate;
     Integer FeedBackStars;
+    Boolean ReportsGenerated;
 
     MainModel2()
     {
@@ -23,6 +24,24 @@ public class MainModel2 {
         this.Status = "Pending";
         UserID = userID;
         this.FeedBackStars = 0;
+        this.ReportsGenerated=false;
+        this.ResolutionDate="None";
+    }
+
+    public String getResolutionDate() {
+        return ResolutionDate;
+    }
+
+    public void setResolutionDate(String resolutionDate) {
+        ResolutionDate = resolutionDate;
+    }
+
+    public Boolean getReportsGenerated() {
+        return ReportsGenerated;
+    }
+
+    public void setReportsGenerated(Boolean reportsGenerated) {
+        ReportsGenerated = reportsGenerated;
     }
 
     public String getId() {
