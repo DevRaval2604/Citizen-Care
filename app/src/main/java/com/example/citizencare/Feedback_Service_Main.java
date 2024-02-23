@@ -39,8 +39,6 @@ public class Feedback_Service_Main extends AppCompatActivity {
                         .build();
         feedbackServiceAdapter=new FeedbackServiceAdapter(op);
         recyclerView.setAdapter(feedbackServiceAdapter);
-
-
     }
 
     @Override

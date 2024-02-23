@@ -1,17 +1,25 @@
 package com.example.citizencare;
 
 public class FeedbackModel {
-    String ServiceType,FeedBackDescription;
+    String UserID,ServiceType,FeedBackDescription;
     Integer FeedBackStars;
     FeedbackModel()
     {
 
     }
 
-    public FeedbackModel(String serviceType, String feedBackDescription) {
+    public FeedbackModel(String serviceType, String userID) {
+        UserID=userID;
         ServiceType = serviceType;
-        FeedBackDescription = feedBackDescription;
+        this.FeedBackDescription = "None";
         this.FeedBackStars = 0;
+    }
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userID) {
+        UserID = userID;
     }
 
     public String getServiceType() {

@@ -1,17 +1,26 @@
 package com.example.citizencare;
 
 public class FeedbackComplaintMainModel {
-    String ComplaintType,FeedBackDescription;
+    String UserID,ComplaintType,FeedBackDescription;
     Integer FeedBackStars;
     FeedbackComplaintMainModel()
     {
 
     }
 
-    public FeedbackComplaintMainModel(String complaintType, String feedBackDescription, Integer feedBackStars) {
+    public FeedbackComplaintMainModel(String complaintType, String userID) {
+        UserID=userID;
         ComplaintType = complaintType;
-        FeedBackDescription = feedBackDescription;
-        FeedBackStars = feedBackStars;
+        this.FeedBackDescription = "None";
+        this.FeedBackStars = 0;
+    }
+
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userID) {
+        UserID = userID;
     }
 
     public String getComplaintType() {

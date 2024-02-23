@@ -43,6 +43,12 @@ public class Admin extends DrawerBase {
             startActivity(intent);
         });
 
+        Button btnService=findViewById(R.id.manage_serv);
+        btnService.setOnClickListener(view -> {
+            Intent intent=new Intent(Admin.this, ManageServices.class);
+            startActivity(intent);
+        });
+
         textViewAdminHead = findViewById(R.id.textview_admin_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);
         textViewEmail = findViewById(R.id.textview_show_email);
