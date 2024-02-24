@@ -1,6 +1,6 @@
 package com.example.citizencare;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.citizencare.databinding.ActivityManageServicesBinding;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +18,10 @@ import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManageServices extends AppCompatActivity {
+public class ManageServices extends DrawerBase {
+
+    ActivityManageServicesBinding activityManageServicesBinding;
+
     RecyclerView recyclerView;
     MainAdapter3 mainAdapter3;
     AutoCompleteTextView autoCompleteTextView;
@@ -28,7 +31,9 @@ public class ManageServices extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_services);
+        activityManageServicesBinding = com.example.citizencare.databinding.ActivityManageServicesBinding.inflate(getLayoutInflater());
+        setContentView(activityManageServicesBinding.getRoot());
+        allocateActivityTitle("Manage Services");
 
         //underline manage complaints
         TextView textView1 = findViewById(R.id.textview_manage_services);
