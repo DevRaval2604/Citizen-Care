@@ -22,6 +22,24 @@
         android:theme="@style/Theme.CitizenCare"
         tools:targetApi="31">
         <activity
+            android:name=".ToDoListServicesCheck"
+            android:exported="false" />
+        <activity
+            android:name=".ToDoListComplaintsCheck"
+            android:exported="false" />
+        <activity
+            android:name=".ToDoList"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceStatusCheck"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintStatusCheck"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintStatus"
+            android:exported="false" />
+        <activity
             android:name=".AssignServiceman2"
             android:exported="false" />
         <activity

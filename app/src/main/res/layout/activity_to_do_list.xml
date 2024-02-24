@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent"
+    tools:context=".ToDoList">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:padding="@dimen/_15sdp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:text="To-Do-List"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_35sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="@color/text"
+            android:text="Services"
+            android:textSize="@dimen/_25sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_220sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="@color/text"
+            android:text="Complaints"
+            android:textSize="@dimen/_25sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+    </RelativeLayout>
+</ScrollView>

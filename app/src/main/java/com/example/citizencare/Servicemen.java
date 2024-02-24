@@ -38,10 +38,11 @@ public class Servicemen extends NavigationDrawer3 {
         setContentView(activityServicemenBinding.getRoot());
         allocateActivityTitle("Home");
 
-
-
-
-
+        Button btnTodo=findViewById(R.id.button_todo);
+        btnTodo.setOnClickListener(view -> {
+            Intent intent=new Intent(Servicemen.this, ToDoList.class);
+            startActivity(intent);
+        });
 
         textViewServicemenHead = findViewById(R.id.textview_servicemen_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);

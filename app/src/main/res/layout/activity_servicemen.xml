@@ -145,6 +145,19 @@
             android:textSize="@dimen/_15sdp"
             tools:ignore="TextSizeCheck" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_todo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_show_mobile"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:backgroundTint="@color/background"
+            android:text="To-Do-List"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
 
         <ProgressBar
             android:layout_width="wrap_content"
