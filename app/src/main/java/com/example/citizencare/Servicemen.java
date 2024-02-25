@@ -3,10 +3,10 @@ package com.example.citizencare;
 
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,11 +38,7 @@ public class Servicemen extends NavigationDrawer3 {
         setContentView(activityServicemenBinding.getRoot());
         allocateActivityTitle("Home");
 
-        Button btnTodo=findViewById(R.id.button_todo);
-        btnTodo.setOnClickListener(view -> {
-            Intent intent=new Intent(Servicemen.this, ToDoList.class);
-            startActivity(intent);
-        });
+
 
         textViewServicemenHead = findViewById(R.id.textview_servicemen_head);
         textViewFullName = findViewById(R.id.textview_show_full_name);

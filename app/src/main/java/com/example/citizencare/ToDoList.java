@@ -1,6 +1,6 @@
 package com.example.citizencare;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,19 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
 
-public class ToDoList extends AppCompatActivity {
+
+import com.example.citizencare.databinding.ActivityToDoListBinding;
+
+public class ToDoList extends NavigationDrawer3 {
+
+    ActivityToDoListBinding activityToDoListBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_do_list);
+        activityToDoListBinding = ActivityToDoListBinding.inflate(getLayoutInflater());
+        setContentView(activityToDoListBinding.getRoot());
+        allocateActivityTitle("To-Do-List");
 
         TextView text2=findViewById(R.id.text2);
         TextView text3=findViewById(R.id.text3);

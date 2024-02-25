@@ -96,18 +96,5 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text2"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_80sdp"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:backgroundTint="@color/background"
-            android:text="Status"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_15sdp"
-            tools:ignore="HardcodedText,TextSizeCheck" />
     </RelativeLayout>
 </ScrollView>

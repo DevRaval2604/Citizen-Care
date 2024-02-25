@@ -1,6 +1,6 @@
 package com.example.citizencare;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,19 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
 
-public class ComplaintStatus extends AppCompatActivity {
+
+import com.example.citizencare.databinding.ActivityComplaintStatusBinding;
+
+public class ComplaintStatus extends NavigationDrawer2 {
+
+    ActivityComplaintStatusBinding activityComplaintStatusBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_complaint_status);
+        activityComplaintStatusBinding = ActivityComplaintStatusBinding.inflate(getLayoutInflater());
+        setContentView(activityComplaintStatusBinding.getRoot());
+        allocateActivityTitle("Status");
 
         TextView text2=findViewById(R.id.text2);
         TextView text3=findViewById(R.id.text3);

@@ -52,7 +52,8 @@ public class NavigationDrawer2 extends AppCompatActivity implements NavigationVi
             startActivity(new Intent(this, Profile_Citizen.class));
             overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_status) {
-
+            startActivity(new Intent(this, ComplaintStatus.class));
+            overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_feedback) {
             startActivity(new Intent(this, Feedback_Citizen.class));
             overridePendingTransition(0,0);

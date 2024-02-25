@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.example.citizencare.databinding.ActivityCitizenBinding;
@@ -27,11 +26,7 @@ public class Citizen extends NavigationDrawer2 {
         setContentView(activityCitizenBinding.getRoot());
         allocateActivityTitle("Home");
 
-        Button btnStatus=findViewById(R.id.button_status);
-        btnStatus.setOnClickListener(view -> {
-            Intent intent=new Intent(Citizen.this, ComplaintStatus.class);
-            startActivity(intent);
-        });
+
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference myRef=database.getReference("Service Type");
