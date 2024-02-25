@@ -1,11 +1,13 @@
 package com.example.citizencare;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -83,6 +85,19 @@ public class FeedbackServiceAdminAdapter extends FirebaseRecyclerAdapter<Feedbac
             public void onCancelled(@NonNull DatabaseError error) {
                 //Do nothing
             }
+        });
+
+        holder.btnDelete.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(holder.feedbackDesc.getContext());
+            builder.setTitle("Are you sure?");
+            builder.setMessage("You want to delete the feedback?");
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                FirebaseDatabase.getInstance().getReference().child("Services").child(serviceID).child("FeedBackDescription").setValue("None");
+                FirebaseDatabase.getInstance().getReference().child("Services").child(serviceID).child("FeedBackStars").setValue(0);
+                Toast.makeText(holder.feedbackDesc.getContext(), "Feedback Deleted Successfully", Toast.LENGTH_LONG).show();
+            });
+            builder.setNegativeButton("No", (dialogInterface, i) -> Toast.makeText(holder.feedbackDesc.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
         });
     }
 
