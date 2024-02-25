@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -48,8 +49,7 @@ public class ComplaintTodoMainAdapter extends FirebaseRecyclerAdapter<ComplaintT
         }
 
         if(model.getStatus().equals("Completed")) {
-            holder.ResDate1.setVisibility(View.VISIBLE);
-            holder.ResDate.setVisibility(View.VISIBLE);
+            holder.cardView.setVisibility(View.GONE);
         }
     }
 
@@ -63,8 +63,10 @@ public class ComplaintTodoMainAdapter extends FirebaseRecyclerAdapter<ComplaintT
     static class myViewHolder extends RecyclerView.ViewHolder{
         ImageView Image;
         TextView cid,UserID,ComplaintType,Description,Date,Latitude,Longitude,Address,ServiceManID,Status,sid1,ResDate,ResDate1;
+        CardView cardView;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardView=itemView.findViewById(R.id.cardview_todo_complaints);
             Image=itemView.findViewById(R.id.complaint_img);
             cid=itemView.findViewById(R.id.cid);
             UserID=itemView.findViewById(R.id.uid);

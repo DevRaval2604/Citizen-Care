@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/_6sdp"
+    android:id="@+id/cardview_todo_complaints"
     app:cardBackgroundColor="@color/text"
     android:elevation="@dimen/_6sdp"
     app:cardUseCompatPadding="true">

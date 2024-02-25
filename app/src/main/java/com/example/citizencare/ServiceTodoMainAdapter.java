@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -40,8 +41,7 @@ public class ServiceTodoMainAdapter extends FirebaseRecyclerAdapter<ServiceTodoM
         }
 
         if(model.getStatus().equals("Completed")){
-            holder.ResDate1.setVisibility(View.VISIBLE);
-            holder.ResDate.setVisibility(View.VISIBLE);
+            holder.cardView.setVisibility(View.GONE);
         }
     }
 
@@ -54,8 +54,10 @@ public class ServiceTodoMainAdapter extends FirebaseRecyclerAdapter<ServiceTodoM
 
     static class myViewHolder extends RecyclerView.ViewHolder{
         TextView Sid,UserID,ServiceType,Description,Date,Address,ServiceManID,Status,sid1,ResDate,ResDate1;
+        CardView cardView;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardView=itemView.findViewById(R.id.cardview_todo_services);
             Sid=itemView.findViewById(R.id.Sid);
             UserID=itemView.findViewById(R.id.uid);
             ServiceType=itemView.findViewById(R.id.stype);
