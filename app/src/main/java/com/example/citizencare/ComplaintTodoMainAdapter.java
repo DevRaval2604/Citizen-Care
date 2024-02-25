@@ -74,7 +74,7 @@ public class ComplaintTodoMainAdapter extends FirebaseRecyclerAdapter<ComplaintT
             holder.Status.setVisibility(View.GONE);
             holder.ResDate1.setVisibility(View.GONE);
             holder.cardView.setVisibility(View.GONE);
-            text2.setVisibility(View.GONE);
+            text2.setVisibility(View.VISIBLE);
         }
     }
 

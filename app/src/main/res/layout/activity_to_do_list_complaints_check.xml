@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_2sdp"
             android:visibility="gone"
             android:text="No complaints have been allocated to you at the moment."
             android:textAlignment="center"

@@ -61,7 +61,7 @@ public class ServiceTodoMainAdapter extends FirebaseRecyclerAdapter<ServiceTodoM
             holder.Address1.setVisibility(View.GONE);
             holder.Status1.setVisibility(View.GONE);
             holder.cardView.setVisibility(View.GONE);
-            text2.setVisibility(View.GONE);
+            text2.setVisibility(View.VISIBLE);
         }
     }
 

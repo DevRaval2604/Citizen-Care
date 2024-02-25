@@ -52,11 +52,21 @@
             android:name=".Feedback_Citizen"
             android:exported="false" />
         <activity
+            android:name=".Feedback_Admin"
+            android:exported="false" />
+        <activity
             android:name=".Feedback_Service_Main"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback_Service_Admin"
             android:exported="false" />
         <activity
             android:name=".Feedback_Complaint_Main"
             android:exported="false" />
+        <activity
+            android:name=".Feedback_Complaint_Admin"
+            android:exported="false" />
+
         <activity
             android:name=".ManageComplaints"
             android:exported="false" />

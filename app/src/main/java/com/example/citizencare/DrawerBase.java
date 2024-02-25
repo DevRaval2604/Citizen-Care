@@ -61,7 +61,8 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
             startActivity(new Intent(this, ManageUsers.class));
             overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_feedback) {
-
+            startActivity(new Intent(this, Feedback_Admin.class));
+            overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_reports) {
 
         }
