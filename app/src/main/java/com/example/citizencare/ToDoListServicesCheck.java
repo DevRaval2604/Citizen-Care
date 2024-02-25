@@ -19,6 +19,7 @@ import java.util.Objects;
 public class ToDoListServicesCheck extends AppCompatActivity {
     RecyclerView recyclerView;
     ServiceTodoMainAdapter serviceTodoMainAdapter;
+    TextView text2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class ToDoListServicesCheck extends AppCompatActivity {
 
         FirebaseAuth authProfile = FirebaseAuth.getInstance();
         String currentUser = Objects.requireNonNull(authProfile.getCurrentUser()).getUid();
+        text2=findViewById(R.id.textview_todolist_message_service);
 
         TextView text=findViewById(R.id.textview_todolist_check_service);
         String complaints="Services";
@@ -40,11 +42,10 @@ public class ToDoListServicesCheck extends AppCompatActivity {
                 new FirebaseRecyclerOptions.Builder<ServiceTodoMainModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("ServiceManID").equalTo(currentUser), ServiceTodoMainModel.class)
                         .build();
-        serviceTodoMainAdapter=new ServiceTodoMainAdapter(options);
+        serviceTodoMainAdapter=new ServiceTodoMainAdapter(options,text2);
         recyclerView.setAdapter(serviceTodoMainAdapter);
 
         if(serviceTodoMainAdapter.getItemCount()==0){
-            TextView text2=findViewById(R.id.textview_todolist_message_service);
             text2.setVisibility(View.VISIBLE);
         }
     }
