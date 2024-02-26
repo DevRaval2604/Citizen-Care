@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Provide_feedback">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_margin="@dimen/_19sdp">
+
+        <TextView
+            android:id="@+id/providefeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:text="Provide Feedback"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_25sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/s_c_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complaint/Service Type : "
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_below="@id/providefeedback"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/s_c_id"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Name : "
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/s_c_id"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_79sdp"
+            android:text="Name"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/textview_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name1"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Review"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_85sdp"
+            android:layout_below="@id/textview_review"
+            android:background="@drawable/border"
+            android:inputType="textMultiLine"
+            android:hint="Write review"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_below="@id/review"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:progressBackgroundTint="@color/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnsubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@id/ratingBar"
+            android:text="@string/btnfeedback"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_17sdp"
+            tools:ignore="TextSizeCheck" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
