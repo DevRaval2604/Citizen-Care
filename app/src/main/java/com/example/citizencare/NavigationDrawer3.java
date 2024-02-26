@@ -48,7 +48,8 @@ public class NavigationDrawer3 extends AppCompatActivity implements NavigationVi
             startActivity(new Intent(this, ToDoList.class));
             overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_feedback) {
-
+            startActivity(new Intent(this, Feedback_Servicemen.class));
+            overridePendingTransition(0,0);
         } else if (item.getItemId()==R.id.nav_reports) {
 
         } else if (item.getItemId()==R.id.nav_change_password) {

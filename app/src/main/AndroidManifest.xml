@@ -55,10 +55,16 @@
             android:name=".Feedback_Admin"
             android:exported="false" />
         <activity
+            android:name=".Feedback_Servicemen"
+            android:exported="false" />
+        <activity
             android:name=".Feedback_Service_Main"
             android:exported="false" />
         <activity
             android:name=".Feedback_Service_Admin"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback_Service_Servicemen"
             android:exported="false" />
         <activity
             android:name=".Feedback_Complaint_Main"
@@ -66,7 +72,9 @@
         <activity
             android:name=".Feedback_Complaint_Admin"
             android:exported="false" />
-
+        <activity
+            android:name=".Feedback_Complaint_Servicemen"
+            android:exported="false" />
         <activity
             android:name=".ManageComplaints"
             android:exported="false" />
@@ -75,6 +83,9 @@
             android:exported="false" />
         <activity
             android:name=".Profile_Citizen"
+            android:exported="false" />
+        <activity
+            android:name=".Provide_feedback"
             android:exported="false" />
         <activity
             android:name=".NavigationDrawer2"
