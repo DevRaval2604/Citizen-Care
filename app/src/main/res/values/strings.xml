@@ -77,6 +77,5 @@
     <string name="reports">Reports</string>
     <string name="complaints1">Complaints</string>
     <string name="services1">Services</string>
-
-
+    <string name="btnfeedback">Submit</string>
 </resources>
