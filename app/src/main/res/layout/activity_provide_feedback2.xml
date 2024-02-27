@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Provide_feedback">
+    tools:context=".Provide_feedback2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:id="@+id/s_c_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Service Type* "
+            android:text="Complaint Type* "
             android:layout_marginTop="@dimen/_50sdp"
             android:layout_below="@id/providefeedback"
             android:textColor="@color/text"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/s_c_id"
             android:background="@drawable/border"
-            android:hint="Enter service type"
+            android:hint="Enter complaint type"
             android:padding="@dimen/_5sdp"
             android:textColor="@color/background"
             android:textSize="@dimen/_15sdp"
@@ -138,6 +138,4 @@
             android:textSize="@dimen/_17sdp"
             tools:ignore="TextSizeCheck" />
     </RelativeLayout>
-
 </ScrollView>
-

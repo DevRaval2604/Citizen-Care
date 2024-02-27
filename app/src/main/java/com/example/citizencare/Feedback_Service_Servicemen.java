@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Objects;
 
 public class Feedback_Service_Servicemen extends AppCompatActivity {
@@ -34,7 +31,6 @@ public class Feedback_Service_Servicemen extends AppCompatActivity {
         SpannableString content1=new SpannableString(feedback);
         content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
         textViewHead.setText(content1);
-
 
         recyclerView=findViewById(R.id.recView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

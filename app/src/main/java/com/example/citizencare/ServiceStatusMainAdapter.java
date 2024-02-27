@@ -1,8 +1,13 @@
 package com.example.citizencare;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -39,7 +44,26 @@ public class ServiceStatusMainAdapter extends FirebaseRecyclerAdapter<ServiceSta
         if(model.getStatus().equals("Completed")){
             holder.ResDate1.setVisibility(View.VISIBLE);
             holder.ResDate.setVisibility(View.VISIBLE);
+            holder.feedback.setVisibility(View.VISIBLE);
         }
+
+        if(!model.getFeedBackDescription().equals("None")&&!model.getFeedBackStars().equals(0)){
+            holder.feedback.setVisibility(View.GONE);
+        }
+
+        holder.feedback.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(holder.Description.getContext());
+            builder.setTitle("Are you sure?");
+            builder.setMessage("You want to give feedback?");
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                Intent intent=new Intent(holder.Description.getContext(), Provide_feedback.class);
+                intent.putExtra("ServiceID",serviceID);
+                intent.putExtra("ServiceType",model.getServiceType());
+                holder.Description.getContext().startActivity(intent);
+            });
+            builder.setNegativeButton("No", (dialogInterface, i) -> Toast.makeText(holder.Description.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
+        });
     }
 
     @NonNull
@@ -51,6 +75,7 @@ public class ServiceStatusMainAdapter extends FirebaseRecyclerAdapter<ServiceSta
 
     static class myViewHolder extends RecyclerView.ViewHolder{
         TextView Sid,UserID,ServiceType,Description,Date,Address,ServiceManID,Status,sid1,ResDate,ResDate1;
+        Button feedback;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             Sid=itemView.findViewById(R.id.Sid);
@@ -64,6 +89,7 @@ public class ServiceStatusMainAdapter extends FirebaseRecyclerAdapter<ServiceSta
             Status=itemView.findViewById(R.id.status);
             ResDate=itemView.findViewById(R.id.resdate);
             ResDate1=itemView.findViewById(R.id.resdate1);
+            feedback=itemView.findViewById(R.id.button_user_feedback);
         }
     }
 }

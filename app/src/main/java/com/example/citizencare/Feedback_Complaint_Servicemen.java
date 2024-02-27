@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Objects;
 
 public class Feedback_Complaint_Servicemen extends AppCompatActivity {
@@ -23,7 +20,6 @@ public class Feedback_Complaint_Servicemen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_complaint_servicemen);
-
 
         FirebaseAuth authProfile = FirebaseAuth.getInstance();
         String currentUser = Objects.requireNonNull(authProfile.getCurrentUser()).getUid();
@@ -36,7 +32,6 @@ public class Feedback_Complaint_Servicemen extends AppCompatActivity {
         content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
         textViewHead.setText(content1);
 
-
         recyclerView=findViewById(R.id.recView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -46,8 +41,6 @@ public class Feedback_Complaint_Servicemen extends AppCompatActivity {
                         .build();
         feedbackComplaintServicemenAdapter=new FeedbackComplaintServicemenAdapter(op2);
         recyclerView.setAdapter(feedbackComplaintServicemenAdapter);
-
-
     }
 
     @Override

@@ -29,7 +29,6 @@ public class Feedback_Complaint_Admin extends AppCompatActivity {
         content1.setSpan(new UnderlineSpan(),0,content1.length(),0);
         textViewHead.setText(content1);
 
-
         recyclerView=findViewById(R.id.recView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,8 +38,6 @@ public class Feedback_Complaint_Admin extends AppCompatActivity {
                         .build();
         feedbackComplaintAdminAdapter=new FeedbackComplaintAdminAdapter(op2);
         recyclerView.setAdapter(feedbackComplaintAdminAdapter);
-
-
     }
 
     @Override

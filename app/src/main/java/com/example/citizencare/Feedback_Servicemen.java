@@ -21,8 +21,6 @@ public class Feedback_Servicemen extends DrawerBase {
         setContentView(activityFeedbackServicemenBinding.getRoot());
         allocateActivityTitle("Feedback");
 
-
-
         TextView text2=findViewById(R.id.text2);
         TextView text3=findViewById(R.id.text3);
         String services="Services";
@@ -33,7 +31,6 @@ public class Feedback_Servicemen extends DrawerBase {
         SpannableString content2=new SpannableString(complaints);
         content2.setSpan(new UnderlineSpan(),0,content2.length(),0);
         text3.setText(content2);
-
 
         text2.setOnClickListener(view -> {
             Intent intent=new Intent(Feedback_Servicemen.this, Feedback_Service_Servicemen.class);

@@ -268,5 +268,19 @@
             android:textStyle="bold"
             android:visibility="gone"
             tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_user_feedback1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resdate"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/background"
+            android:text="Give Feedback"
+            android:textColor="@color/text"
+            android:visibility="gone"
+            android:textSize="@dimen/_13sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

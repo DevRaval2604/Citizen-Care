@@ -94,7 +94,5 @@
                 android:textSize="@dimen/_16sdp"
                 tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
     </RelativeLayout>
 </ScrollView>

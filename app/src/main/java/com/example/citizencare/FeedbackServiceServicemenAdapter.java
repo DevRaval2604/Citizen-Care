@@ -50,7 +50,6 @@ public class FeedbackServiceServicemenAdapter extends FirebaseRecyclerAdapter<Fe
             holder.UserName1.setVisibility(View.GONE);
             holder.UserName.setVisibility(View.GONE);
             holder.cardView.setVisibility(View.GONE);
-
         }
 
         //extract data from database
@@ -109,7 +108,6 @@ public class FeedbackServiceServicemenAdapter extends FirebaseRecyclerAdapter<Fe
             serviceType = itemView.findViewById(R.id.stype);
             feedbackDesc = itemView.findViewById(R.id.fDesc);
             feedbackStar = itemView.findViewById(R.id.fStar);
-
         }
     }
 }

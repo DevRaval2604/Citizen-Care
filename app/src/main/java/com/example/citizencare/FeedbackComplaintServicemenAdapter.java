@@ -51,7 +51,6 @@ public class FeedbackComplaintServicemenAdapter extends FirebaseRecyclerAdapter<
             holder.UserName1.setVisibility(View.GONE);
             holder.UserName.setVisibility(View.GONE);
             holder.cardView1.setVisibility(View.GONE);
-
         }
 
         //extract data from database
@@ -111,7 +110,6 @@ public class FeedbackComplaintServicemenAdapter extends FirebaseRecyclerAdapter<
             complaintType = (TextView)itemView.findViewById(R.id.ctype);
             feedbackDesc = (TextView)itemView.findViewById(R.id.fDesc);
             feedbackStar = (TextView)itemView.findViewById(R.id.fStar);
-
         }
     }
 }

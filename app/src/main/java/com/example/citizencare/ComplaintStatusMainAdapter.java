@@ -1,9 +1,14 @@
 package com.example.citizencare;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
@@ -47,7 +52,26 @@ public class ComplaintStatusMainAdapter extends FirebaseRecyclerAdapter<Complain
         if(model.getStatus().equals("Completed")) {
             holder.ResDate1.setVisibility(View.VISIBLE);
             holder.ResDate.setVisibility(View.VISIBLE);
+            holder.feedback.setVisibility(View.VISIBLE);
         }
+
+        if(!model.getFeedBackDescription().equals("None")&&!model.getFeedBackStars().equals(0)){
+            holder.feedback.setVisibility(View.GONE);
+        }
+
+        holder.feedback.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(holder.Description.getContext());
+            builder.setTitle("Are you sure?");
+            builder.setMessage("You want to give feedback?");
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                Intent intent=new Intent(holder.Description.getContext(), Provide_feedback2.class);
+                intent.putExtra("ComplaintID",complaintID);
+                intent.putExtra("ComplaintType",model.getComplaintType());
+                holder.Description.getContext().startActivity(intent);
+            });
+            builder.setNegativeButton("No", (dialogInterface, i) -> Toast.makeText(holder.Description.getContext(), "Cancelled", Toast.LENGTH_LONG).show());
+            builder.show();
+        });
     }
 
     @NonNull
@@ -60,6 +84,7 @@ public class ComplaintStatusMainAdapter extends FirebaseRecyclerAdapter<Complain
     static class myViewHolder extends RecyclerView.ViewHolder{
         ImageView Image;
         TextView cid,UserID,ComplaintType,Description,Date,Latitude,Longitude,Address,ServiceManID,Status,sid1,ResDate,ResDate1;
+        Button feedback;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             Image=itemView.findViewById(R.id.complaint_img);
@@ -76,6 +101,7 @@ public class ComplaintStatusMainAdapter extends FirebaseRecyclerAdapter<Complain
             Status=itemView.findViewById(R.id.status);
             ResDate=itemView.findViewById(R.id.resdate);
             ResDate1=itemView.findViewById(R.id.resdate1);
+            feedback=itemView.findViewById(R.id.button_user_feedback1);
         }
     }
 }
