@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.citizencare.databinding.ActivityFeedbackServicemenBinding;
 
 
-public class Feedback_Servicemen extends DrawerBase {
+public class Feedback_Servicemen extends NavigationDrawer3 {
 
     ActivityFeedbackServicemenBinding activityFeedbackServicemenBinding;
     @Override
