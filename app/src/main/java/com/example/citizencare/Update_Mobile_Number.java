@@ -28,7 +28,6 @@ public class Update_Mobile_Number extends AppCompatActivity {
 
     private EditText editTextUpdateMobile;
     private String textMobile;
-    private FirebaseAuth authProfile;
     private ProgressBar progressBar;
 
     @Override
@@ -40,7 +39,7 @@ public class Update_Mobile_Number extends AppCompatActivity {
         editTextUpdateMobile = findViewById(R.id.editText_update_mobile);
 
 
-        authProfile = FirebaseAuth.getInstance();
+        FirebaseAuth authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
         //show profile data
@@ -110,8 +109,8 @@ public class Update_Mobile_Number extends AppCompatActivity {
             referenceProfile.child(userID).child("MobileNumber").setValue(textMobile).addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
 
-                    Toast.makeText(Update_Mobile_Number.this, "Update Successful! Please Login again", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(Update_Mobile_Number.this, Login.class);
+                    Toast.makeText(Update_Mobile_Number.this, "Update Successful!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Update_Mobile_Number.this, Profile_Citizen.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
