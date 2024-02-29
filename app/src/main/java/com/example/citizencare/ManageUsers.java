@@ -22,7 +22,6 @@ public class ManageUsers extends DrawerBase {
     ActivityManageUsersBinding activityManageUsersBinding;
 RecyclerView recyclerView;
 MainAdapter mainAdapter;
-
 AutoCompleteTextView autoCompleteTextView;
 List<String> suggestions=new ArrayList<>();
 ArrayAdapter<String> adapter;
