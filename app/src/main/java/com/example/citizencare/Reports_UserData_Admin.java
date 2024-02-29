@@ -1,18 +1,24 @@
 package com.example.citizencare;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import android.content.Intent;
+
 import android.os.Bundle;
+
+
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +36,11 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         setContentView(R.layout.activity_reports_user_data_admin);
         recyclerView=findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Button btnGenerateReports = findViewById(R.id.button_generate_reports);
+        btnGenerateReports.setOnClickListener(view -> {
+
+        });
 
         FirebaseRecyclerOptions<UserDataModel> options =
                 new FirebaseRecyclerOptions.Builder<UserDataModel>()
@@ -82,4 +93,8 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         super.onStop();
         userDataAdminAdapter.stopListening();
     }
+
+
+
+
 }

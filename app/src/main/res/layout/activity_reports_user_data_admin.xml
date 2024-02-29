@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+
     android:padding="@dimen/_5sdp"
     tools:context=".Reports_UserData_Admin">
 
@@ -23,6 +24,8 @@
             android:textSize="@dimen/_27sdp"
             android:textAlignment="center"
             tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="@dimen/_240sdp"
@@ -49,11 +52,24 @@
                 tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:layout_below="@id/textView_head"
+            android:layout_marginTop="@dimen/_85sdp"
+            android:text="Generate Reports"
+            android:id="@+id/button_generate_reports"
+            android:backgroundTint="@color/background"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_140sdp"
+            android:layout_marginTop="@dimen/_190sdp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
