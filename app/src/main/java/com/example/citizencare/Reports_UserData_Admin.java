@@ -1,25 +1,20 @@
 package com.example.citizencare;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import android.os.Bundle;
-
-
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.gkemon.XMLtoPDF.PdfGenerator;
+import com.gkemon.XMLtoPDF.PdfGeneratorListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +34,8 @@ public class Reports_UserData_Admin extends AppCompatActivity {
 
         Button btnGenerateReports = findViewById(R.id.button_generate_reports);
         btnGenerateReports.setOnClickListener(view -> {
-
+            generatePDF();
+            Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
         });
 
         FirebaseRecyclerOptions<UserDataModel> options =
@@ -59,6 +55,9 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> {
             String selectedRole=(String)adapterView.getItemAtPosition(i);
+            if(selectedRole.equals("Admin")||selectedRole.equals("Serviceman")||selectedRole.equals("Citizen")||selectedRole.equals("All Users")){
+                btnGenerateReports.setVisibility(View.VISIBLE);
+            }
             if(selectedRole.equals("All Users")){
                 Query query=FirebaseDatabase.getInstance().getReference().child("Users");
                 FirebaseRecyclerOptions<UserDataModel> options1 =
@@ -93,8 +92,15 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         super.onStop();
         userDataAdminAdapter.stopListening();
     }
+    public void generatePDF(){
+        PdfGenerator.getBuilder().setContext(Reports_UserData_Admin.this).fromViewSource().fromView(recyclerView).setFileName("User-Data-Report").setFolderNameOrPath("User_Data_Reports/").actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN).build(new PdfGeneratorListener() {
+            @Override
+            public void onStartPDFGeneration() {
+            }
 
-
-
-
+            @Override
+            public void onFinishPDFGeneration() {
+            }
+        });
+    }
 }

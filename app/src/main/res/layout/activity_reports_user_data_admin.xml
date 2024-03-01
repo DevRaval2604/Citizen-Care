@@ -53,17 +53,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_generate_reports"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginRight="@dimen/_50sdp"
             android:layout_below="@id/textView_head"
+            android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_85sdp"
-            android:text="Generate Reports"
-            android:id="@+id/button_generate_reports"
+            android:layout_marginRight="@dimen/_50sdp"
             android:backgroundTint="@color/background"
+            android:visibility="gone"
+            android:text="Generate Reports"
             android:textColor="@color/text"
-            android:textSize="@dimen/_15sdp"/>
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recview"
