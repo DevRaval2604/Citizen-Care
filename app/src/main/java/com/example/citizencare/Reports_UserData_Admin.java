@@ -1,17 +1,12 @@
 package com.example.citizencare;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,8 +27,6 @@ public class Reports_UserData_Admin extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     RecyclerView recyclerView;
     UserDataAdminAdapter userDataAdminAdapter;
-    private final static int REQUEST_WRITE_EXTERNAL_STORAGE=101;
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +35,10 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button btnGenerateReports = findViewById(R.id.button_generate_reports);
-        btnGenerateReports.setOnClickListener(view -> requestStoragePermission());
+        btnGenerateReports.setOnClickListener(view -> {
+            generatePDF();
+            Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
+        });
 
         FirebaseRecyclerOptions<UserDataModel> options =
                 new FirebaseRecyclerOptions.Builder<UserDataModel>()
@@ -99,36 +95,6 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         userDataAdminAdapter.stopListening();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
-    private void requestStoragePermission(){
-       if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_IMAGES)!=PackageManager.PERMISSION_GRANTED){
-           ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_IMAGES},REQUEST_WRITE_EXTERNAL_STORAGE);
-       }else{
-           generatePDF();
-       }
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_VIDEO)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_VIDEO},REQUEST_WRITE_EXTERNAL_STORAGE);
-        }else{
-            generatePDF();
-        }
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_AUDIO)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_AUDIO},REQUEST_WRITE_EXTERNAL_STORAGE);
-        }else{
-            generatePDF();
-        }
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                generatePDF();
-                Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(Reports_UserData_Admin.this, "Storage permission denied,please allow permission to access storage", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
     public void generatePDF(){
         PdfGenerator.getBuilder().setContext(Reports_UserData_Admin.this).fromViewSource().fromView(recyclerView).setFileName("User-Data-Report").setFolderNameOrPath("User_Data_Reports/").actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN).build(new PdfGeneratorListener() {
             @Override
@@ -137,6 +103,16 @@ public class Reports_UserData_Admin extends AppCompatActivity {
 
             @Override
             public void onFinishPDFGeneration() {
+                Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("application/pdf");
+                Uri uri=Uri.parse("User_Data_Reports/");
+                intent.setDataAndType(uri,"application/pdf");
+                try{
+                    startActivity(intent);
+                }catch (ActivityNotFoundException e){
+                    Toast.makeText(Reports_UserData_Admin.this, "PDF Not Found", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
