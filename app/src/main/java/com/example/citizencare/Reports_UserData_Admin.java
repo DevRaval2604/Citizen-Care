@@ -106,6 +106,16 @@ public class Reports_UserData_Admin extends AppCompatActivity {
        }else{
            generatePDF();
        }
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_VIDEO)!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_VIDEO},REQUEST_WRITE_EXTERNAL_STORAGE);
+        }else{
+            generatePDF();
+        }
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_AUDIO)!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_AUDIO},REQUEST_WRITE_EXTERNAL_STORAGE);
+        }else{
+            generatePDF();
+        }
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) {
