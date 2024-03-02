@@ -1,16 +1,8 @@
 package com.example.citizencare;
 
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,7 +24,6 @@ public class Reports_UserData_Admin extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     RecyclerView recyclerView;
     UserDataAdminAdapter userDataAdminAdapter;
-    private final static int REQUEST_STORAGE_PERMISSION=100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +34,10 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         getLifecycle().addObserver(lifecycleObserver);
 
         Button btnGenerateReports = findViewById(R.id.button_generate_reports);
-        btnGenerateReports.setOnClickListener(view -> requestStoragePermission());
+        btnGenerateReports.setOnClickListener(view -> {
+            generatePDF();
+            Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
+        });
 
         FirebaseRecyclerOptions<UserDataModel> options =
                 new FirebaseRecyclerOptions.Builder<UserDataModel>()
@@ -98,30 +92,6 @@ public class Reports_UserData_Admin extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         userDataAdminAdapter.stopListening();
-    }
-
-    private void requestStoragePermission(){
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_MEDIA_IMAGES)!=PackageManager.PERMISSION_GRANTED){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_MEDIA_IMAGES},REQUEST_STORAGE_PERMISSION);
-            }else{
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_STORAGE_PERMISSION);
-            }
-        }else{
-            generatePDF();
-            Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_STORAGE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(Reports_UserData_Admin.this, "Storage permission granted", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(Reports_UserData_Admin.this, "Storage permission denied,please allow permission to access storage", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     public void generatePDF(){
