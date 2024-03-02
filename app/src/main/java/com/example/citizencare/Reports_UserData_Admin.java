@@ -39,10 +39,7 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button btnGenerateReports = findViewById(R.id.button_generate_reports);
-        btnGenerateReports.setOnClickListener(view -> {
-            requestStoragePermission();
-            Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
-        });
+        btnGenerateReports.setOnClickListener(view -> requestStoragePermission());
 
         FirebaseRecyclerOptions<UserDataModel> options =
                 new FirebaseRecyclerOptions.Builder<UserDataModel>()
@@ -112,6 +109,7 @@ public class Reports_UserData_Admin extends AppCompatActivity {
         if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 generatePDF();
+                Toast.makeText(Reports_UserData_Admin.this, "PDF Generated Successfully", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(Reports_UserData_Admin.this, "Storage permission denied,please allow permission to access storage", Toast.LENGTH_LONG).show();
             }
