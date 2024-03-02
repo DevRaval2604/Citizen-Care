@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reports_UserData_Admin extends AppCompatActivity {
-    private  PdfGenerator.XmlToPDFLifecycleObserver lifecycleObserver;
+    private PdfGenerator.XmlToPDFLifecycleObserver lifecycleObserver;
     AutoCompleteTextView autoCompleteTextView;
     List<String> suggestions=new ArrayList<>();
     ArrayAdapter<String> adapter;
