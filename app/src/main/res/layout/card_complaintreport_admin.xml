@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_ComplaintReport_Admin"
+    app:cardCornerRadius="@dimen/_6sdp"
+    app:cardBackgroundColor="@color/text"
+    android:elevation="@dimen/_6sdp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@color/background"
+        android:padding="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/complaint_img"
+            android:layout_below="@id/Cid"
+            android:maxWidth="@dimen/_300sdp"
+            android:adjustViewBounds="true"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/Cid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complaint ID"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/uid1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/complaint_img"
+            android:text="User ID:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User ID"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:layout_below="@id/complaint_img"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/ctype1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uid"
+            android:text="Complaint Type:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/ctype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uid"
+            android:layout_marginStart="@dimen/_112sdp"
+            android:text="Complaint Type"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/desc1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ctype"
+            android:text="Description:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ctype"
+            android:layout_marginStart="@dimen/_83sdp"
+            android:text="Description"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/date1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc"
+            android:text="Date:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/desc"
+            android:layout_marginStart="@dimen/_36sdp"
+            android:text="Date"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/latitude1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:text="Latitude:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:layout_marginStart="@dimen/_60sdp"
+            android:text="Latitude"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/longitude1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/latitude"
+            android:text="Longitude:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/latitude"
+            android:layout_marginStart="@dimen/_73sdp"
+            android:text="Longitude"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/address1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/longitude"
+            android:text="Address:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/longitude"
+            android:layout_marginStart="@dimen/_62sdp"
+            android:text="Address"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/sid1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address"
+            android:text="ServiceMan ID:"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/sid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address"
+            android:layout_marginStart="@dimen/_104sdp"
+            android:text="ServiceMan ID"
+            android:textColor="@color/text"
+            android:visibility="gone"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/status1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sid"
+            android:text="Status:"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sid"
+            android:layout_marginStart="@dimen/_48sdp"
+            android:text="Status"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/resdate1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:text="Resolution Date:"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/resdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
+            android:layout_marginStart="@dimen/_112sdp"
+            android:text="Resolution Date"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+
+        <TextView
+            android:id="@+id/feedbackStars1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resdate"
+            android:text="Feedback Stars:"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/feedbackStars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resdate"
+            android:layout_marginStart="@dimen/_110sdp"
+            android:text="Feedback Stars"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/feedbackdesc1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feedbackStars"
+            android:text="Feedback Description:"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/feedbackdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feedbackStars"
+            android:layout_marginStart="@dimen/_152sdp"
+            android:text="Feedback Description"
+            android:visibility="gone"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TextSizeCheck" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -32,6 +32,7 @@ public class Reports_ServiceReport_Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports_service_report_admin);
+
         recyclerView=findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         lifecycleObserver=new PdfGenerator.XmlToPDFLifecycleObserver(this);
