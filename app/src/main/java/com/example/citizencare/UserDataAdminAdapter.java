@@ -16,11 +16,9 @@ public class UserDataAdminAdapter extends FirebaseRecyclerAdapter<UserDataModel,
      * {@link FirebaseRecyclerOptions} for configuration options.
      *
      */
-
     public UserDataAdminAdapter(@NonNull FirebaseRecyclerOptions<UserDataModel> options) {
         super(options);
     }
-
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -34,7 +32,6 @@ public class UserDataAdminAdapter extends FirebaseRecyclerAdapter<UserDataModel,
         holder.gender.setText(model.getGender());
         holder.mno.setText(model.getMobileNumber());
         holder.role.setText(model.getRole());
-
     }
     @NonNull
     @Override
@@ -58,9 +55,5 @@ public class UserDataAdminAdapter extends FirebaseRecyclerAdapter<UserDataModel,
             mno= itemView.findViewById(R.id.mno);
             role= itemView.findViewById(R.id.role);
         }
-
-
-
-
     }
 }

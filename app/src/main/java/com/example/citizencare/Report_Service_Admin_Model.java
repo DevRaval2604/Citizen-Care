@@ -4,7 +4,6 @@ public class Report_Service_Admin_Model {
     String id,Address,ServiceType,Date,Description,FeedBackDescription,ServiceManID,Status,UserID,ResolutionDate;
     Integer FeedBackStars;
 
-
     Report_Service_Admin_Model()
     {
 

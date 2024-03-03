@@ -22,8 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reports_ServiceReport_Admin extends AppCompatActivity {
-    private  PdfGenerator.XmlToPDFLifecycleObserver lifecycleObserver;
-
+    private PdfGenerator.XmlToPDFLifecycleObserver lifecycleObserver;
     AutoCompleteTextView autoCompleteTextView;
     List<String> suggestions=new ArrayList<>();
     RecyclerView recyclerView;
@@ -51,7 +50,6 @@ public class Reports_ServiceReport_Admin extends AppCompatActivity {
 
         reportServiceAdminMainAdapter=new Report_Service_Admin_MainAdapter(options);
         recyclerView.setAdapter(reportServiceAdminMainAdapter);
-
 
         autoCompleteTextView=findViewById(R.id.autoComplete1);
         adapter=new ArrayAdapter<>(this,R.layout.list_item,suggestions);
@@ -103,7 +101,6 @@ public class Reports_ServiceReport_Admin extends AppCompatActivity {
         reportServiceAdminMainAdapter.stopListening();
     }
 
-
     public void generatePDF(){
         PdfGenerator.getBuilder().setContext(Reports_ServiceReport_Admin.this).fromViewSource().fromView(recyclerView).setFileName("Service-Report").actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.SHARE).savePDFSharedStorage(lifecycleObserver).build(new PdfGeneratorListener() {
             @Override
@@ -115,5 +112,4 @@ public class Reports_ServiceReport_Admin extends AppCompatActivity {
             }
         });
     }
-
 }

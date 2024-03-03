@@ -20,8 +20,6 @@ public class UserDataModel {
         Role = role;
         this.Blocked=false;
     }
-
-
     public Boolean getBlocked() {
         return Blocked;
     }

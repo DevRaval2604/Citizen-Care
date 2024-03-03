@@ -1,5 +1,6 @@
 package com.example.citizencare;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,9 @@ public class Report_Service_Admin_MainAdapter extends FirebaseRecyclerAdapter<Re
      */
     public Report_Service_Admin_MainAdapter(@NonNull FirebaseRecyclerOptions<Report_Service_Admin_Model> options) {
         super(options);
-
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull Report_Service_Admin_MainAdapter.myViewHolder holder, int position, @NonNull Report_Service_Admin_Model model) {
         String serviceID=getSnapshots().getSnapshot(holder.getBindingAdapterPosition()).getKey();
@@ -36,7 +37,7 @@ public class Report_Service_Admin_MainAdapter extends FirebaseRecyclerAdapter<Re
         holder.ResDate.setText(model.getResolutionDate());
         holder.ServiceManID.setText(model.getServiceManID());
         holder.Status.setText(model.getStatus());
-        holder.FeedbackStars.setText(model.getFeedBackStars());
+        holder.FeedbackStars.setText(Integer.toString(model.getFeedBackStars()));
         holder.Feedbackdesc.setText(model.getFeedBackDescription());
 
         if(!model.getServiceManID().equals("None")){
@@ -51,9 +52,6 @@ public class Report_Service_Admin_MainAdapter extends FirebaseRecyclerAdapter<Re
             holder.Feedbackdesc1.setVisibility(View.VISIBLE);
             holder.Feedbackdesc.setVisibility(View.VISIBLE);
         }
-
-
-
     }
 
     @NonNull

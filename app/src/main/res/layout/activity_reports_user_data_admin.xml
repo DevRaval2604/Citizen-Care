@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-
     android:padding="@dimen/_5sdp"
     tools:context=".Reports_UserData_Admin">
 
@@ -24,8 +23,6 @@
             android:textSize="@dimen/_27sdp"
             android:textAlignment="center"
             tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="@dimen/_240sdp"
