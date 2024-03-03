@@ -8,6 +8,7 @@ public class UserDataModel {
     {
 
     }
+
     public UserDataModel(String id,String firstName, String middleName, String lastName, String email, String gender, String mobileNumber, String role) {
         this.id=id;
         FirstName = firstName;
@@ -19,6 +20,7 @@ public class UserDataModel {
         Role = role;
         this.Blocked=false;
     }
+
 
     public Boolean getBlocked() {
         return Blocked;
