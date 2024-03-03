@@ -73,8 +73,5 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"/>
-
     </RelativeLayout>
-
-
 </ScrollView>

@@ -3,7 +3,6 @@ package com.example.citizencare;
 public class ServiceTodoMainModel {
     String id,Address,ServiceType,Date,Description,FeedBackDescription,ServiceManID,Status,UserID,ResolutionDate;
     Integer FeedBackStars;
-    Boolean ReportsGenerated;
 
     ServiceTodoMainModel()
     {
@@ -20,7 +19,6 @@ public class ServiceTodoMainModel {
         this.Status = "Pending";
         UserID = userID;
         this.FeedBackStars = 0;
-        this.ReportsGenerated=false;
         this.ResolutionDate="None";
     }
 
@@ -38,14 +36,6 @@ public class ServiceTodoMainModel {
 
     public void setResolutionDate(String resolutionDate) {
         ResolutionDate = resolutionDate;
-    }
-
-    public Boolean getReportsGenerated() {
-        return ReportsGenerated;
-    }
-
-    public void setReportsGenerated(Boolean reportsGenerated) {
-        ReportsGenerated = reportsGenerated;
     }
 
     public String getId() {
