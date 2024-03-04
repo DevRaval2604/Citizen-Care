@@ -2,10 +2,13 @@ package com.example.citizencare;
 
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +35,12 @@ public class Reports_ServiceReport_Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports_service_report_admin);
+
+        TextView textView1 = findViewById(R.id.textView_head);
+        String serviceReport="Service Report";
+        SpannableString content=new SpannableString(serviceReport);
+        content.setSpan(new UnderlineSpan(),0,content.length(),0);
+        textView1.setText(content);
 
         recyclerView=findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -5,36 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Reports_Admin">
+    tools:context=".Reports_Servicemen">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15sdp"
         android:background="@color/background"
-        android:padding="@dimen/_15sdp">
+        android:layout_margin="@dimen/_25sdp">
 
         <TextView
             android:id="@+id/textView_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text="Generate Reports"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="You can view and download your reports."
             android:textColor="@color/text"
-            android:textSize="@dimen/_27sdp"
+            android:textSize="@dimen/_23sdp"
             android:textAlignment="center"
-            tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
-
-        <TextView
-            android:id="@+id/textview_user_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_below="@id/textView_head"
-            android:text="User-Data Report"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_20sdp"
             tools:ignore="HardcodedText,RtlSymmetry,TextSizeCheck" />
 
         <TextView
@@ -42,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:layout_below="@id/textview_user_data"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_below="@id/textView_head"
             android:text="Service Report"
             android:textColor="@color/text"
             android:textSize="@dimen/_20sdp"
@@ -64,7 +52,6 @@
 
 
 
-
-
     </RelativeLayout>
+
 </ScrollView>

@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.gkemon.XMLtoPDF.PdfGenerator;
@@ -28,6 +31,13 @@ public class Reports_UserData_Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports_user_data_admin);
+
+        TextView textView1 = findViewById(R.id.textView_head);
+        String userDataReport="User-Data Report";
+        SpannableString content=new SpannableString(userDataReport);
+        content.setSpan(new UnderlineSpan(),0,content.length(),0);
+        textView1.setText(content);
+
         recyclerView=findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         lifecycleObserver=new PdfGenerator.XmlToPDFLifecycleObserver(this);
