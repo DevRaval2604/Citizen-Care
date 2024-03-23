@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Change_Password_For_Citizen extends NavigationDrawer2 {
 
@@ -157,18 +159,28 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
                             private void changepwd(FirebaseUser firebaseUser1) {
                                 String userPwdNew=editTextPwdNew.getText().toString();
                                 String userPwdConfirmNew=editTextPwdConfirmNew.getText().toString();
+
+                                String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).*$"; //Atleast 1 capital letter,1 special character and 1 number should be present in password
+                                Matcher passwordMatcher;
+                                Pattern passwordPattern = Pattern.compile(passwordRegex);
+                                passwordMatcher = passwordPattern.matcher(userPwdNew);
+
                                 if(TextUtils.isEmpty(userPwdNew)){
                                     Toast.makeText(Change_Password_For_Citizen.this, "New password is required", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Please enter your new password");
+                                    editTextPwdNew.requestFocus();
+                                }else if(userPwdNew.length() < 6) {
+                                    Toast.makeText(Change_Password_For_Citizen.this, "Password should be at least 6 characters", Toast.LENGTH_LONG).show();
+                                    editTextPwdNew.setError("Password too weak");
+                                    editTextPwdNew.requestFocus();
+                                }else if (!passwordMatcher.find()) {
+                                    Toast.makeText(Change_Password_For_Citizen.this, "Password must contain atleast one special character,a number and a capital letter", Toast.LENGTH_LONG).show();
+                                    editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if(TextUtils.isEmpty(userPwdConfirmNew)){
                                     Toast.makeText(Change_Password_For_Citizen.this, "Please confirm your new password", Toast.LENGTH_LONG).show();
                                     editTextPwdConfirmNew.setError("Please re-enter your new password");
                                     editTextPwdConfirmNew.requestFocus();
-                                }else if(userPwdNew.length() < 6) {
-                                    Toast.makeText(Change_Password_For_Citizen.this, "Password should be at least 6 digits", Toast.LENGTH_LONG).show();
-                                    editTextPwdNew.setError("Password too weak");
-                                    editTextPwdNew.requestFocus();
                                 }else if(!userPwdNew.matches(userPwdConfirmNew)) {
                                     Toast.makeText(Change_Password_For_Citizen.this, "Password did not match", Toast.LENGTH_LONG).show();
                                     editTextPwdConfirmNew.setError("Please re-enter same password");

@@ -74,19 +74,54 @@ public class Admin_Register extends AppCompatActivity {
             Pattern mobilePattern = Pattern.compile(mobileRegex);
             mobileMatcher = mobilePattern.matcher(textMobile);
 
+            String fnameRegex = "[a-zA-Z]"; //only characters for name
+            Matcher fnameMatcher;
+            Pattern fnamePattern = Pattern.compile(fnameRegex);
+            fnameMatcher = fnamePattern.matcher(textFirstName);
+
+            String mnameRegex = "[a-zA-Z]"; //only characters for name
+            Matcher mnameMatcher;
+            Pattern mnamePattern = Pattern.compile(mnameRegex);
+            mnameMatcher = mnamePattern.matcher(textMiddleName);
+
+            String lnameRegex = "[a-zA-Z]"; //only characters for name
+            Matcher lnameMatcher;
+            Pattern lnamePattern = Pattern.compile(lnameRegex);
+            lnameMatcher = lnamePattern.matcher(textLastName);
+
+            String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).*$"; //Atleast 1 capital letter,1 special character and 1 number should be present in password
+            Matcher passwordMatcher;
+            Pattern passwordPattern = Pattern.compile(passwordRegex);
+            passwordMatcher = passwordPattern.matcher(textPwd);
+
             if (TextUtils.isEmpty(textFirstName)) {
                 Toast.makeText(Admin_Register.this, "Please enter your first name", Toast.LENGTH_LONG).show();
                 editTextRegisterFirstName.setError("First Name is required");
                 editTextRegisterFirstName.requestFocus();
-            } else if (TextUtils.isEmpty(textMiddleName)) {
+            } else if (!fnameMatcher.find()) {
+                Toast.makeText(Admin_Register.this, "Please enter only characters", Toast.LENGTH_LONG).show();
+                editTextRegisterFirstName.setError("First Name is not valid");
+                editTextRegisterFirstName.requestFocus();
+            }
+            else if (TextUtils.isEmpty(textMiddleName)) {
                 Toast.makeText(Admin_Register.this, "Please enter your middle name", Toast.LENGTH_LONG).show();
                 editTextRegisterMiddleName.setError("Middle Name is required");
                 editTextRegisterMiddleName.requestFocus();
-            } else if (TextUtils.isEmpty(textLastName)) {
+            } else if (!mnameMatcher.find()) {
+                Toast.makeText(Admin_Register.this, "Please enter only characters", Toast.LENGTH_LONG).show();
+                editTextRegisterMiddleName.setError("Middle Name is not valid");
+                editTextRegisterMiddleName.requestFocus();
+            }
+            else if (TextUtils.isEmpty(textLastName)) {
                 Toast.makeText(Admin_Register.this, "Please enter your last name", Toast.LENGTH_LONG).show();
                 editTextRegisterLastName.setError("Last Name is required");
                 editTextRegisterLastName.requestFocus();
-            } else if (TextUtils.isEmpty(textEmail)) {
+            } else if (!lnameMatcher.find()) {
+                Toast.makeText(Admin_Register.this, "Please enter only characters", Toast.LENGTH_LONG).show();
+                editTextRegisterLastName.setError("Last Name is not valid");
+                editTextRegisterLastName.requestFocus();
+            }
+            else if (TextUtils.isEmpty(textEmail)) {
                 Toast.makeText(Admin_Register.this, "Please enter your email", Toast.LENGTH_LONG).show();
                 editTextRegisterEmail.setError("Email is required");
                 editTextRegisterEmail.requestFocus();
@@ -115,7 +150,11 @@ public class Admin_Register extends AppCompatActivity {
                 editTextRegisterPwd.setError("Password is required");
                 editTextRegisterPwd.requestFocus();
             } else if (textPwd.length() < 6) {
-                Toast.makeText(Admin_Register.this, "Password should be at least 6 digits", Toast.LENGTH_LONG).show();
+                Toast.makeText(Admin_Register.this, "Password should be at least 6 characters", Toast.LENGTH_LONG).show();
+                editTextRegisterPwd.setError("Password too weak");
+                editTextRegisterPwd.requestFocus();
+            } else if (!passwordMatcher.find()) {
+                Toast.makeText(Admin_Register.this, "Password must contain atleast one special character,a number and a capital letter", Toast.LENGTH_LONG).show();
                 editTextRegisterPwd.setError("Password too weak");
                 editTextRegisterPwd.requestFocus();
             } else if (TextUtils.isEmpty(textConfirmPwd)) {
