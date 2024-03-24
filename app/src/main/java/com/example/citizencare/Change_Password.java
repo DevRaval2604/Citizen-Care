@@ -172,7 +172,7 @@ public class Change_Password extends DrawerBase {
                                     editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if (!passwordMatcher.find()) {
-                                    Toast.makeText(Change_Password.this, "Password must contain atleast one special character,a number and a capital letter", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password.this, "Password must contain a special character, a number and a capital letter", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if(TextUtils.isEmpty(userPwdConfirmNew)){

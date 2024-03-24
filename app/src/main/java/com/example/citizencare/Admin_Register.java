@@ -154,7 +154,7 @@ public class Admin_Register extends AppCompatActivity {
                 editTextRegisterPwd.setError("Password too weak");
                 editTextRegisterPwd.requestFocus();
             } else if (!passwordMatcher.find()) {
-                Toast.makeText(Admin_Register.this, "Password must contain atleast one special character,a number and a capital letter", Toast.LENGTH_LONG).show();
+                Toast.makeText(Admin_Register.this, "Password must contain a special character, a number and a capital letter", Toast.LENGTH_LONG).show();
                 editTextRegisterPwd.setError("Password too weak");
                 editTextRegisterPwd.requestFocus();
             } else if (TextUtils.isEmpty(textConfirmPwd)) {

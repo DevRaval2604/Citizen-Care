@@ -174,7 +174,7 @@ public class Change_Password_For_Citizen extends NavigationDrawer2 {
                                     editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if (!passwordMatcher.find()) {
-                                    Toast.makeText(Change_Password_For_Citizen.this, "Password must contain atleast one special character,a number and a capital letter", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Change_Password_For_Citizen.this, "Password must contain a special character, a number and a capital letter", Toast.LENGTH_LONG).show();
                                     editTextPwdNew.setError("Password too weak");
                                     editTextPwdNew.requestFocus();
                                 }else if(TextUtils.isEmpty(userPwdConfirmNew)){
